@@ -1,5 +1,5 @@
 {
-    "editor.fontSize": 16,
+    "editor.fontSize": 18,
     "editor.formatOnPaste": false,
     "editor.suggestSelection": "first",
     "editor.rulers": [
@@ -20,10 +20,30 @@
     "workbench.statusBar.visible": false,
     "editor.minimap.enabled": false,
     "workbench.editor.showTabs": false,
+    "explorer.openEditors.visible": 5,
+
+    // Apparence
+    "workbench.colorTheme": "Codely Dark",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.smoothScrolling": true,
+    "workbench.list.smoothScrolling": true,
+    "explorer.compactFolders": false,
+    "editor.renderWhitespace": "trailing",
+    "workbench.list.horizontalScrolling": true,
+    "workbench.sideBar.location": "left",
+    "workbench.tree.indent": 20,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.cursorBlinking": "blink",
 
     // Extensions
     "focus.opacity": "0.7",
     "focus.highlightRange": "block",
+    "symbols.hidesExplorerArrows": false,
+    "workbench.iconTheme": "symbols",
+    "workbench.productIconTheme": "fluent-icons",
+    "editor.fontFamily": "DankMono Nerd Font",
+    "editor.lineHeight": 2.1,
+    "terminal.integrated.fontFamily": "DankMono Nerd Font",
 
     // Others
 }
