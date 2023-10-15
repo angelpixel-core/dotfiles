@@ -1,2 +1,17 @@
 {
+    "editor.fontSize": 23,
+    "editor.formatOnPaste": false,
+    "editor.suggestSelection": "first",
+    "editor.rulers": [
+        80
+    ],
+    "editor.tabSize": 2,
+    "editor.wordWrap": "off",
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.excludeGitIgnore": false,
+    "search.useGlobalIgnoreFiles": true,
+    "search.useIgnoreFiles": true,
+    "files.autoSave": "onFocusChange",
+    "files.eol": "\n"
 }
