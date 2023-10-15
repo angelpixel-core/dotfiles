@@ -44,6 +44,7 @@
     "editor.fontFamily": "DankMono Nerd Font",
     "editor.lineHeight": 2.1,
     "terminal.integrated.fontFamily": "DankMono Nerd Font",
+    "breadcrumbs.symbolPath": "off",
 
     // Others
 }
