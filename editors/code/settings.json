@@ -19,6 +19,7 @@
     "workbench.activityBar.visible": false,
     "workbench.statusBar.visible": false,
     "editor.minimap.enabled": false,
+    "workbench.editor.showTabs": false,
 
     // Extensions
     "focus.opacity": "0.7",
