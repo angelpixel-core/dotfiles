@@ -98,4 +98,11 @@
     "command": "editor.action.smartSelect.shrink",
     "when": "editorTextFocus"
   },
+  {
+    "key": "ctrl+e",
+    "command": "editor.action.codeAction",
+    "args": {
+      "kind": "refactor.extract.function"
+    }
+  }
 ]
