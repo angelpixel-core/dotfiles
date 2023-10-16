@@ -34,7 +34,17 @@
     "workbench.sideBar.location": "left",
     "workbench.tree.indent": 20,
     "editor.bracketPairColorization.enabled": true,
+    "editor.lightbulb.enabled": false,
     "editor.cursorBlinking": "blink",
+
+    // Use tab to suggestion autocomplete
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+
+    // Actions
+    "editor.codeActionsOnSave": {
+        "source.addMissingImports": true,
+    },
 
     // Extensions
     "focus.opacity": "0.7",
