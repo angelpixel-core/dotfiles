@@ -56,5 +56,6 @@
     "editor.lineHeight": 2.1,
     "terminal.integrated.fontFamily": "DankMono Nerd Font",
     "breadcrumbs.symbolPath": "off",
+    "gitlens.codeLens.enabled": false,
     // Others
 }
