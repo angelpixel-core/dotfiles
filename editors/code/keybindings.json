@@ -104,5 +104,13 @@
     "args": {
       "kind": "refactor.extract.function"
     }
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "git.checkout"
+  },
+  {
+    "key": "cmd+k",
+    "command": "extension.conventionalCommits"
   }
 ]
