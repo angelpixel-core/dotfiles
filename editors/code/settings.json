@@ -1,6 +1,5 @@
 {
     "editor.fontSize": 18,
-    "editor.formatOnPaste": false,
     "editor.suggestSelection": "first",
     "editor.rulers": [
         80
@@ -14,7 +13,6 @@
     "search.useIgnoreFiles": true,
     "files.autoSave": "onFocusChange",
     "files.eol": "\n",
-
     // View
     "workbench.activityBar.visible": false,
     "workbench.statusBar.visible": false,
@@ -22,7 +20,6 @@
     "editor.dragAndDrop": false,
     "workbench.editor.showTabs": false,
     "explorer.openEditors.visible": 5,
-
     // Apparence
     "workbench.colorTheme": "Codely Dark",
     "editor.cursorSmoothCaretAnimation": "on",
@@ -36,16 +33,19 @@
     "editor.bracketPairColorization.enabled": true,
     "editor.lightbulb.enabled": false,
     "editor.cursorBlinking": "blink",
-
     // Use tab to suggestion autocomplete
     "editor.acceptSuggestionOnEnter": "off",
     "editor.acceptSuggestionOnCommitCharacter": false,
-
     // Actions
-    "editor.codeActionsOnSave": {
-        "source.addMissingImports": true,
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true,
+    "[typescript]": {
+        "editor.formartOnSave": false,
+        "editor.codeActionsOnSave": [
+            "source.addMissingImports",
+            "source.fixAll.eslint"
+        ],
     },
-
     // Extensions
     "focus.opacity": "0.7",
     "focus.highlightRange": "block",
@@ -56,6 +56,5 @@
     "editor.lineHeight": 2.1,
     "terminal.integrated.fontFamily": "DankMono Nerd Font",
     "breadcrumbs.symbolPath": "off",
-
     // Others
 }
