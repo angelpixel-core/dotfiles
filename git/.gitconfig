@@ -2,3 +2,12 @@
 [user]
 	name = Angel Szymczak
 	email = angel.szymczak@hotmail.com
+
+[alias]
+  st = status
+  c = !git add -A && git commit
+  reset-permissions = !git diff -p -R --no-color | grep -E \"^(diff|(old|new) mode\" --color=never | git apply
+  unstage=reset HEAD --
+  last=log -1 HEAD
+  discard=checkout --
+
