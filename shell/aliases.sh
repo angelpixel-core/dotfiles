@@ -36,10 +36,11 @@ alias gl='git log'
 # alias gl='$DOTLY_PATH/bin/dot git pretty-log'
 
 # Editors
-alias i.='(idea $PWD &>/dev/null &)'
-alias c.='(code $PWD &>/dev/null &)'
-alias o.='open $PWD'
-alias v.='vim $PWD'
+alias i='(idea $PWD &>/dev/null &)'
+alias c='(code $PWD &>/dev/null &)'
+alias o='open $PWD'
+alias v='nvim $PWD'
+alias vim='nvim'
 
 # Processes
 alias k='kill -9'
