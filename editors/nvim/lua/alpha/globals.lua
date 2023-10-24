@@ -1,0 +1,3 @@
+-- Globals
+vim.g.mapleader = " "
+
