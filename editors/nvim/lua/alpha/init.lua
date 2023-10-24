@@ -1,3 +1,4 @@
-require("alpha.settings")
+require("alpha.options")
+require("alpha.globals")
 require("alpha.lazy")
 

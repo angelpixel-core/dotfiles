@@ -1,38 +1,40 @@
 require("alpha")
 
+-- Sample
+--
 -- function()
 --   local text = "My dick is big, check it out"
 --   vim.api.nvim_buf_set_lines(0, -1, -1, true, {text})
 -- end
 -- vim.keymap.set("n", "<Space>a", require("alpha"))
 -- vim.api.nvim_create_user_command("Alpha", require("alpha"), {})
-
-vim.api.nvim_create_user_command("Alpha", function()
-  local picker = require("telescope.pickers")
-  local finders = require("telescope.finders")
-  local actions = require("telescope.actions")
-  local action_state = require("telescope.actions.state")
-  local conf = require("telescope.config").values
-
-  local user_opts = {}
-  local default_opts = {
-    prompt_title = "Alpha",
-    finder = finders.new_table({
-      results = { "alpha", "beta", "delta", "omega" }
-    }),
-    sorter = conf.generic_sorter(),
-    previewer = false,
-    attach_mappings = function(_, map)
-      map("i", "<cr>", function(prompt_bufnr)
-        actions.close(prompt_bufnr)
-        local entry = action_state.get_selected_entry()
-        vim.notify(entry[1])
-      end)
-
-      return true
-    end,
-  }
-
-  picker.new(user_opts, default_opts):find()
-end, {})
+--
+-- vim.api.nvim_create_user_command("Alpha", function()
+--   local picker = require("telescope.pickers")
+--   local finders = require("telescope.finders")
+--   local actions = require("telescope.actions")
+--   local action_state = require("telescope.actions.state")
+--   local conf = require("telescope.config").values
+-- 
+--   local user_opts = {}
+--   local default_opts = {
+--     prompt_title = "Alpha",
+--     finder = finders.new_table({
+--       results = { "alpha", "beta", "delta", "omega" }
+--     }),
+--     sorter = conf.generic_sorter(),
+--     previewer = false,
+--     attach_mappings = function(_, map)
+--       map("i", "<cr>", function(prompt_bufnr)
+--         actions.close(prompt_bufnr)
+--         local entry = action_state.get_selected_entry()
+--         vim.notify(entry[1])
+--       end)
+--  
+--       return true
+--     end,
+--   }
+-- 
+--   picker.new(user_opts, default_opts):find()
+-- end, {})
 
