@@ -49,10 +49,10 @@ if [ -n "$(ls -A "$DOTFILES_PATH/shell/bash/completions/")" ]; then
   done
 fi
 
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-eval "$(~/.rbenv/bin/rbenv init - bash)"
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# eval "$(~/.rbenv/bin/rbenv init - bash)"
 
 [ -s ~/.luaver/luaver ] && . ~/.luaver/luaver
 [ -s ~/.luaver/completions/luaver.bash ] && . ~/.luaver/completions/luaver.bash

@@ -29,9 +29,9 @@ source "$DOTLY_PATH/shell/zsh/bindings/reverse_search.zsh"
 source "$DOTFILES_PATH/shell/zsh/key-bindings.zsh"
 
 # Node Version Manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Ruby Version Manager
 eval "$(~/.rbenv/bin/rbenv init - zsh)"
