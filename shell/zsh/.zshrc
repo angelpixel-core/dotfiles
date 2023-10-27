@@ -19,7 +19,13 @@ ZSH_HIGHLIGHT_MAXLENGTH=300
 
 source "$DOTFILES_PATH/shell/init.sh"
 
-fpath=("$DOTFILES_PATH/shell/zsh/themes" "$DOTFILES_PATH/shell/zsh/completions" "$DOTLY_PATH/shell/zsh/themes" "$DOTLY_PATH/shell/zsh/completions" $fpath)
+fpath=(
+  "$DOTFILES_PATH/shell/zsh/themes"
+  "$DOTFILES_PATH/shell/zsh/completions"
+  "$DOTLY_PATH/shell/zsh/themes"
+  "$DOTLY_PATH/shell/zsh/completions"
+  $fpath
+)
 
 autoload -Uz promptinit && promptinit
 prompt ${DOTLY_THEME:-codely}
@@ -34,7 +40,7 @@ source "$DOTFILES_PATH/shell/zsh/key-bindings.zsh"
 # [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Ruby Version Manager
-eval "$(~/.rbenv/bin/rbenv init - zsh)"
+# eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
 # Lua Version Manager
 [ -s ~/.luaver/luaver ] && . ~/.luaver/luaver
