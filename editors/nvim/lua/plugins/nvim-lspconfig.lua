@@ -4,6 +4,8 @@ local diagnostic_signs = require("util.lsp").diagnostic_signs
 local config = function()
 	require("neoconf").setup({})
 
+	local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
 	local lspconfig = require("lspconfig")
 
 	-- Editor Signs
@@ -12,9 +14,11 @@ local config = function()
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 	end
 
+	local capabilities = cmp_nvim_lsp.default_capabilities()
+
 	-- Lua
 	lspconfig.lua_ls.setup({
-		-- capabilities = capabilities,
+		capabilities = capabilities,
 		on_attach = on_attach,
 		settings = {
 			-- custom settings for lua
@@ -36,16 +40,16 @@ local config = function()
 	local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
 
-  -- Ruby
-  lspconfig.solargraph.setup({
-		-- capabilities = capabilities,
+	-- Ruby
+	lspconfig.solargraph.setup({
+		capabilities = capabilities,
 		on_attach = on_attach,
-    autoformat = true,
-  })
+		autoformat = true,
+	})
 
 	-- Python
 	lspconfig.pyright.setup({
-		-- capabilities = capabilities,
+		capabilities = capabilities,
 		on_attach = on_attach,
 		settings = {
 			pyright = {
@@ -66,7 +70,7 @@ local config = function()
 	lspconfig.efm.setup({
 		filetypes = {
 			"lua",
-      "python",
+			"python",
 		},
 
 		init_options = {
@@ -115,14 +119,7 @@ return {
 }
 
 --[[
-local on_attach = require("util.lsp").on_attach
-local diagnostic_signs = require("util.lsp").diagnostic_signs
-
-local config = function()
-	local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-	local capabilities = cmp_nvim_lsp.default_capabilities()
-
+--- local config = function()
 	-- json
 	-- lspconfig.jsonls.setup({
 	-- 	capabilities = capabilities,
@@ -188,8 +185,8 @@ local config = function()
 	-- local solhint = require("efmls-configs.linters.solhint")
 
 	-- configure efm server
-	lspconfig.efm.setup({
-		filetypes = {
+	-- lspconfig.efm.setup({
+		-- filetypes = {
 			-- "python",
 			-- "json",
 			-- "jsonc",
@@ -204,11 +201,11 @@ local config = function()
 			-- "markdown",
 			-- "docker",
 			-- "solidity",
-		},
+		-- },
 
-		settings = {
-			languages = {
-				lua = { luacheck, stylua },
+		-- settings = {
+			-- languages = {
+				-- lua = { luacheck, stylua },
 				-- python = { flake8, black },
 				-- typescript = { eslint_d, prettierd },
 				-- json = { eslint_d, fixjson },
@@ -222,8 +219,8 @@ local config = function()
 				-- markdown = { alex, prettierd },
 				-- docker = { hadolint, prettierd },
 				-- solidity = { solhint },
-			},
-		},
-	})
-end
+			-- },
+		-- },
+	-- })
+-- end
 ]]
