@@ -1,40 +1,40 @@
-local keymapper = require("util.keymapper")
+local mapper = require("util.keymapper").mapper
 
 -- Buffer Navigation
-keymapper("<leader>bn", "bnext", "n")     -- Next buffer
-keymapper("<leader>bp", "bprevious", "n") -- Prev buffer
-keymapper("<leader>bb", "e #", "n")       -- Switch to Other Buffer
-keymapper("<leader>`", "e #", "n")        -- Switch to Other Buffer
+mapper("<leader>bn", "bnext", "n")     -- Next buffer
+mapper("<leader>bp", "bprevious", "n") -- Prev buffer
+mapper("<leader>bb", "e #", "n")       -- Switch to Other Buffer
+mapper("<leader>`", "e #", "n")        -- Switch to Other Buffer
 
 -- Directory Navigation
-keymapper("<leader>m", "NvimTreeFocus", "n")
-keymapper("<leader>t", "NvimTreeToggle", "n")
+mapper("<leader>m", "NvimTreeFocus", "n")
+mapper("<leader>t", "NvimTreeToggle", "n")
 
 -- Pane and Window Navigation
-keymapper("<C-h>", "<C-w>h", "n")            -- Navigate Left
-keymapper("<C-j>", "<C-w>j", "n")            -- Navigate Down
-keymapper("<C-k>", "<C-w>k", "n")            -- Navigate Up
-keymapper("<C-l>", "<C-w>l", "n")            -- Navigate Right
-keymapper("<C-h>", "wincmd h", "t")          -- Navigate Left
-keymapper("<C-j>", "wincmd j", "t")          -- Navigate Down
-keymapper("<C-k>", "wincmd k", "t")          -- Navigate Up
-keymapper("<C-l>", "wincmd l", "t")          -- Navigate Right
-keymapper("<C-h>", "TmuxNavigateLeft", "n")  -- Navigate Left
-keymapper("<C-j>", "TmuxNavigateDown", "n")  -- Navigate Down
-keymapper("<C-k>", "TmuxNavigateUp", "n")    -- Navigate Up
-keymapper("<C-l>", "TmuxNavigateRight", "n") -- Navigate Right
+mapper("<C-h>", "<C-w>h", "n")            -- Navigate Left
+mapper("<C-j>", "<C-w>j", "n")            -- Navigate Down
+mapper("<C-k>", "<C-w>k", "n")            -- Navigate Up
+mapper("<C-l>", "<C-w>l", "n")            -- Navigate Right
+mapper("<C-h>", "wincmd h", "t")          -- Navigate Left
+mapper("<C-j>", "wincmd j", "t")          -- Navigate Down
+mapper("<C-k>", "wincmd k", "t")          -- Navigate Up
+mapper("<C-l>", "wincmd l", "t")          -- Navigate Right
+mapper("<C-h>", "TmuxNavigateLeft", "n")  -- Navigate Left
+mapper("<C-j>", "TmuxNavigateDown", "n")  -- Navigate Down
+mapper("<C-k>", "TmuxNavigateUp", "n")    -- Navigate Up
+mapper("<C-l>", "TmuxNavigateRight", "n") -- Navigate Right
 
 -- Window Management
-keymapper("<leader>sv", "vsplit", "n")          -- Split Vertically
-keymapper("<leader>sh", "split", "n")           -- Split Horizontally
-keymapper("<leader>sm", "MaximizerToggle", "n") -- Toggle Minimise
+mapper("<leader>sv", "vsplit", "n")          -- Split Vertically
+mapper("<leader>sh", "split", "n")           -- Split Horizontally
+mapper("<leader>sm", "MaximizerToggle", "n") -- Toggle Minimise
 
 -- Indenting
-keymapper("<", "v", "<gv") -- Shift Indentation to Left
-keymapper(">", "v", ">gv") -- Shift Indentation to Right
+mapper("<", "v", "<gv") -- Shift Indentation to Left
+mapper(">", "v", ">gv") -- Shift Indentation to Right
 
 -- Show Full File-Path
-keymapper("<leader>pa", "echo expand('%:p')", "n") -- Show Full File Path
+mapper("<leader>pa", "echo expand('%:p')", "n") -- Show Full File Path
 
 local api = vim.api
 

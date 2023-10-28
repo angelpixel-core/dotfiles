@@ -14,7 +14,14 @@ local default_opts = {
 local get_opts = function(opts)
 	local all_opts = opts
 
-	if all_opts == nil then all_opts = {} end
+	if all_opts == nil then
+		all_opts = {}
+	end
+
+	-- Overrides :opts by :default_opts
+  -- TODO: I think I should create a new empty table
+  --   - feel it with defautls
+  --   - overrides with external opts
 	for k, v in pairs(default_opts) do
 		all_opts[k] = all_opts[k] or v
 	end
@@ -27,22 +34,27 @@ end
 local get_mode = function(vimmode)
 	local modeString = vim_modes[vimmode]
 
-	if modeString == nil then return "n"
-	else return modeString end
+	if modeString == nil then
+		return "n"
+	else
+		return modeString
+	end
 end
 
 --- @param command (string)
 --- @return string
 local get_cmd_string = function(command)
-  return [[<cmd>]] .. command .. [[<CR>]]
+	return [[<cmd>]] .. command .. [[<CR>]]
 end
+
+local M = {}
 
 --- @param keymaps string String
 --- @param command string String
 --- @param vimmode (string|nil)
 --- @param options (table|nil)
 --- @return nil
-local keymapper = function(keymaps, command, vimmode, options)
+M.mapper = function(keymaps, command, vimmode, options)
 	local mode = get_mode(vimmode)
 	local lhs = keymaps
 	local rhs = get_cmd_string(command)
@@ -51,5 +63,4 @@ local keymapper = function(keymaps, command, vimmode, options)
 	vim.keymap.set(mode, lhs, rhs, opts)
 end
 
-return keymapper
-
+return M

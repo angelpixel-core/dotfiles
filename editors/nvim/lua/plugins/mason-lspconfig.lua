@@ -27,7 +27,7 @@ return {
       -- "vuels",
 
       -- Data Mapping Standard
-      -- "jsonls"
+      -- "jsonls",
       -- "lemminx",
       -- "yamlls",
 
