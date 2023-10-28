@@ -36,10 +36,37 @@ local config = function()
 	local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
 
+  -- Ruby
+  lspconfig.solargraph.setup({
+		-- capabilities = capabilities,
+		on_attach = on_attach,
+    autoformat = true,
+  })
+
+	-- Python
+	lspconfig.pyright.setup({
+		-- capabilities = capabilities,
+		on_attach = on_attach,
+		settings = {
+			pyright = {
+				disableOrganizeImports = false,
+				analysis = {
+					useLibraryCodeForTypes = true,
+					autoSearchPaths = true,
+					diagnosticMode = "workspace",
+					autoImportCompletions = true,
+				},
+			},
+		},
+	})
+	local flake8 = require("efmls-configs.linters.flake8")
+	local black = require("efmls-configs.formatters.black")
+
 	-- configure efm server
 	lspconfig.efm.setup({
 		filetypes = {
 			"lua",
+      "python",
 		},
 
 		init_options = {
@@ -54,6 +81,7 @@ local config = function()
 		settings = {
 			languages = {
 				lua = { luacheck, stylua },
+				python = { flake8, black },
 			},
 		},
 	})
@@ -82,7 +110,7 @@ return {
 		"windwp/nvim-autopairs",
 		"williamboman/mason.nvim",
 		"creativenull/efmls-configs-nvim", -- or you can use null-ls for Linting
-    "folke/neoconf.nvim",
+		"folke/neoconf.nvim",
 	},
 }
 
@@ -95,31 +123,11 @@ local config = function()
 
 	local capabilities = cmp_nvim_lsp.default_capabilities()
 
-  -- Ruby
-  require("lspconfig").solargraph.setup({})
-
 	-- json
 	-- lspconfig.jsonls.setup({
 	-- 	capabilities = capabilities,
 	-- 	on_attach = on_attach,
 	-- 	filetypes = { "json", "jsonc" },
-	-- })
-
-	-- python
-	-- lspconfig.pyright.setup({
-	-- 	capabilities = capabilities,
-	-- 	on_attach = on_attach,
-	-- 	settings = {
-	-- 		pyright = {
-	-- 			disableOrganizeImports = false,
-	-- 			analysis = {
-	-- 				useLibraryCodeForTypes = true,
-	-- 				autoSearchPaths = true,
-	-- 				diagnosticMode = "workspace",
-	-- 				autoImportCompletions = true,
-	-- 			},
-	-- 		},
-	-- 	},
 	-- })
 
 	-- typescript
@@ -170,8 +178,6 @@ local config = function()
 	-- 	on_attach = on_attach,
 	-- })
 
-	-- local flake8 = require("efmls-configs.linters.flake8")
-	-- local black = require("efmls-configs.formatters.black")
 	-- local eslint_d = require("efmls-configs.linters.eslint_d")
 	-- local prettierd = require("efmls-configs.formatters.prettier_d")
 	-- local fixjson = require("efmls-configs.formatters.fixjson")

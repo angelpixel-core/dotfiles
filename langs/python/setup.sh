@@ -8,6 +8,8 @@ asdf install python 3.13-dev
 
 asdf global python 3.13-dev 
 
+pip install neovim
+
 ###############################################################################
 # A common request for Python is being able to use the python2 and python3
 # commands without needing to switch version. This can be achieved by
