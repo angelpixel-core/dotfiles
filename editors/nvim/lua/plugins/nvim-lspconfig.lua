@@ -66,11 +66,24 @@ local config = function()
 	local flake8 = require("efmls-configs.linters.flake8")
 	local black = require("efmls-configs.formatters.black")
 
+	-- TypeScript
+	lspconfig.tsserver.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		filetypes = {
+			"typescript",
+		},
+		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+	})
+	local eslint_d = require("efmls-configs.linters.eslint_d")
+	local prettier_d = require("efmls-configs.formatters.prettier_d")
+
 	-- configure efm server
 	lspconfig.efm.setup({
 		filetypes = {
 			"lua",
 			"python",
+			"typescript",
 		},
 
 		init_options = {
@@ -86,25 +99,11 @@ local config = function()
 			languages = {
 				lua = { luacheck, stylua },
 				python = { flake8, black },
+				typescritp = { eslint_d, prettier_d },
 			},
 		},
 	})
 
-	-- Format on Save
-	local lsp_fmt_group = vim.api.nvim_create_augroup("LspFormattingGroup", {})
-	vim.api.nvim_create_autocmd("BufWritePost", {
-		group = lsp_fmt_group,
-		callback = function()
-			local efm = vim.lsp.get_active_clients({ name = "efm" })
-
-			if vim.tbl_isempty(efm) then
-				return
-			end
-
-			vim.lsp.buf.format({ name = "efm" })
-		end,
-	})
-end
 
 return {
 	"neovim/nvim-lspconfig",
@@ -125,16 +124,6 @@ return {
 	-- 	capabilities = capabilities,
 	-- 	on_attach = on_attach,
 	-- 	filetypes = { "json", "jsonc" },
-	-- })
-
-	-- typescript
-	-- lspconfig.tsserver.setup({
-	-- 	on_attach = on_attach,
-	-- 	capabilities = capabilities,
-	-- 	filetypes = {
-	-- 		"typescript",
-	-- 	},
-	-- 	root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
 	-- })
 
 	-- bash
