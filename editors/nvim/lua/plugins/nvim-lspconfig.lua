@@ -103,7 +103,7 @@ local config = function()
 			},
 		},
 	})
-
+end
 
 return {
 	"neovim/nvim-lspconfig",
