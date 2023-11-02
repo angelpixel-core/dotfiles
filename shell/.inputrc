@@ -1,9 +1,0 @@
-# Keymap for Bash
-
-$if Bash
-  "\C-l": clear-screen
-  "\C-p":previous-history
-  "\C-n":next-history
-  "\C-a.":beginning-of-line
-  "\C-e.":end-of-line
-$endif
