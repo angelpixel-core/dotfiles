@@ -1,4 +1,3 @@
-export DOTFILES_PATH="/Users/angel.szymczak/.dotfiles"
-export DOTLY_PATH="$DOTFILES_PATH/modules/dotly"
-export DOTLY_THEME="codely"
+export DOTFILES_PATH="$HOME/.dotfiles"
 export ZIM_HOME="$DOTFILES_PATH/shell/zsh/.zim"
+

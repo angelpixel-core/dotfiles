@@ -1,6 +1,4 @@
-export DOTFILES_PATH="/Users/angel.szymczak/.dotfiles"
-export DOTLY_PATH="$DOTFILES_PATH/modules/dotly"
-export DOTLY_THEME="codely"
+export DOTFILES_PATH="$HOME/.dotfiles"
 
 source "$DOTFILES_PATH/shell/init.sh"
 
@@ -10,50 +8,9 @@ EXPORTED_PATH=$(
 )
 export PATH="$PATH:$EXPORTED_PATH"
 
-themes_paths=(
-  "$DOTFILES_PATH/shell/bash/themes"
-  "$DOTLY_PATH/shell/bash/themes"
-)
-
-for THEME_PATH in ${themes_paths[@]}; do
-  THEME_PATH="${THEME_PATH}/$DOTLY_THEME.sh"
-  [ -f "$THEME_PATH" ] && source "$THEME_PATH" && THEME_COMMAND="${PROMPT_COMMAND:-}" && break
-done
-
-if [[ "$(ps -p $$ -ocomm=)" =~ (bash$) ]]; then
-  __right_prompt() {
-    RIGHT_PROMPT=""
-    [[ -n $RPS1 ]] && RIGHT_PROMPT=$RPS1 || RIGHT_PROMPT=$RPROMPT
-    if [[ -n $RIGHT_PROMPT ]]; then
-      n=$(($COLUMNS - ${#RIGHT_PROMPT}))
-      printf "%${n}s$RIGHT_PROMPT\\r"
-    fi
-
-    if
-      [[ -n "${THEME_COMMAND:-}" ]] &&
-      declare -F "${THEME_COMMAND:-}" &> /dev/null
-    then
-      "${THEME_COMMAND:-}"
-    fi
-  }
-  export PROMPT_COMMAND="__right_prompt"
-fi
-
-for bash_file in "$DOTLY_PATH"/shell/bash/completions/_*; do
-  source "$bash_file"
-done
-
 if [ -n "$(ls -A "$DOTFILES_PATH/shell/bash/completions/")" ]; then
   for bash_file in "$DOTFILES_PATH"/shell/bash/completions/_*; do
     source "$bash_file"
   done
 fi
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-# [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-# eval "$(~/.rbenv/bin/rbenv init - bash)"
-
-[ -s ~/.luaver/luaver ] && . ~/.luaver/luaver
-[ -s ~/.luaver/completions/luaver.bash ] && . ~/.luaver/completions/luaver.bash
 
