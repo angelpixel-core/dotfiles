@@ -1,3 +1,2 @@
--- Overwriting custom settings for Lua file type
+-- Overwriting custom settings for Ruby file type
 -- default is in ~.config/nvim/lua/angel/options.lua
-

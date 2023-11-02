@@ -9,7 +9,7 @@ return {
     "windwp/nvim-autopairs",
   },
   event = "VeryLazy",
-  main = "alpha.plugins.cmp",
+  main = "angel.plugins.cmp",
   config = true,
 }
 ]]
