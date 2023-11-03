@@ -1,4 +1,4 @@
-require("angel")
+require("config")
 
 -- vim.api.nvim_create_user_command("Alpha", function()
 --   local picker = require("telescope.pickers")
