@@ -78,12 +78,67 @@ local config = function()
 	local eslint_d = require("efmls-configs.linters.eslint_d")
 	local prettier_d = require("efmls-configs.formatters.prettier_d")
 
-	-- configure efm server
+	-- HTML, TSX, JSX, CSS, SASS, SCSS, Vue
+	lspconfig.emmet_ls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = {
+			"html",
+			"typescriptreact",
+			"javascriptreact",
+			"javascript",
+			"css",
+			"sass",
+			"scss",
+			"vue",
+		},
+	})
+
+	-- JSON
+	lspconfig.jsonls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = { "json", "jsonc" },
+	})
+	local fixjson = require("efmls-configs.formatters.fixjson")
+
+	-- Bash
+	lspconfig.bashls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = { "sh" },
+	})
+	local shellcheck = require("efmls-configs.linters.shellcheck")
+	local shfmt = require("efmls-configs.formatters.shfmt")
+
+	-- Markdown
+	local alex = require("efmls-configs.linters.alex")
+
+	-- Docker
+	local hadolint = require("efmls-configs.linters.hadolint")
+
+	-- Configure efm server
 	lspconfig.efm.setup({
 		filetypes = {
 			"lua",
 			"python",
 			"typescript",
+			"javascript",
+			"css",
+			"sass",
+			"scss",
+			"html",
+			"vue",
+			"json",
+			"jsonc",
+			"sh",
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+			"vue",
+			"markdown",
+			"docker",
 		},
 
 		init_options = {
@@ -100,6 +155,15 @@ local config = function()
 				lua = { luacheck, stylua },
 				python = { flake8, black },
 				typescritp = { eslint_d, prettier_d },
+				json = { eslint_d, fixjson },
+				jsonc = { eslint_d, fixjson },
+				sh = { shellcheck, shfmt },
+				javascript = { eslint_d, prettier_d },
+				javascriptreact = { eslint_d, prettier_d },
+				typescriptreact = { eslint_d, prettier_d },
+				vue = { eslint_d, prettier_d },
+				markdown = { alex, prettier_d },
+				docker = { hadolint, prettier_d },
 			},
 		},
 	})
@@ -118,98 +182,24 @@ return {
 }
 
 --[[
---- local config = function()
-	-- json
-	-- lspconfig.jsonls.setup({
-	-- 	capabilities = capabilities,
-	-- 	on_attach = on_attach,
-	-- 	filetypes = { "json", "jsonc" },
-	-- })
+  local config = function()
+  -- Solidity
+  lspconfig.solidity.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    filetypes = { "solidity" },
+  })
+  local solhint = require("efmls-configs.linters.solhint")
 
-	-- bash
-	-- lspconfig.bashls.setup({
-	-- 	capabilities = capabilities,
-	-- 	on_attach = on_attach,
-	-- 	filetypes = { "sh" },
-	-- })
-
-	-- solidity
-	-- lspconfig.solidity.setup({
-	-- 	capabilities = capabilities,
-	-- 	on_attach = on_attach,
-	-- 	filetypes = { "solidity" },
-	-- })
-
-	-- html, typescriptreact, javascriptreact, css, sass, scss, less, svelte, vue
-	-- lspconfig.emmet_ls.setup({
-	-- 	capabilities = capabilities,
-	-- 	on_attach = on_attach,
-	-- 	filetypes = {
-	-- 		"html",
-	-- 		"typescriptreact",
-	-- 		"javascriptreact",
-	-- 		"javascript",
-	-- 		"css",
-	-- 		"sass",
-	-- 		"scss",
-	-- 		"less",
-	-- 		"svelte",
-	-- 		"vue",
-	-- 	},
-  -- })
-
-	-- docker
-	-- lspconfig.dockerls.setup({
-	-- 	capabilities = capabilities,
-	-- 	on_attach = on_attach,
-	-- })
-
-	-- local eslint_d = require("efmls-configs.linters.eslint_d")
-	-- local prettierd = require("efmls-configs.formatters.prettier_d")
-	-- local fixjson = require("efmls-configs.formatters.fixjson")
-	-- local shellcheck = require("efmls-configs.linters.shellcheck")
-	-- local shfmt = require("efmls-configs.formatters.shfmt")
-	-- local alex = require("efmls-configs.linters.alex")
-	-- local hadolint = require("efmls-configs.linters.hadolint")
-	-- local solhint = require("efmls-configs.linters.solhint")
-
-	-- configure efm server
-	-- lspconfig.efm.setup({
-		-- filetypes = {
-			-- "python",
-			-- "json",
-			-- "jsonc",
-			-- "sh",
-			-- "javascript",
-			-- "javascriptreact",
-      -- "ruby",
-			-- "typescript",
-			-- "typescriptreact",
-			-- "svelte",
-			-- "vue",
-			-- "markdown",
-			-- "docker",
-			-- "solidity",
-		-- },
-
-		-- settings = {
-			-- languages = {
-				-- lua = { luacheck, stylua },
-				-- python = { flake8, black },
-				-- typescript = { eslint_d, prettierd },
-				-- json = { eslint_d, fixjson },
-				-- jsonc = { eslint_d, fixjson },
-				-- sh = { shellcheck, shfmt },
-				-- javascript = { eslint_d, prettierd },
-				-- javascriptreact = { eslint_d, prettierd },
-				-- typescriptreact = { eslint_d, prettierd },
-				-- svelte = { eslint_d, prettierd },
-				-- vue = { eslint_d, prettierd },
-				-- markdown = { alex, prettierd },
-				-- docker = { hadolint, prettierd },
-				-- solidity = { solhint },
-			-- },
-		-- },
-	-- })
--- end
-]]
+  lspconfig.efm.setup({
+    filetypes = {
+      "sol",
+    },
+    settings = {
+      languages = {
+        solidity = { solhint },
+      },
+    },
+  })
+  end
+--]]

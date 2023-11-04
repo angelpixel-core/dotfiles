@@ -7,32 +7,32 @@ return {
       "efm",
 
       -- Shell
-      -- "bashls",
+      "bashls",
       -- "powershell_es",
 
       -- Editor
-      -- "vimls",
+      "vimls",
 
       -- Lua
       "lua_ls",
 
       -- Web
-      -- "html",
-      -- "emmet_ls",
-      -- "cssls",
-      -- "tailwindcss",
+      "emmet_ls",
+      "html",
+      "cssls",
+      "tailwindcss",
 
       -- JavaScript
-      -- "tsserver",
-      -- "vuels",
+      "tsserver",
+      "vuels",
 
       -- Data Mapping Standard
-      -- "jsonls",
+      "jsonls",
       -- "lemminx",
-      -- "yamlls",
+      "yamlls",
 
       -- Cucumber
-      -- "cucumber_language_server",
+      "cucumber_language_server",
 
       -- AWK
       -- "awk_ls",
@@ -50,14 +50,14 @@ return {
       -- "clojure_lsp",
 
       -- Docker
-      -- "dockerls",
-      -- "docker_compose_language_service"
+      "dockerls",
+      "docker_compose_language_service",
 
       -- SQL
-      -- "sqlls",
+      "sqlls",
 
       -- GraphQL
-      -- "graphql",
+      "graphql",
 
       -- Go
       -- "gopls"",
@@ -84,7 +84,7 @@ return {
       -- "nix_ls",
 
       -- Markdown
-      -- "marksman",
+      "marksman",
 
       -- Java
       -- "java_language_server",
