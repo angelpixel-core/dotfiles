@@ -13,15 +13,13 @@
     "search.useIgnoreFiles": true,
     "files.autoSave": "onFocusChange",
     "files.eol": "\n",
-    // View
-    "workbench.activityBar.visible": false,
     "workbench.statusBar.visible": false,
     "editor.minimap.enabled": false,
     "editor.dragAndDrop": false,
-    "workbench.editor.showTabs": false,
+    "workbench.editor.showTabs": "single",
     "explorer.openEditors.visible": 5,
     // Apparence
-    "workbench.colorTheme": "Codely Dark",
+    "workbench.colorTheme": "Better Solarized Dark",
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.smoothScrolling": true,
     "workbench.list.smoothScrolling": true,
@@ -53,10 +51,12 @@
     "workbench.iconTheme": "symbols",
     "workbench.productIconTheme": "fluent-icons",
     "editor.fontFamily": "DankMono Nerd Font",
-    "editor.lineHeight": 2.1,
+    "editor.lineHeight": 1.6,
     "terminal.integrated.fontFamily": "DankMono Nerd Font",
     "breadcrumbs.symbolPath": "off",
     "gitlens.codeLens.enabled": false,
     "genieai.openai.model": "gpt-4",
+    "workbench.activityBar.location": "hidden",
+    "window.zoomLevel": -1,
     // Others
 }
