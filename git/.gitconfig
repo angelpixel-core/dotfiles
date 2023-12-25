@@ -16,3 +16,12 @@
 #	process = git-lfs filter-process
 #	required = true
 
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[init]
+	defaultBranch = main
+[core]
+	excludesfile = /Users/angel.szymczak/.gitignore_global
