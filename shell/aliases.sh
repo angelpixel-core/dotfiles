@@ -12,8 +12,8 @@ alias sudo="sudo " # Enable aliases to be sudo’ed
 alias ".."="cd .."
 alias ...="cd ../.."
 alias ~="cd ~"
-alias md="mkdir -p"
-alias rd="rmdir"
+alias md="mkdir -p "
+alias rd="rm -rf "
 
 alias dotfiles="cd $DOTFILES_PATH"
 alias sites="cd $HOME/Sites"
@@ -52,5 +52,4 @@ alias vim="nvim"
 # ------------------------------------------------------------------------------
 # Processes
 # ------------------------------------------------------------------------------
-alias k="kill -9"
 
