@@ -29,7 +29,7 @@
     "workbench.sideBar.location": "left",
     "workbench.tree.indent": 20,
     "editor.bracketPairColorization.enabled": true,
-    "editor.lightbulb.enabled": false,
+    "editor.lightbulb.enabled": "off",
     "editor.cursorBlinking": "blink",
     // Use tab to suggestion autocomplete
     "editor.acceptSuggestionOnEnter": "off",
