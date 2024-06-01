@@ -33,3 +33,9 @@ autoload -Uz promptinit && promptinit
 [ -s ~/.asdf/asdf.sh ] && . ~/.asdf/asdf.sh
 [ -s ~/.asdf/completions/asdf.sh ] && . ~/.asdf/completions/asdf.sh
 
+# Allow Dart Binary
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
