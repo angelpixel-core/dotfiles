@@ -18,8 +18,12 @@ alias rd="rm -rf "
 alias dotfiles="cd $DOTFILES_PATH"
 alias sites="cd $HOME/Sites"
 
-alias ll="exa -l"
-alias la="exa -la"
+# ------------------------------------------------------------------------------
+# ---- Eza (better ls) ---------------------------------------------------------
+# ------------------------------------------------------------------------------
+alias ls="eza --color=always --long --all --git --no-filesize --icons=always --no-time --no-user --no-permissions -1"
+alias ls1="ls --tree --level=1"
+alias ls2="ls --tree --level=2"
 
 
 # ------------------------------------------------------------------------------
