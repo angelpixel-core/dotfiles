@@ -11,21 +11,21 @@ setopt +o nomatch
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 # Start Zim
-source "$ZIM_HOME/init.zsh"
+# source "$ZIM_HOME/init.zsh"
 
 # Async mode for autocompletion
-ZSH_AUTOSUGGEST_USE_ASYNC=true
-ZSH_HIGHLIGHT_MAXLENGTH=300
+# ZSH_AUTOSUGGEST_USE_ASYNC=true
+# ZSH_HIGHLIGHT_MAXLENGTH=300
 
 source "$DOTFILES_PATH/shell/init.sh"
 
-fpath=(
-  "$DOTFILES_PATH/shell/zsh/themes"
-  "$DOTFILES_PATH/shell/zsh/completions"
-  $fpath
-)
+# fpath=(
+#   "$DOTFILES_PATH/shell/zsh/themes"
+#   "$DOTFILES_PATH/shell/zsh/completions"
+#   $fpath
+# )
 
-autoload -Uz promptinit && promptinit
+# autoload -Uz promptinit && promptinit
 
 # source "$DOTFILES_PATH/shell/zsh/key-bindings.zsh"
 
@@ -33,9 +33,3 @@ autoload -Uz promptinit && promptinit
 [ -s ~/.asdf/asdf.sh ] && . ~/.asdf/asdf.sh
 [ -s ~/.asdf/completions/asdf.sh ] && . ~/.asdf/completions/asdf.sh
 
-# Allow Dart Binary
-export PATH="$PATH":"$HOME/.pub-cache/bin"
-
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
