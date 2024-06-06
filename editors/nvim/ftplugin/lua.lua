@@ -1,3 +1,0 @@
--- Overwriting custom settings for Lua file type
--- default is in ~.config/nvim/lua/angel/options.lua
-

@@ -1,0 +1,3 @@
+brew install xclip
+
+brew install --cask alacritty
