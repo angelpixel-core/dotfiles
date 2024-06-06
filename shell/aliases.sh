@@ -18,23 +18,6 @@ alias rd="rm -rf "
 alias dotfiles="cd $DOTFILES_PATH"
 alias sites="cd $HOME/Sites"
 
-# ------------------------------------------------------------------------------
-# ---- Eza (better ls) ---------------------------------------------------------
-# ------------------------------------------------------------------------------
-alias ls="eza --color=always --long --all --git --no-filesize --icons=always --no-time --no-user --no-permissions -1"
-alias ls1="ls --tree --level=1"
-alias ls2="ls --tree --level=2"
-
-# ------------------------------------------------------------------------------
-# ---- Bat (beter cat) ---------------------------------------------------------
-# ------------------------------------------------------------------------------
-
-#  Check themes in your directory
-#  don't forget to clone bat_theme config, check it out in README.md file
-#  bat --list-themes | fzf --preview="bat --theme={} --color=always <PATH_TO_YOUR_SAMPLE_VIEW>"
-
-export BAT_THEME="tokyonight_night"
-
 
 # ------------------------------------------------------------------------------
 # Git
