@@ -18,7 +18,7 @@ source "$SKETCHY_DIR/colors.sh"
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 sketchybar --bar position=top \
                  sticky=off \
-                 height=36 \
+                 height=32 \
                  blur_radius=32 \
                  padding_left=8 \
                  padding_right=8 \
@@ -49,6 +49,7 @@ sketchybar --default "${default[@]}"
 # --- Righ Side Items ----
 source "$SKETCHY_ITEMS_DIR/calendar.sh"
 source "$SKETCHY_ITEMS_DIR/volume.sh"
+source "$SKETCHY_ITEMS_DIR/battery.sh"
 
 
 ##### Force all scripts to run the first time (never do this in a script) #####
