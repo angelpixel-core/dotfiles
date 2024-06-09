@@ -1,6 +1,11 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
+vim.scriptencoding = "utf-8"
+
 local opt = vim.opt
+
+opt.encoding = "utf-8"
+opt.fileencoding = "utf-8"
 
 opt.relativenumber = true
 opt.number = true
@@ -37,3 +42,5 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+opt.title = true
