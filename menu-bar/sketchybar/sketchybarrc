@@ -48,6 +48,7 @@ sketchybar --default "${default[@]}"
 
 # --- Righ Side Items ----
 source "$SKETCHY_ITEMS_DIR/calendar.sh"
+source "$SKETCHY_ITEMS_DIR/volume.sh"
 
 
 ##### Force all scripts to run the first time (never do this in a script) #####
