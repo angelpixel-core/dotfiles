@@ -11,7 +11,7 @@ yabai -m config left_padding   6
 yabai -m config right_padding  6
 yabai -m config window_gap     6
 
-yabai -m config external_bar all:42:0
+yabai -m config external_bar all:38:0
 
 # -- mouse settings --
 

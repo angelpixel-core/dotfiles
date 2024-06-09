@@ -122,7 +122,7 @@ skhd --start-service
 # ------------------------------------------------------------------------------
 
 # Setup
-# brew tap FelixKratz/formulae
+# brew tap felixkratz/formulae
 # brew install sketchybar
-
+# brew install font-sf-pro
 
