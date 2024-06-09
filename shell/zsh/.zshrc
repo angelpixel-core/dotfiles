@@ -36,4 +36,6 @@ source "$DOTFILES_PATH/shell/init.sh"
 # source "$DOTFILES_PATH/shell/zsh/key-bindings.zsh"
 
 # Set editor default keymap to emacs (`e`) or vi (`-v`)
-bindkey -v
+bindkey -e
+
+

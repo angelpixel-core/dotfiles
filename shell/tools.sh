@@ -100,3 +100,14 @@ _fzf_comprun() {
     *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
   esac
 }
+
+
+# ------------------------------------------------------------------------------
+# ---- Tiling Windows Manager --------------------------------------------------
+# ------------------------------------------------------------------------------
+
+## https://www.youtube.com/watch?v=k94qImbFKWE
+
+## Start Service
+yabai --start-service
+
