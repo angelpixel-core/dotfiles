@@ -125,4 +125,6 @@ skhd --start-service
 # brew tap felixkratz/formulae
 # brew install sketchybar
 # brew install font-sf-pro
+# brew install --cask sf-symbols
+
 
