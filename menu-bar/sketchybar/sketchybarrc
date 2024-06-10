@@ -50,6 +50,9 @@ sketchybar --default "${default[@]}"
 source "$SKETCHY_ITEMS_DIR/spaces.sh"
 source "$SKETCHY_ITEMS_DIR/front_app.sh"
 
+# -- Right Side Of Notch Items --
+source "$SKETCHY_ITEMS_DIR/media.sh"
+
 # --- Righ Side Items ----
 source "$SKETCHY_ITEMS_DIR/calendar.sh"
 source "$SKETCHY_ITEMS_DIR/volume.sh"
