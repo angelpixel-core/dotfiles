@@ -4,10 +4,9 @@
 # https://github.com/FelixKratz/dotfiles
 
 # TODO: extract into some zsh init
-SKETCHY_DIR="$(pwd)"
-
-SKETCHY_PLUGINS_DIR="$SKETCHY_DIR/plugins"
-SKETCHY_ITEMS_DIR="$SKETCHY_DIR/items"
+export SKETCHY_DIR="$HOME/.config/sketchybar"
+export SKETCHY_PLUGINS_DIR="$SKETCHY_DIR/plugins"
+export SKETCHY_ITEMS_DIR="$SKETCHY_DIR/items"
 
 source "$SKETCHY_DIR/colors.sh"
 
@@ -46,6 +45,9 @@ default=(
   icon.padding_right=4
 )
 sketchybar --default "${default[@]}"
+
+# --- Left Side Items ----
+source "$SKETCHY_ITEMS_DIR/front_app.sh"
 
 # --- Righ Side Items ----
 source "$SKETCHY_ITEMS_DIR/calendar.sh"
