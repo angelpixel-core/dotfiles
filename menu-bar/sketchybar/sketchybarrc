@@ -47,6 +47,7 @@ default=(
 sketchybar --default "${default[@]}"
 
 # --- Left Side Items ----
+source "$SKETCHY_ITEMS_DIR/spaces.sh"
 source "$SKETCHY_ITEMS_DIR/front_app.sh"
 
 # --- Righ Side Items ----
