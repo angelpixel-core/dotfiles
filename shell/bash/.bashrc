@@ -1,4 +1,4 @@
-export DOTFILES_PATH="$HOME/.dotfiles"
+export DOTFILES_PATH="$HOME/Sites/AngelThunder/dotfiles"
 
 source "$DOTFILES_PATH/shell/init.sh"
 
