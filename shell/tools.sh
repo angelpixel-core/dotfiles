@@ -128,3 +128,12 @@ skhd --start-service
 # brew install --cask sf-symbols
 # curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v1.0.16/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf
 
+# ------------------------------------------------------------------------------
+# QMK - Custom Caps Keyboard
+# ------------------------------------------------------------------------------
+export PATH="/opt/homebrew/opt/avr-gcc@8/bin:$PATH"
+
+# ------------------------------------------------------------------------------
+# Bottom - Cross-platform graphical process/system monitor
+# ------------------------------------------------------------------------------
+#
