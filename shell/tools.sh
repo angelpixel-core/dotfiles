@@ -143,3 +143,11 @@ export PATH="/opt/homebrew/opt/avr-gcc@8/bin:$PATH"
 # brew install espeak
 # ------------------------------------------------------------------------------
 
+
+# ------------
+# RBenv
+# ------------
+if which rbenv > /dev/null;
+then
+  eval "$(rbenv init -)";
+fi
