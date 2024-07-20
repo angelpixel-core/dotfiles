@@ -151,3 +151,9 @@ if which rbenv > /dev/null;
 then
   eval "$(rbenv init -)";
 fi
+
+function notes() {
+  nvim $HOME/Notes
+}
+
+alias nota="notes"
