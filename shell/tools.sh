@@ -157,3 +157,9 @@ function notes() {
 }
 
 alias nota="notes"
+
+
+# ------------
+# DirEnv
+# ------------
+eval "$(direnv hook zsh)"
