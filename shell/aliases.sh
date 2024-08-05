@@ -23,7 +23,7 @@ alias sites="cd $HOME/Sites"
 # Git
 # ------------------------------------------------------------------------------
 alias ga="git add"
-alias gc="git commit -m"
+alias gc="git cz"
 alias gca="git add --all && git commit --amend --no-edit"
 alias gco="git checkout"
 alias gd="git diff"
