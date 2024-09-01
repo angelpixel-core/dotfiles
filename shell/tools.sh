@@ -162,4 +162,4 @@ alias nota="notes"
 # ------------
 # DirEnv
 # ------------
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
