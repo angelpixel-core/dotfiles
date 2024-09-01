@@ -33,6 +33,12 @@ alias gps="git push"
 alias gpsf="git push --force"
 alias gpl="git pull --rebase --autostash"
 alias gr="git reset"
+alias gra="git rebase --abort"
+git_rebase_interactive() {
+  git rebase -i "$1~1"
+}
+alias gri="git_rebase_interactive"
+alias grc="git rebase --continue"
 alias grh="gr HEAD"
 alias gb="git branch"
 alias gl="git log --oneline"
