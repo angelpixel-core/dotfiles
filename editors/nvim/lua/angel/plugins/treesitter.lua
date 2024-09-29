@@ -44,8 +44,8 @@ return {
         "vimdoc",
         "c",
         "ruby",
-        -- "elixir",
-        -- "rust",
+        "elixir",
+        "rust",
       },
       incremental_selection = {
         enable = true,
