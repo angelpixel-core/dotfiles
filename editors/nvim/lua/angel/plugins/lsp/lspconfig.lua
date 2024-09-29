@@ -131,6 +131,15 @@ return {
           },
         })
       end,
+
+      ["ruby_lsp"] = function()
+        lspconfig["ruby_lsp"].setup({
+          init_options = {
+            formatter = "standard",
+            linters = { "standard" },
+          },
+        })
+      end,
     })
   end,
 }

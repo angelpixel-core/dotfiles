@@ -1,6 +1,7 @@
 return {
   "williamboman/mason.nvim",
   dependencies = {
+    "neovim/nvim-lspconfig",
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
@@ -12,6 +13,8 @@ return {
     local mason_lspconfig = require("mason-lspconfig")
 
     local mason_tool_installer = require("mason-tool-installer")
+
+    local ruby_lspconfig = require("lspconfig").ruby_lsp
 
     -- enable mason and configure icons
     mason.setup({
@@ -37,6 +40,14 @@ return {
         "emmet_ls",
         "prismals",
         "pyright",
+        "ruby_lsp",
+      },
+    })
+
+    ruby_lspconfig.setup({
+      init_options = {
+        formatter = "standard",
+        linters = { "standard" },
       },
     })
 
