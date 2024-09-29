@@ -2,6 +2,27 @@ return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPre", "BufNewFile" },
   opts = {
+    signs = {
+      add = { text = "+" },
+      change = { text = "┃" },
+      delete = { text = "-" },
+      topdelete = { text = "‾" },
+      changedelete = { text = "~" },
+      untracked = { text = "┆" },
+    },
+
+    numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
+    linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
+
+    current_line_blame = true,
+    current_line_blame_opts = {
+      virt_text = true,
+      virt_text_pos = "eol", -- "eol" | "overlay" | "right_align"
+      delay = 100,
+      ignore_whitespace = false,
+      virt_text_priority = 100,
+    },
+
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns
 
@@ -10,12 +31,10 @@ return {
       end
 
       -- Navigation
+      -- Hunks
       map("n", "]h", gs.next_hunk, "Next Hunk")
       map("n", "[h", gs.prev_hunk, "Prev Hunk")
-
-      -- Actions
       map("n", "<leader>hs", gs.stage_hunk, "Stage hunk")
-      map("n", "<leader>hr", gs.reset_hunk, "Reset hunk")
       map("v", "<leader>hs", function()
         gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
       end, "Stage hunk")
