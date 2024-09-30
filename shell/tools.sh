@@ -200,3 +200,9 @@ start_ollama_server
 # Testing internet bandwidth using speedtest.net
 # brew install speedtest-cli
 # -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# System info
+# brew install neofetch
+# -----------------------------------------------------------------------------
+neofetch
