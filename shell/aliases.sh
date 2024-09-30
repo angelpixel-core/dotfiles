@@ -55,4 +55,5 @@ alias vim="nvim"
 # ------------------------------------------------------------------------------
 # Processes Monitor
 # ------------------------------------------------------------------------------
-alias btm="btm --color gruvbox "
+# alias top="btm --color gruvbox "
+alias top="btop"
