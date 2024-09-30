@@ -21,3 +21,6 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
+
+-- AI Assistant
+keymap.set({ "n", "v" }, "<leader>;", ":Gen<CR>", { desc = "Open AI Assistant Menu" })

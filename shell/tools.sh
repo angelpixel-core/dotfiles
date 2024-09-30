@@ -163,3 +163,30 @@ alias nota="notes"
 # DirEnv
 # ------------
 # eval "$(direnv hook zsh)"
+
+# -----------------------------------------------------------------------------
+# Ollama Server Support for LLM Models interpreter
+# -----------------------------------------------------------------------------
+start_ollama_server() {
+  if [ ! $(pgrep -x "ollama") > /dev/null ]; then
+    echo "🟢 Ollama server is not running. Starting..."
+    ollama start &
+    sleep 5
+  else
+    echo "🔵 Ollama server is already running."
+  fi
+
+  local_llm=$(ollama list | grep ${LLM_MODEL} | awk '{print $1}')
+  # NAME                    ID              SIZE      MODIFIED
+  # qwen2.5-coder:latest    87098ba7390d    4.7 GB    About an hour ago
+  # gemma:instruct          a72c7f4d0a15    5.0 GB    3 hours ago
+  # gemma:latest            a72c7f4d0a15    5.0 GB    4 hours ago
+
+  echo "⚙️ LLM for <$(whoami)> are: [${LLM_MODEL}]"
+  if [ "$local_llm" = "$LLM_MODEL" ]; then
+    echo "🧠 LLM <${local_llm}> is running."
+  else
+    echo "🟠 Downloading <${LLM_MODEL}> model..."
+  fi
+}
+start_ollama_server
