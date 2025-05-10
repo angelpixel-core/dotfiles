@@ -1,7 +1,7 @@
 return {
   "David-Kunz/gen.nvim",
   opts = {
-    model = os.getenv("LLM_MODEL"), -- The default model to use.
+    model = os.getenv("LLM_MODEL"), -- The default model to use defined at $SHELL_PATH.
     quit_map = "q", -- set keymap for close the response window
     retry_map = "<c-r>", -- set keymap to re-send the current prompt
     accept_map = "<c-cr>", -- set keymap to replace the previous selection with the last result

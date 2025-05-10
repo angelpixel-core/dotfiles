@@ -20,6 +20,9 @@ return {
         liquid = { "prettier" },
         lua = { "stylua" },
         python = { "isort", "black" },
+        ruby = { "standardrb" },
+        sh = { "shfmt" },
+        bash = { "shfmt" },
       },
       format_on_save = {
         lsp_fallback = true,

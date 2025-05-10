@@ -1,3 +1,4 @@
+-- TODO: REMOVE IT
 return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },

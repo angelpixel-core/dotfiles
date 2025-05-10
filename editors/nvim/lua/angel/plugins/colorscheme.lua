@@ -1,6 +1,8 @@
 return {
   -- "folke/tokyonight.nvim",
   "Tsuzat/NeoSolarized.nvim",
+  branch = "master",
+  lazy = false, -- make sure we load this during startup if it is your main colorscheme
   priority = 1000,
   config = function()
     local transparent = true

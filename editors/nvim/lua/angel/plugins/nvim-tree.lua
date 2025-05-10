@@ -10,11 +10,20 @@ return {
 
     nvimtree.setup({
       view = {
-        width = 35,
-        relativenumber = true,
+        width = 30,
+        relativenumber = false,
       },
       -- change folder arrow icons
       renderer = {
+        root_folder_label = function(path)
+          local parts = vim.fn.split(path, "/") -- Divide la ruta en partes por "/"
+          local count = #parts -- Cuenta cuántos niveles hay en la ruta
+          if count >= 2 then
+            return table.concat({ parts[count - 1], parts[count] }, "/") -- Retorna los dos últimos
+          else
+            return path -- Si la ruta tiene menos de dos niveles, devuelve todo
+          end
+        end,
         indent_markers = {
           enable = true,
         },
@@ -52,5 +61,5 @@ return {
     keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
     keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
     keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
-  end
+  end,
 }

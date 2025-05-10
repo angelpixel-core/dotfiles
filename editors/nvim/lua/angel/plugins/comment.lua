@@ -4,6 +4,7 @@ return {
   dependencies = {
     "JoosepAlviste/nvim-ts-context-commentstring",
   },
+  lazy = false,
   config = function()
     -- import comment plugin safely
     local comment = require("Comment")
