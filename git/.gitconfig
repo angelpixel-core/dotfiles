@@ -41,3 +41,7 @@
 
 [diff]
   colorMoved = default
+[pull]
+	rebase = true
+[checkout]
+	defaultRemote = origin

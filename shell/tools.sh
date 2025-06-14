@@ -144,19 +144,40 @@ export PATH="/opt/homebrew/opt/avr-gcc@8/bin:$PATH"
 # ------------------------------------------------------------------------------
 
 
-# ------------
+# ------------------------------------------------------------------------------
 # RBenv
-# ------------
+# ------------------------------------------------------------------------------
 if which rbenv > /dev/null;
 then
   eval "$(rbenv init -)";
 fi
 
+# ------------------------------------------------------------------------------
+# Notes
+# ------------------------------------------------------------------------------
 function notes() {
-  nvim $HOME/Notes
+  cd $NOTES_PATH
+  local notes_path="${NOTES_DAILY_PATH}/$(date +%Y)/$(date +%m)"
+  mkdir -p "${notes_path}"
+
+  nvim "${notes_path}/$(date +%Y-%m-%d).md"
 }
 
-alias nota="notes"
+function inbox() {
+  cd $NOTES_PATH
+  local notes_path="${NOTES_INBOX_PATH}"
+  mkdir -p "${notes_path}"
+
+  nvim "${notes_path}/$(date +%Y-%m-%d).md"
+}
+
+function todo() {
+  cd $NOTES_PATH
+  local notes_path="${NOTES_DAILY_TODO_PATH}/$(date +%Y)/$(date +%m)"
+  mkdir -p "${notes_path}"
+
+  nvim "${notes_path}/$(date +%Y-%m-%d).md"
+}
 
 
 # ------------
@@ -189,7 +210,7 @@ start_ollama_server() {
     echo "🟠 Downloading <${LLM_MODEL}> model..."
   fi
 }
-start_ollama_server
+# start_ollama_server
 
 # -----------------------------------------------------------------------------
 # File Navigation
@@ -221,3 +242,26 @@ neofetch
 # Storage Cleaner: NCDU
 # brew install ncdu
 # -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# NoteTaker: It is already loaded in the bin/notetaker file
+# -----------------------------------------------------------------------------
+#
+# #!/bin/sh
+#
+# noteFilename="${HOME}/Notes/daily/note-$(date +%Y-%m-%d).md"
+#
+# if [ ! -f $noteFilename ]; then
+#   echo "# Notes for $(date +%Y-%m-%d)" > $noteFilename
+# fi
+#
+# nvim -c "norm Go" \
+#   -c "norm Go## $(date +%H:%M)" \
+#   -c "norm G2o" \
+#   -c "norm zz" \
+#   -c "startinsert" $noteFilename
+
+# Rails Helpers
+br() {
+  bin/rails "$@"
+}

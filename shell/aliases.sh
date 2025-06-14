@@ -48,8 +48,24 @@ alias gl="git log --oneline"
 # Editors
 # ------------------------------------------------------------------------------
 alias o="open $PWD"
-alias v="nvim"
-alias vim="nvim"
+
+# Powered NeoVIM helpers ------------------------------------------------------
+n() {
+  if [[ "$1" =~ ^([^:]+):([0-9]+):([0-9]+)$ ]]; then
+    FILE="${match[1]}"
+    LINE="${match[2]}"
+    COL="${match[3]}"
+    nvim +"call cursor($LINE, $COL)" "$FILE"
+  elif [[ "$1" =~ ^([^:]+):([0-9]+)$ ]]; then
+    FILE="${match[1]}"
+    LINE="${match[2]}"
+    nvim +$LINE "$FILE"
+  else
+    nvim "$@"
+  fi
+}
+alias v="n"
+alias vim="n"
 
 
 # ------------------------------------------------------------------------------
@@ -57,3 +73,36 @@ alias vim="nvim"
 # ------------------------------------------------------------------------------
 # alias top="btm --color gruvbox "
 alias top="btop"
+
+# ------------------------------------------------------------------------------
+# Time Monitor
+# ------------------------------------------------------------------------------
+function now() {
+  date +"%H:%M:%S"
+}
+
+# ------------------------------------------------------------------------------
+# Time Monitor
+# ------------------------------------------------------------------------------
+function now() {
+  date +"%H:%M:%S"
+}
+
+# ------------------------------------------------------------------------------
+# Session Tab Name
+# ------------------------------------------------------------------------------
+# iTerm2 shell integration
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+# iTerm2 tab titles
+function title {
+    if [ "$1" ]
+    then
+        export PROMPT_COMMAND='__bp_precmd_invoke_cmd'
+        echo -ne "\033]0;${*}\007"
+    else
+        export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/\~}\007";__bp_precmd_invoke_cmd'
+    fi
+}
+title
+

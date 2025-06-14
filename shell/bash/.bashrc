@@ -1,4 +1,4 @@
-export DOTFILES_PATH="$HOME/Sites/AngelThunder/dotfiles"
+export DOTFILES_PATH="$HOME/.dotfiles"
 
 source "$DOTFILES_PATH/shell/init.sh"
 
@@ -14,3 +14,6 @@ if [ -n "$(ls -A "$DOTFILES_PATH/shell/bash/completions/")" ]; then
   done
 fi
 
+
+# Shopify Hydrogen alias to local projects
+alias h2='$(npm prefix -s)/node_modules/.bin/shopify hydrogen'

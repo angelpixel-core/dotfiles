@@ -25,23 +25,23 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 -- AI Assistant
 keymap.set({ "n", "v" }, "<leader>ge", ":Gen<CR>", { desc = "Open AI Assistant Menu" })
 keymap.set({ "n", "v" }, "<leader>gp", ":ChatGPT<CR>", { desc = "Open AI Assistant Menu" })
+--
+-- Save: Ctrl+S
+keymap.set("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
+keymap.set("i", "<C-s>", "<Esc>:w<CR>a", { noremap = true, silent = true })
+keymap.set("v", "<C-s>", "<Esc>:w<CR>gv", { noremap = true, silent = true })
 
--- Copy Path
-function copy_current_dir_path()
-  local dir_path = vim.fn.expand("%:p:h")
-  if dir_path == "" then
-    vim.notify("No hay directorio asociado al buffer actual 📁", vim.log.levels.WARN)
-    return
-  end
-  vim.fn.setreg("+", dir_path) -- Copia al portapapeles
-  vim.notify("Directorio copiado al portapapeles! 📋", vim.log.levels.INFO)
-end
+-- Quit: Crtl+Q
+keymap.set("n", "<C-q>", ":qa<CR>", { noremap = true, silent = true })
 
-keymap.set(
-  { "n" },
-  "<leader>d",
-  copy_current_dir_path,
-  { desc = "Copy Current Dir File", noremap = true, silent = true }
-)
+-- ============================================================================
+-- WINDOW NAVIGATION
+-- ============================================================================
+
+-- Move between window splits using <leader> + HJKL
+keymap.set("n", "<leader>h", "<C-w>h", { noremap = true, desc = "Move to left split" })
+keymap.set("n", "<leader>j", "<C-w>j", { noremap = true, desc = "Move to bottom split" })
+keymap.set("n", "<leader>k", "<C-w>k", { noremap = true, desc = "Move to top split" })
+keymap.set("n", "<leader>l", "<C-w>l", { noremap = true, desc = "Move to right split" })
 
 -- NoteTaker
