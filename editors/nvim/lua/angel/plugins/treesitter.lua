@@ -46,6 +46,7 @@ return {
         "ruby",
         "elixir",
         "rust",
+        "bicep",
       },
       incremental_selection = {
         enable = true,

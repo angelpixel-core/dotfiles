@@ -49,3 +49,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Shopify Hydrogen alias to local projects
 alias h2='$(npm prefix -s)/node_modules/.bin/shopify hydrogen'
+
+# Created by `pipx` on 2025-06-22 00:23:57
+export PATH="$PATH:/Users/angel.szymczak/.local/bin"

@@ -1,7 +1,7 @@
 # Este es el archivo de configuración de Git por usuario.
 [user]
   name = Angel Szymczak
-  email = angel.szymczak@hotmail.com
+	email = angel.commits@proton.me
 
 [core]
   editor = nvim

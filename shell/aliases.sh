@@ -43,6 +43,10 @@ alias grh="gr HEAD"
 alias gb="git branch"
 alias gl="git log --oneline"
 
+# ------------------------------------------------------------------------------
+# Tunneling
+# ------------------------------------------------------------------------------
+alias ngrok="ngrok http --config ${HOME}/.config/ngrok/angel-commits.yml 80"
 
 # ------------------------------------------------------------------------------
 # Editors
@@ -82,13 +86,6 @@ function now() {
 }
 
 # ------------------------------------------------------------------------------
-# Time Monitor
-# ------------------------------------------------------------------------------
-function now() {
-  date +"%H:%M:%S"
-}
-
-# ------------------------------------------------------------------------------
 # Session Tab Name
 # ------------------------------------------------------------------------------
 # iTerm2 shell integration
@@ -106,3 +103,10 @@ function title {
 }
 title
 
+function sign-with-trezor() {
+  export SSH_AUTH_SOCK=~/.ssh/trezor-agent.sock
+  export SSH_GITHUB_ID=git@github.com
+  eval "$(trezor-agent -d --sock-path ${SSH_AUTH_SOCK} ssh://${SSH_GITHUB_ID})"
+  echo "🔐 Trezor Agent iniciado con SSH_AUTH_SOCK=${SSH_AUTH_SOCK}"
+  echo "📣 Run 'ssh-add -L'"
+}

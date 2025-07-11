@@ -23,10 +23,23 @@ keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 
 -- AI Assistant
-keymap.set({ "n", "v" }, "<leader>ge", ":Gen<CR>", { desc = "Open AI Assistant Menu" })
-keymap.set({ "n", "v" }, "<leader>gp", ":ChatGPT<CR>", { desc = "Open AI Assistant Menu" })
---
--- Save: Ctrl+S
+-- keymap.set({ "n", "v" }, "<leader>ge", ":Gen<CR>", { desc = "Open AI Assistant Menu" })
+-- keymap.set({ "n", "v" }, "<leader>gp", ":ChatGPT<CR>", { desc = "Open AI Assistant Menu" })
+
+-- Copilot: aceptar sugerencia con Tab en modo insert
+local keymap = vim.keymap -- for conciseness
+keymap.set("i", "<C-i>", 'copilot#Accept("<CR>")', {
+  expr = true,
+  silent = true,
+  noremap = true,
+  replace_keycodes = false
+})
+
+-- Copilot: navegar sugerencias con Alt+n / Alt+p
+keymap.set("i", "<M-n>", "<Plug>(copilot-next)", { silent = true })
+keymap.set("i", "<M-p>", "<Plug>(copilot-previous)", { silent = true })
+
+---- Save: Ctrl+S
 keymap.set("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
 keymap.set("i", "<C-s>", "<Esc>:w<CR>a", { noremap = true, silent = true })
 keymap.set("v", "<C-s>", "<Esc>:w<CR>gv", { noremap = true, silent = true })
