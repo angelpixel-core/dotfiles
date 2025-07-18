@@ -104,14 +104,14 @@ return {
       },
     })
 
- vim.api.nvim_create_autocmd("BufWritePre", {
-      pattern = { "*.rb" },
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      pattern = { "*.rb", "*.rake", "*.gemspec", "Gemfile", "Rakefile", "*.ru" },
       callback = function(args)
         conform.format({
           bufnr = args.buf,
           lsp_fallback = true,
           async = false,
-          timeout_ms = 1000,
+          timeout_ms = 3000, -- Ruby puede ser lento
         })
       end,
     })

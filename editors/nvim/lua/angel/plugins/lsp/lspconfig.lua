@@ -175,12 +175,49 @@ return {
         })
       end,
 
+      -- ["ruby_lsp"] = function()
+      --   lspconfig["ruby_lsp"].setup({
+      --     init_options = {
+      --       formatter = "standard",
+      --       linters = { "standard" },
+      --     },
+      --   })
+      -- end,
+
       ["ruby_lsp"] = function()
         lspconfig["ruby_lsp"].setup({
+          capabilities = capabilities,
           init_options = {
-            formatter = "standard",
-            linters = { "standard" },
+            formatter = "rubocop", -- rubocop", -- o "standard" según prefieras
+            linters = { "rubocop" }, -- rubocop",
+            enabledFeatures = {
+              codeActions = true,
+              diagnostics = true,
+              documentHighlights = true,
+              documentLink = true,
+              documentSymbols = true,
+              foldingRanges = true,
+              formatting = true,
+              hover = true,
+              inlayHint = true,
+              onTypeFormatting = true,
+              selectionRanges = true,
+              semanticHighlighting = true,
+              completion = true,
+              codeLens = true,
+              definition = true,
+              documentHighlight = true,
+              references = true,
+              rename = true,
+              signatureHelp = true,
+              typeDefinition = true,
+              workspaceSymbol = true,
+            }
           },
+          on_attach = function(client, bufnr)
+            -- Desactiva el formateo de ruby_lsp si usas rubocop en conform.nvim
+            client.server_capabilities.documentFormattingProvider = false
+          end,
         })
       end,
     })
