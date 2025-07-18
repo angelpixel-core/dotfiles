@@ -32,16 +32,24 @@ return {
   --   mason_lspconfig.setup({
   --     -- list of servers for mason to install
   --     ensure_installed = {
-  --       "html",
+  --       "bashls",
   --       "cssls",
-  --       "tailwindcss",
-  --       "svelte",
-  --       "lua_ls",
-  --       "graphql",
+  --       "dockerls",
   --       "emmet_ls",
+  --       "graphql",
+  --       "html",
+  --       "jsonls",
+  --       "lua_ls",
+  --       "marksman", -- Para Markdown con soporte de wikilinks
   --       "prismals",
   --       "pyright",
   --       "ruby_lsp",
+  --       "rust_analyzer",
+  --       "sqlls",
+  --       "svelte",
+  --       "tailwindcss",
+  --       "tsserver",
+  --       "yamlls",
   --     },
   --   })
   --
