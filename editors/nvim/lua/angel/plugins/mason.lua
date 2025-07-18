@@ -16,6 +16,7 @@ return {
           "lua_ls",
           "ruby_lsp",
           "rust_analyzer",
+          "marksman", -- Para Markdown con soporte de wikilinks
         },
       })
 
