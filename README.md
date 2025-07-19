@@ -15,7 +15,7 @@ Sistema de gestión de configuraciones personales (dotfiles) diseñado para:
 
 ```bash
 # Clonar repositorio
-git clone https://github.com/username/dotfiles.git ~/.dotfiles
+git clone https://github.com/angelcommits/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
 # Instalación completa
