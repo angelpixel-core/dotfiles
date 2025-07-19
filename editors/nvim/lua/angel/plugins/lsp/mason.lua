@@ -27,7 +27,7 @@ return {
         "cssls",
         "svelte",
         "tailwindcss",
-        "tsserver",
+        -- "tsserver", -- BUG: [mason-lspconfig.nvim] Server "tsserver" is not a valid entry in ensure_installed. Make sure to only provide lspconfig server names.
         "emmet_ls",
 
         -- Lenguages
