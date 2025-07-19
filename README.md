@@ -1,35 +1,115 @@
-<h1 align="center">
-  .dotfiles created using <a href="https://github.com/CodelyTV/dotly">🌚 dotly</a>
-</h1>
+# 🎯 Comentario como Technical Leader
+El proyecto actual tiene problemas estructurales significativos:
 
-## Restore your Dotfiles manually
+- Acoplamiento alto: Configuraciones mezcladas sin separación clara
+- Falta de abstracción: Scripts monolíticos sin libs reutilizables
+- Sin estándares: Mezcla de shells, estilos y convenciones
+- Difícil mantenimiento: Sin tests, sin CI/CD, sin validación
+- Onboarding complejo: Falta documentación y proceso claro
 
-- Install git
-- Clone your dotfiles repository `git clone [your repository of dotfiles] $HOME/.dotfiles`
-- Go to your dotfiles folder `cd $HOME/.dotfiles`
-- Install git submodules `git submodule update --init --recursive modules/dotly`
-- Install your dotfiles `DOTFILES_PATH="$HOME/.dotfiles" DOTLY_PATH="$DOTFILES_PATH/modules/dotly" "$DOTLY_PATH/bin/dot" self install`
-- Restart your terminal
-- Import your packages `dot package import`
+Propongo migrar a una arquitectura modular con dominios bien definidos,
+interfaces claras y un proceso de instalación robusto.
 
-## Restore your Dotfiles with script
 
-Using wget
+# 👔 Comentario como Engineering Manager
+Desde una perspectiva de gestión:
 
-```bash
-bash <(wget -qO- https://raw.githubusercontent.com/CodelyTV/dotly/HEAD/restorer)
+- Riesgo operacional: Sin versionado semántico ni rollback
+- Productividad: El setup manual consume tiempo valioso
+- Escalabilidad del equipo: Imposible compartir configs parciales
+- Compliance: Sin auditoría de cambios ni control de acceso
+- ROI bajo: Mucho esfuerzo manual vs automatización posible
+
+Necesitamos un sistema que permita onboarding en minutos, no horas,
+con trazabilidad completa y capacidad de personalización por rol.
+
+
+# 📋 Plan de Acción DDD
+Dominios Identificados
+
+```txt
+Core/
+├── Bootstrap/     # Dominio de instalación
+├── Configuration/ # Dominio de configuración
+├── Tools/         # Dominio de herramientas
+CLI/
+└── Validation/    # Dominio de validación
+```
+Implementación Progresiva
+
+# Fase 1: Estructura Base
+## Estructura del Proyecto Dotfiles
+
+```txt
+dotfiles/
+├── README.md
+├── Makefile
+├── VERSION
+├── .github/
+│   └── workflows/
+│       ├── test.yml
+│       └── release.yml
+├── bin/                 # CLI tools ejecutables
+│   ├── dift
+│   ├── serve
+│   ├── backup
+│   └── dotfiles         # Meta-herramienta
+├── lib/                 # Librerías compartidas
+│   ├── common.sh        # Funciones comunes
+│   ├── logging.sh       # Sistema de logs
+│   ├── validation.sh    # Validaciones
+│   └── platform.sh      # Detección OS
+├── config/              # Configuraciones
+│   ├── editors/
+│   │   ├── nvim/
+│   │   └── install.sh
+│   ├── terminal/
+│   │   ├── tmux/
+│   │   ├── alacritty/
+│   │   └── install.sh
+│   ├── shell/
+│   │   ├── aliases.sh
+│   │   ├── exports.sh
+│   │   ├── functions.sh
+│   │   └── install.sh
+│   ├── workflow/
+│   │   ├── direnv/
+│   │   └── install.sh
+│   └── wm/              # Window managers
+│       ├── yabai/
+│       ├── skhd/
+│       └── install.sh
+├── bootstrap/
+│   ├── install.sh       # Script principal
+│   ├── symlinks.sh      # Gestión de enlaces
+│   └── dependencies.sh  # Instalación de deps
+├── tests/
+│   ├── unit/
+│   └── integration/
+└── docs/
+    ├── ARCHITECTURE.md
+    ├── CONTRIBUTING.md
+    └── modules/
 ```
 
-Using curl
+## Principios de Diseño
 
-```bash
-bash <(curl -s https://raw.githubusercontent.com/CodelyTV/dotly/HEAD/restorer)
-```
+### 1. Modularidad
+- Cada módulo es independiente
+- Instalación selectiva
+- Sin dependencias circulares
 
-You need to know your GitHub username, repository and install ssh key if your repository is private.
+### 2. Idempotencia
+- Scripts ejecutables múltiples veces
+- Estado consistente garantizado
+- Rollback automático en errores
 
-It also supports other git repos, but you need to know your git repository url.
+### 3. Portabilidad
+- Compatible macOS/Linux
+- Detección automática de plataforma
+- Fallbacks para comandos específicos
 
-# Add 1password-cli tool
-
-`brew install 1password-cli`
+### 4. Testabilidad
+- Tests unitarios para libs
+- Tests de integración para instaladores
+- CI/CD automatizado
