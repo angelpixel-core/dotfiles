@@ -1,4 +1,4 @@
-# Estructura del Proyecto Dotfiles
+# Potencial Estructura del Proyecto Dotfiles
 
 ```
 dotfiles/
@@ -9,17 +9,17 @@ dotfiles/
 │   └── workflows/
 │       ├── test.yml
 │       └── release.yml
-├── bin/                    # CLI tools ejecutables
+├── bin/                 # CLI tools ejecutables
 │   ├── dift
 │   ├── serve
 │   ├── backup
-│   └── dotfiles           # Meta-herramienta
-├── lib/                    # Librerías compartidas
-│   ├── common.sh          # Funciones comunes
-│   ├── logging.sh         # Sistema de logs
-│   ├── validation.sh      # Validaciones
-│   └── platform.sh        # Detección OS
-├── config/                 # Configuraciones
+│   └── dotfiles         # Meta-herramienta
+├── lib/                 # Librerías compartidas
+│   ├── common.sh        # Funciones comunes
+│   ├── logging.sh       # Sistema de logs
+│   ├── validation.sh    # Validaciones
+│   └── platform.sh      # Detección OS
+├── config/              # Configuraciones
 │   ├── editors/
 │   │   ├── nvim/
 │   │   └── install.sh
@@ -35,14 +35,14 @@ dotfiles/
 │   ├── workflow/
 │   │   ├── direnv/
 │   │   └── install.sh
-│   └── wm/                # Window managers
+│   └── wm/              # Window managers
 │       ├── yabai/
 │       ├── skhd/
 │       └── install.sh
 ├── bootstrap/
-│   ├── install.sh         # Script principal
-│   ├── symlinks.sh        # Gestión de enlaces
-│   └── dependencies.sh    # Instalación de deps
+│   ├── install.sh       # Script principal
+│   ├── symlinks.sh      # Gestión de enlaces
+│   └── dependencies.sh  # Instalación de deps
 ├── tests/
 │   ├── unit/
 │   └── integration/
