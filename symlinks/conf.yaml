@@ -6,8 +6,8 @@
       force: true
 
 - create:
-    - $DOTFILES_PATH/shell/bash/completions
-    - $DOTFILES_PATH/shell/bash/themes
+    - $DOTFILES_ROOT/shell/bash/completions
+    - $DOTFILES_ROOT/shell/bash/themes
 
 - link:
     ~/.bash_profile: shell/bash/.bash_profile

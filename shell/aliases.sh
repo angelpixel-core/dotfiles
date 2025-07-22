@@ -15,7 +15,7 @@ alias ~="cd ~"
 alias md="mkdir -p "
 alias rd="rm -rf "
 
-alias dotfiles="cd $DOTFILES_PATH"
+alias dotfiles="cd $DOTFILES_ROOT"
 alias sites="cd $HOME/Sites"
 
 

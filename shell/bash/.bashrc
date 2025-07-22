@@ -1,6 +1,7 @@
-export DOTFILES_PATH="$HOME/.dotfiles"
+# export DOTFILES_PATH="$HOME/.dotfiles"
+export DOTFILES_ROOT="$HOME/.dotfiles"
 
-source "$DOTFILES_PATH/shell/init.sh"
+source "$DOTFILES_ROOT/shell/init.sh"
 
 EXPORTED_PATH=$(
   IFS=":"
@@ -8,8 +9,8 @@ EXPORTED_PATH=$(
 )
 export PATH="$PATH:$EXPORTED_PATH"
 
-if [ -n "$(ls -A "$DOTFILES_PATH/shell/bash/completions/")" ]; then
-  for bash_file in "$DOTFILES_PATH"/shell/bash/completions/_*; do
+if [ -n "$(ls -A "$DOTFILES_ROOT/shell/bash/completions/")" ]; then
+  for bash_file in "$DOTFILES_ROOT"/shell/bash/completions/_*; do
     source "$bash_file"
   done
 fi
