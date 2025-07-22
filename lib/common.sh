@@ -4,32 +4,52 @@
 set -euo pipefail
 
 # Variables globales
-readonly DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-readonly DOTFILES_LIB="${DOTFILES_ROOT}/lib"
-readonly DOTFILES_CONFIG="${DOTFILES_ROOT}/config"
+# Only set DOTFILES_ROOT if not already set
+if [[ -z "${DOTFILES_ROOT:-}" ]]; then
+  DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+fi
+# Make it readonly if not already readonly
+if ! readonly -p | grep -q "^declare -[a-z]*r[a-z]* DOTFILES_ROOT="; then
+  readonly DOTFILES_ROOT
+fi
+
+# Set other variables based on DOTFILES_ROOT
+if [[ -z "${DOTFILES_LIB:-}" ]]; then
+  readonly DOTFILES_LIB="${DOTFILES_ROOT}/lib"
+else
+  readonly DOTFILES_LIB
+fi
+
+if [[ -z "${DOTFILES_CONFIG:-}" ]]; then
+  readonly DOTFILES_CONFIG="${DOTFILES_ROOT}/config"
+else
+  readonly DOTFILES_CONFIG
+fi
 
 # Colores ANSI
-readonly COLOR_RESET='\033[0m'
-readonly COLOR_BOLD='\033[1m'
-readonly COLOR_RED='\033[31m'
-readonly COLOR_GREEN='\033[32m'
-readonly COLOR_YELLOW='\033[33m'
-readonly COLOR_BLUE='\033[34m'
-readonly COLOR_MAGENTA='\033[35m'
-readonly COLOR_CYAN='\033[36m'
+[[ -z "${COLOR_RESET:-}" ]] && readonly COLOR_RESET='\033[0m'
+[[ -z "${COLOR_BOLD:-}" ]] && readonly COLOR_BOLD='\033[1m'
+[[ -z "${COLOR_RED:-}" ]] && readonly COLOR_RED='\033[31m'
+[[ -z "${COLOR_GREEN:-}" ]] && readonly COLOR_GREEN='\033[32m'
+[[ -z "${COLOR_YELLOW:-}" ]] && readonly COLOR_YELLOW='\033[33m'
+[[ -z "${COLOR_BLUE:-}" ]] && readonly COLOR_BLUE='\033[34m'
+[[ -z "${COLOR_MAGENTA:-}" ]] && readonly COLOR_MAGENTA='\033[35m'
+[[ -z "${COLOR_CYAN:-}" ]] && readonly COLOR_CYAN='\033[36m'
 
 # Iconos Unicode
-readonly ICON_SUCCESS="✓"
-readonly ICON_ERROR="✗"
-readonly ICON_WARNING="⚠"
-readonly ICON_INFO="ℹ"
-readonly ICON_ARROW="→"
+[[ -z "${ICON_SUCCESS:-}" ]] && readonly ICON_SUCCESS="✓"
+[[ -z "${ICON_ERROR:-}" ]] && readonly ICON_ERROR="✗"
+[[ -z "${ICON_WARNING:-}" ]] && readonly ICON_WARNING="⚠"
+[[ -z "${ICON_INFO:-}" ]] && readonly ICON_INFO="ℹ"
+[[ -z "${ICON_ARROW:-}" ]] && readonly ICON_ARROW="→"
 
 # Detectar si soporta colores
-if [[ -t 1 ]] && command -v tput >/dev/null 2>&1; then
-  readonly SUPPORTS_COLOR=true
-else
-  readonly SUPPORTS_COLOR=false
+if [[ -z "${SUPPORTS_COLOR:-}" ]]; then
+  if [[ -t 1 ]] && command -v tput >/dev/null 2>&1; then
+    readonly SUPPORTS_COLOR=true
+  else
+    readonly SUPPORTS_COLOR=false
+  fi
 fi
 
 # Función para imprimir con color

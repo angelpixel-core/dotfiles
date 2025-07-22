@@ -1,3 +1,5 @@
+export DOTFILES_ROOT="$HOME/.dotfiles"
+
 #!/usr/bin/env zsh
 # Uncomment for debuf with `zprof`
 # zmodload zsh/zprof
@@ -20,12 +22,12 @@ source "$ZIM_HOME/init.zsh"
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 ZSH_HIGHLIGHT_MAXLENGTH=300
 
-source "$DOTFILES_PATH/shell/init.sh"
+source "$DOTFILES_ROOT/shell/init.sh"
 
 # TODO: check if should be removed
 # fpath=(
-#   "$DOTFILES_PATH/shell/zsh/themes"
-#   "$DOTFILES_PATH/shell/zsh/completions"
+#   "$DOTFILES_ROOT/shell/zsh/themes"
+#   "$DOTFILES_ROOT/shell/zsh/completions"
 #   $fpath
 # )
 
@@ -33,7 +35,7 @@ source "$DOTFILES_PATH/shell/init.sh"
 # autoload -Uz promptinit && promptinit
 
 # TODO: check if should be removed
-# source "$DOTFILES_PATH/shell/zsh/key-bindings.zsh"
+# source "$DOTFILES_ROOT/shell/zsh/key-bindings.zsh"
 
 # Set editor default keymap to emacs (`e`) or vi (`-v`)
 bindkey -e

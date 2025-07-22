@@ -115,8 +115,29 @@ status: ## Muestra estado de instalación
 	@printf "$(BOLD)Installation status:$(RESET)\n"
 	@$(DOTFILES_DIR)/bin/dotfiles status
 
-version: ## Muestra versión
-	@cat $(DOTFILES_DIR)/VERSION
+version: ## Muestra versión actual
+	@$(DOTFILES_DIR)/lib/version.sh get
+
+version-info: ## Muestra información detallada de versión
+	@$(DOTFILES_DIR)/lib/version.sh info
+
+version-bump: ## Incrementa versión (uso: make version-bump TYPE=patch)
+	@$(DOTFILES_DIR)/lib/version.sh bump $(TYPE)
+
+version-check: ## Verifica integridad de versiones
+	@$(DOTFILES_DIR)/lib/version.sh verify
+
+version-lock: ## Crea archivo de bloqueo de versiones
+	@$(DOTFILES_DIR)/lib/version.sh lock
+
+migrate: ## Ejecuta migraciones pendientes
+	@$(DOTFILES_DIR)/lib/migration.sh check
+
+migrate-run: ## Ejecuta migración a versión específica (uso: make migrate-run TO=1.1.0)
+	@$(DOTFILES_DIR)/lib/migration.sh run $$($(DOTFILES_DIR)/lib/version.sh get) $(TO)
+
+migrate-history: ## Muestra historial de migraciones
+	@$(DOTFILES_DIR)/lib/migration.sh history
 
 colors: ## Verifica soporte de colores del terminal
 	$(check_color_support)

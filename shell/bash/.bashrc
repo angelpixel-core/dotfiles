@@ -1,4 +1,3 @@
-# export DOTFILES_PATH="$HOME/.dotfiles"
 export DOTFILES_ROOT="$HOME/.dotfiles"
 
 source "$DOTFILES_ROOT/shell/init.sh"
