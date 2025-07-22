@@ -2,4 +2,7 @@
 *.log
 
 # Ignore Cargo Target directory
-.superclaude/prompts/scripts/split/rust/target/
+docs/prompts/scripts/split/rust/target/
+
+# AI Agent files
+.claude/
