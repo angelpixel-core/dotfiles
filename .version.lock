@@ -1,7 +1,8 @@
 {
-  "dotfiles_version": "0.0.0",
-  "timestamp": "2025-07-23T03:09:48Z",
+  "dotfiles_version": "0.1.0",
+  "timestamp": "2025-07-23T03:17:45Z",
   "modules": {
+    "nvim": "0.10.3",
     "shell": "5.9.0"
   }
 }
