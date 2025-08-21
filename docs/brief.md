@@ -73,6 +73,64 @@ A Git-based, modular dotfiles framework that treats development environment conf
 **High-Level Vision**:
 Transform dotfiles from a necessary evil into a competitive advantage. Make environment configuration so seamless that developers can focus entirely on their work, knowing their tools are perfectly configured and portable. Eventually become the de facto standard for professional developer environment management.
 
+## Target Users
+
+### Primary User Segment: Senior Full-Stack Developers
+
+**Demographic/Firmographic Profile**:
+- 5+ years of experience in software development
+- Work across multiple technology stacks (frontend, backend, DevOps)
+- Manage 2-4 machines (work laptop, personal laptop, desktop, cloud VMs)
+- Value efficiency and automation highly
+- Active in open source communities
+
+**Current Behaviors and Workflows**:
+- Spend 10-20% of time on tooling and environment setup
+- Frequently switch between projects with different requirements
+- Use 15+ development tools daily (editors, terminals, version control, containers)
+- Maintain personal scripts and configurations accumulated over years
+- Share configuration tips informally with teammates
+
+**Specific Needs and Pain Points**:
+- Need consistent environment across all machines
+- Frustrated by time lost to configuration drift
+- Want to preserve years of customization work
+- Need quick disaster recovery capability
+- Desire to share knowledge with team effectively
+
+**Goals They're Trying to Achieve**:
+- Maximize coding time, minimize setup/maintenance time
+- Achieve flow state quickly regardless of which machine they're using
+- Mentor junior developers more effectively
+- Build reputation as a productivity expert
+- Future-proof their development environment
+
+### Secondary User Segment: DevOps Teams
+
+**Demographic/Firmographic Profile**:
+- Teams of 3-10 engineers
+- Responsible for both development and operations
+- Working in companies with 50-500 employees
+- Heavy users of automation and IaC tools
+
+**Current Behaviors and Workflows**:
+- Standardize on tool sets but struggle with local development environments
+- Create onboarding documentation that quickly becomes outdated
+- Debug issues caused by environment inconsistencies
+- Manage both cloud infrastructure and local development
+
+**Specific Needs and Pain Points**:
+- Need team-wide consistency without losing individual flexibility
+- Want to reduce onboarding time for new team members
+- Need to ensure security and compliance in development environments
+- Struggle with "works on my machine" problems
+
+**Goals They're Trying to Achieve**:
+- Standardize team development environments
+- Reduce time-to-productivity for new hires
+- Eliminate environment-related bugs
+- Maintain security compliance across all developer machines
+
 ---
 
 *Document in progress - Additional sections to be added*
