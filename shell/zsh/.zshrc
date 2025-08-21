@@ -54,3 +54,7 @@ alias h2='$(npm prefix -s)/node_modules/.bin/shopify hydrogen'
 
 # Created by `pipx` on 2025-06-22 00:23:57
 export PATH="$PATH:/Users/angel.szymczak/.local/bin"
+
+# Task Master aliases added on 5/8/2025
+alias tm='task-master'
+alias taskmaster='task-master'

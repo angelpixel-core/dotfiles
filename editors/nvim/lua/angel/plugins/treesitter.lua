@@ -47,6 +47,7 @@ return {
         "elixir",
         "rust",
         "bicep",
+        "http"
       },
       incremental_selection = {
         enable = true,
