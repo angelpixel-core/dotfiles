@@ -160,6 +160,121 @@ Transform dotfiles from a necessary evil into a competitive advantage. Make envi
 - **Update Frequency**: Average time between dotfiles updates per user (Target: Weekly updates)
 - **Error Rate**: Percentage of operations requiring manual intervention (Target: <1%)
 
+## MVP Scope
+
+### Core Features (Must Have)
+
+- **Modular Installation System:**
+  - Make-based orchestration with dependency graph resolution
+  - Individual module targets: `make install-nvim`, `make install-tmux`, `make install-shell`
+  - Meta targets: `make install-essential` (nvim + tmux + shell), `make install-all`
+  - Dry-run mode: `make install-dry` to preview changes without execution
+  - Verbose mode with colored output for debugging
+  - Module dependency declaration in `modules.mk` file
+
+- **Cross-Platform Support:**
+  - OS detection via `uname` with fallback mechanisms
+  - Platform-specific installation paths:
+    - macOS: `~/.config/` (XDG), `~/Library/Application Support/`
+    - Linux: `~/.config/` (XDG), `~/.local/`
+  - Package manager detection: Homebrew (macOS), apt (Debian/Ubuntu), pacman (Arch)
+  - Architecture detection for Apple Silicon vs Intel
+  - Shell detection and configuration (zsh, bash, fish)
+
+- **Essential Modules - Detailed Specifications:**
+  - **Shell Configuration:**
+    - 50+ git aliases for productivity
+    - 20+ directory navigation shortcuts
+    - Custom prompt with git status, node/python versions
+    - Automatic PATH management for common tools
+    - History optimization (10,000 entries, deduplication)
+  - **Neovim Setup:**
+    - Lazy.nvim plugin manager with 30+ essential plugins
+    - LSP configurations for 10+ languages (JS/TS, Python, Go, Rust, etc.)
+    - Treesitter for syntax highlighting
+    - Telescope for fuzzy finding
+    - Which-key for keybinding discovery
+    - Custom keymaps following vim best practices
+  - **tmux Configuration:**
+    - Intuitive prefix key (Ctrl-a)
+    - Vim-like navigation bindings
+    - Session management shortcuts
+    - Status bar with system stats
+    - Plugin manager (TPM) with resurrect and continuum
+  - **Git Configuration:**
+    - Global gitignore for 50+ common patterns
+    - Commit message template
+    - Diff and merge tool configurations
+    - Signing commits with GPG (if available)
+    - 30+ aliases for common workflows
+  - **Development Tools:**
+    - asdf with plugins for Node.js, Python, Ruby, Go
+    - direnv for project-specific environment variables
+    - Global tool configs (.editorconfig, .prettierrc)
+
+- **Symlink Management - Detailed:**
+  - Configuration mapping file (`symlinks.conf`) defining source → destination
+  - Conflict detection with three resolution strategies:
+    - Skip: Leave existing file
+    - Backup: Move to timestamped backup
+    - Force: Overwrite (with backup)
+  - Symlink verification and repair command: `make verify-links`
+  - Stow-like folding for directory trees
+  - Support for XDG Base Directory Specification
+
+- **Backup System - Comprehensive:**
+  - Timestamped backups in `~/.dotfiles-backups/YYYY-MM-DD-HHMMSS/`
+  - Backup manifest file with checksums for verification
+  - Selective restoration: `make restore-backup DATE=2024-01-01`
+  - Automatic cleanup of backups older than 30 days
+  - Pre-flight check before any destructive operation
+  - Backup size estimation before execution
+
+- **Idempotent Operations - Implementation:**
+  - State detection before each operation
+  - Atomic operations using temporary files and moves
+  - Lock files to prevent concurrent executions
+  - Transaction log for rollback capability
+  - Health checks after each module installation
+  - `make status` command to show current state
+
+- **Basic Documentation - Structure:**
+  - Main README.md with quick start (2 min read)
+  - docs/INSTALL.md with detailed instructions
+  - docs/MODULES.md with module descriptions
+  - docs/CUSTOMIZATION.md with extension guide
+  - docs/TROUBLESHOOTING.md with common issues
+  - In-code documentation for all scripts
+
+### Out of Scope for MVP
+
+- Windows support (WSL2 documentation only)
+- GUI application configurations
+- Cloud synchronization features
+- Team/enterprise features (centralized management, compliance tools)
+- Advanced AI integrations beyond basic BMAD setup
+- Automated testing infrastructure
+- Package manager installations (assume Homebrew/apt available)
+- Custom theming engine
+- Configuration migration from other dotfile systems
+- Mobile/tablet development environment support
+
+### MVP Success Criteria
+
+The MVP will be considered successful when a developer can:
+1. Clone the repository on a fresh macOS or Linux machine
+2. Run `make install` and have a fully functional development environment in under 5 minutes
+3. Selectively install individual modules without errors
+4. Make configuration changes that persist across updates
+5. Recover from installation failures without manual intervention
+6. Understand how to customize and extend the system via documentation
+
+Success metrics:
+- 90% of test users can complete setup without assistance
+- Installation completes in <5 minutes on standard hardware
+- Zero data loss from existing configurations
+- All core modules functional on both macOS and Linux
+
 ---
 
 *Document in progress - Additional sections to be added*
