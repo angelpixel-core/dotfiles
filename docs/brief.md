@@ -354,6 +354,82 @@ Transform from a dotfiles manager into a comprehensive developer environment pla
 - Newsletter with configuration patterns
 - Discord community for real-time support
 
+## Technical Considerations
+
+### Platform Requirements
+
+- **Target Platforms:**
+  - macOS 12+ (Monterey and later) - Primary platform
+  - Ubuntu 20.04+ LTS / Debian 11+
+  - Arch Linux (rolling release)
+  - Future: Windows 11 with WSL2
+
+- **Browser/OS Support:**
+  - Terminal emulators: iTerm2, Terminal.app, Alacritty, kitty
+  - Shell requirements: Bash 4.0+, Zsh 5.0+
+  - Git 2.0+ required for core functionality
+  - Make 3.81+ for build orchestration
+
+- **Performance Requirements:**
+  - Installation: <5 minutes on 10 Mbps connection
+  - Module operations: <10 seconds per module
+  - Symlink creation: <1 second for 100 files
+  - Backup operations: <30 seconds for typical configs
+
+### Technology Preferences
+
+- **Frontend (Terminal UI):**
+  - Shell scripts (Bash/Zsh) for maximum compatibility
+  - ANSI colors for visual feedback
+  - Future: Rust-based TUI for advanced features
+  - No external dependencies for core functionality
+
+- **Backend (Core Logic):**
+  - POSIX-compliant shell scripts where possible
+  - Python 3.8+ for complex operations (optional)
+  - Makefile for orchestration and dependency management
+  - Git for version control and distribution
+
+- **Database (Configuration Storage):**
+  - Plain text files (YAML/TOML) for configuration
+  - Git as versioned database
+  - Local filesystem for state management
+  - No external database dependencies
+
+- **Hosting/Infrastructure:**
+  - GitHub for primary repository and releases
+  - GitHub Actions for CI/CD
+  - GitHub Pages for documentation
+  - CDN for large binary assets (fonts, themes)
+
+### Architecture Considerations
+
+- **Repository Structure:**
+  - Monorepo containing all modules and tooling
+  - Clear separation between core and modules
+  - Vendor dependencies to avoid network requirements
+  - Single entry point (Makefile) for all operations
+
+- **Service Architecture:**
+  - Standalone operation (no daemon processes)
+  - Stateless operations where possible
+  - File-based locking for concurrent access
+  - Event-driven hooks for extensibility
+
+- **Integration Requirements:**
+  - BMAD framework for AI assistance
+  - Claude Code MCP server compatibility
+  - LSP servers for editor intelligence
+  - Package managers (Homebrew, apt, pacman)
+  - Version managers (asdf, nvm, pyenv)
+
+- **Security/Compliance:**
+  - Never store secrets in repository
+  - Secure handling of SSH/GPG keys
+  - File permission preservation
+  - Audit trail for all operations
+  - Checksum verification for downloads
+
 ---
 
 *Document in progress - Additional sections to be added*
