@@ -430,6 +430,65 @@ Transform from a dotfiles manager into a comprehensive developer environment pla
   - Audit trail for all operations
   - Checksum verification for downloads
 
+## Constraints & Assumptions
+
+### Constraints
+
+- **Budget:**
+  - $0 initial development budget (personal project)
+  - Open source model with no paid features in MVP
+  - Development time limited to evenings/weekends (~15 hours/week)
+  - Hosting costs must remain under $10/month
+
+- **Timeline:**
+  - MVP delivery within 8-12 weeks from project start
+  - Phase 2 features within 6 months of MVP
+  - Must maintain existing dotfiles during transition
+  - Cannot break current development workflow during development
+
+- **Resources:**
+  - Single developer for initial implementation
+  - Community contributions expected post-MVP only
+  - No dedicated QA or documentation resources
+  - Limited to free tier of all cloud services
+
+- **Technical:**
+  - Must work with standard Unix tools (no exotic dependencies)
+  - Cannot require sudo/root for basic operations
+  - Must support systems with as little as 1GB RAM
+  - No telemetry or analytics in open source version
+  - Git repository size must stay under 100MB
+
+### Key Assumptions
+
+- **User Environment:**
+  - Users have administrative access to their development machines
+  - Internet connectivity available during initial setup
+  - Basic development tools (Git, Make) pre-installed or installable
+  - Users comfortable with command-line interfaces
+  - English documentation is sufficient for initial release
+
+- **Technical Assumptions:**
+  - Shell scripting sufficient for MVP functionality
+  - Symbolic links supported on all target platforms
+  - Home directory structure follows Unix conventions
+  - Package managers (Homebrew/apt) available and functional
+  - Git can handle configuration file versioning effectively
+
+- **Market Assumptions:**
+  - Developers willing to adopt new tools if value is clear
+  - Open source approach will drive adoption over paid alternatives
+  - Community will contribute modules once framework is stable
+  - BMAD integration provides unique value proposition
+  - Dotfiles management pain is universal among developers
+
+- **Success Assumptions:**
+  - GitHub stars correlate with actual usage
+  - Documentation quality more important than features for adoption
+  - Word-of-mouth primary growth driver in developer community
+  - Enterprise adoption follows individual developer success
+  - Modular approach reduces adoption friction significantly
+
 ---
 
 *Document in progress - Additional sections to be added*
