@@ -489,6 +489,52 @@ Transform from a dotfiles manager into a comprehensive developer environment pla
   - Enterprise adoption follows individual developer success
   - Modular approach reduces adoption friction significantly
 
+## Risks & Open Questions
+
+### Key Risks
+
+- **Technical Complexity:** Achieving true cross-platform compatibility may require platform-specific code branches, increasing maintenance burden and potential for bugs (Impact: High, Probability: Medium)
+
+- **Adoption Barriers:** Developers may be reluctant to trust a new tool with their critical configurations, especially without established reputation (Impact: High, Probability: Medium)
+
+- **Maintenance Burden:** As a single-developer project, keeping up with tool updates, OS changes, and community requests could become overwhelming (Impact: High, Probability: High)
+
+- **Security Vulnerabilities:** Handling sensitive configurations and SSH/GPG keys creates attack surface; any security breach would destroy trust (Impact: Critical, Probability: Low)
+
+- **Scope Creep:** Community requests for "just one more feature" could transform simple tool into bloated framework (Impact: Medium, Probability: High)
+
+- **Platform Fragmentation:** Different shells, package managers, and OS versions could create combinatorial explosion of test cases (Impact: Medium, Probability: High)
+
+- **Competition:** Established tools (chezmoi, GNU Stow, yadm) have years of development and community trust (Impact: Medium, Probability: Certain)
+
+- **Time Constraints:** Evening/weekend development may not provide enough velocity to maintain momentum and community interest (Impact: High, Probability: Medium)
+
+### Open Questions
+
+- **Installation Strategy:** Should we require Homebrew/package manager or provide standalone installer?
+- **Update Mechanism:** How do users update the dotfiles framework itself without breaking their configs?
+- **Conflict Resolution:** What's the best UX for handling conflicts between local changes and upstream updates?
+- **Module Dependencies:** How to handle complex inter-module dependencies elegantly?
+- **Testing Strategy:** How to test across multiple OS/shell combinations without expensive infrastructure?
+- **Documentation Approach:** Video tutorials vs written docs vs interactive examples?
+- **Community Governance:** How to handle community contributions and maintain quality?
+- **Licensing Model:** MIT vs GPL vs Apache - which best serves the community?
+- **Performance Metrics:** How to measure and track actual performance in diverse environments?
+- **Migration Path:** Should we provide tools to migrate from other dotfile managers?
+
+### Areas Needing Further Research
+
+- **Windows Compatibility:** WSL2 vs native PowerShell vs Git Bash - which to prioritize?
+- **Container Integration:** How deep should Docker/Podman integration go?
+- **Cloud Sync Options:** Evaluate encrypted sync solutions that respect privacy
+- **Enterprise Requirements:** What compliance/audit features do organizations actually need?
+- **AI Integration Depth:** How much BMAD/Claude integration is valuable vs gimmicky?
+- **Performance Optimization:** Profile actual bottlenecks in real-world usage
+- **Security Best Practices:** Research secure handling of secrets in dotfiles
+- **User Research:** Survey existing dotfile manager users for pain points
+- **Market Analysis:** Quantify actual market size and growth potential
+- **Framework Evaluation:** Deep dive into competing solutions' strengths/weaknesses
+
 ---
 
 *Document in progress - Additional sections to be added*
