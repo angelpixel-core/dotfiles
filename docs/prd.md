@@ -259,17 +259,32 @@ A modular, idempotent system that:
 
 ### NFR1: Performance Requirements
 
-**NFR1.1 Installation Speed**
-- Installation SHALL complete in <5 minutes on 10 Mbps connection
-- Individual module operations SHALL complete in <10 seconds
+**NFR1.1 Installation Speed (Refined)**
+- Initial installation SHALL complete in <5 minutes on 10 Mbps connection
+- Subsequent installations SHALL utilize cache, completing in <2 minutes
+- Individual module operations SHALL complete in:
+  - Small modules (shell, git): <5 seconds
+  - Medium modules (tmux): <10 seconds  
+  - Large modules (nvim with plugins): <30 seconds
+- Parallel installation SHALL be supported with `make -j4 install`
+- Network timeout SHALL be configurable (default: 30 seconds)
 - Symlink creation SHALL process 100 files in <1 second
 - Backup operations SHALL complete in <30 seconds for typical configs
 
-**NFR1.2 Resource Usage**
-- System SHALL run on machines with minimum 1GB RAM
+**NFR1.2 Resource Usage (Refined)**
+- Peak memory usage SHALL NOT exceed 256MB during installation
+- Disk I/O SHALL be optimized with batched operations
+- Network bandwidth SHALL support resume on connection failure
+- CPU usage SHALL support nice levels for background installation
+- Installation SHALL work on Raspberry Pi 4 (2GB RAM minimum)
 - Repository size SHALL NOT exceed 100MB
 - Backup storage SHALL NOT exceed 500MB total
-- CPU usage SHALL remain below 50% during operations
+
+**NFR1.3 Scalability Metrics**
+- System SHALL handle dotfiles repos up to 1000 files efficiently
+- System SHALL support up to 50 modules without performance degradation
+- Backup system SHALL handle configurations up to 100MB
+- Log rotation SHALL maintain last 10 installation logs (max 50MB total)
 
 ### NFR2: Reliability Requirements
 
