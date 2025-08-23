@@ -444,6 +444,38 @@ A modular, idempotent system that:
 - System SHALL provide keyboard-only navigation
 - System SHALL support high contrast mode for terminal output
 
+### FR7: Error Handling & Recovery
+
+**FR7.1 Error Classification**
+- System SHALL classify errors into categories:
+  - FATAL: Unrecoverable, must abort
+  - ERROR: Operation failed, can retry
+  - WARNING: Non-critical issue, continue
+  - INFO: Informational only
+- Each error SHALL have unique error code (e.g., E001, E002)
+- Error messages SHALL follow format: `[ERROR_CODE] Component: Message`
+
+**FR7.2 Error Recovery Strategies**
+- System SHALL implement automatic retry with exponential backoff for:
+  - Network timeouts (max 3 retries)
+  - Resource lock conflicts (max 5 retries)
+  - Transient file system errors (max 2 retries)
+- System SHALL provide manual recovery commands:
+  - `make recover` - Attempt automatic recovery
+  - `make rollback` - Revert to previous state
+  - `make cleanup` - Remove partial installations
+- System SHALL maintain recovery checkpoint files
+
+**FR7.3 Error Reporting**
+- Error reports SHALL include:
+  - Full error message and code
+  - Stack trace (when in debug mode)
+  - System state at time of error
+  - Suggested resolution steps
+  - Link to documentation for error code
+- System SHALL support error report export via `make export-errors`
+- Critical errors SHALL be highlighted in red color
+
 ### NFR8: Monitoring & Observability
 
 **NFR8.1 Logging Requirements**
