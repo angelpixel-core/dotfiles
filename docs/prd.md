@@ -444,6 +444,37 @@ A modular, idempotent system that:
 - System SHALL provide keyboard-only navigation
 - System SHALL support high contrast mode for terminal output
 
+### NFR8: Monitoring & Observability
+
+**NFR8.1 Logging Requirements**
+- System SHALL log all operations to `~/.dotfiles/logs/`
+- Logs SHALL use structured format (timestamp, level, component, message)
+- Log levels SHALL include: DEBUG, INFO, WARN, ERROR, FATAL
+- Logs SHALL rotate when reaching 10MB size
+- System SHALL maintain last 10 log files (max 100MB total)
+- Sensitive information SHALL be redacted from logs
+
+**NFR8.2 Metrics Collection**
+- System SHALL track installation metrics:
+  - Time per module installation
+  - Success/failure rates
+  - Retry attempts
+  - Network bandwidth used
+- Metrics SHALL be stored locally in `~/.dotfiles/metrics/`
+- System SHALL provide `make metrics` to display statistics
+- Metrics SHALL be opt-in with `COLLECT_METRICS=1`
+
+**NFR8.3 Health Monitoring**
+- System SHALL provide `make health` for system status check
+- Health checks SHALL include:
+  - Module installation status
+  - Symlink integrity
+  - Backup system status
+  - Disk space availability
+  - Dependencies availability
+- System SHALL support JSON output for monitoring integration
+- Health checks SHALL complete within 5 seconds
+
 ---
 
 *Document in progress - Additional sections to be added*
