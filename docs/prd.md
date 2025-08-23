@@ -383,6 +383,36 @@ A modular, idempotent system that:
 - System SHALL support module versioning for compatibility
 - System SHALL provide rollback capability per module
 
+### NFR7: Compliance & Standards
+
+**NFR7.1 License Compliance**
+- System SHALL be licensed under MIT License
+- All dependencies SHALL have compatible open source licenses
+- System SHALL include LICENSE file in repository root
+- System SHALL maintain NOTICE file for third-party attributions
+- Binary distributions SHALL include all required license texts
+
+**NFR7.2 Security Compliance**
+- System SHALL follow OWASP security guidelines for CLI applications
+- System SHALL NOT execute untrusted code without user confirmation
+- System SHALL validate all input to prevent injection attacks
+- System SHALL use secure defaults for all operations
+- System SHALL support security audit logging when enabled
+
+**NFR7.3 Privacy Compliance**
+- System SHALL comply with GDPR principles (no PII collection)
+- System SHALL provide clear data handling documentation
+- System SHALL allow users to purge all stored data
+- System SHALL NOT transmit any user data without explicit consent
+- System SHALL document all file system modifications
+
+**NFR7.4 Accessibility Compliance**
+- System SHALL provide text-only output option
+- System SHALL support screen reader compatibility
+- System SHALL follow WCAG 2.1 AA guidelines for documentation
+- System SHALL provide keyboard-only navigation
+- System SHALL support high contrast mode for terminal output
+
 ---
 
 *Document in progress - Additional sections to be added*
