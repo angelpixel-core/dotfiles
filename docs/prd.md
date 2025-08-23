@@ -383,6 +383,37 @@ A modular, idempotent system that:
 - System SHALL support module versioning for compatibility
 - System SHALL provide rollback capability per module
 
+### FR6: Integration APIs
+
+**FR6.1 Hook System API**
+- System SHALL provide pre/post hooks for all major operations
+- Hooks SHALL receive context via environment variables
+- Hook scripts SHALL be stored in `~/.dotfiles/hooks/`
+- System SHALL support these hook points:
+  - pre-install, post-install
+  - pre-update, post-update
+  - pre-backup, post-backup
+  - pre-module, post-module
+- Hooks SHALL timeout after 30 seconds by default
+
+**FR6.2 Module API**
+- Modules SHALL expose standard interface functions:
+  - `module_info()` - Returns name, version, description
+  - `module_check()` - Validates prerequisites
+  - `module_install()` - Performs installation
+  - `module_verify()` - Confirms successful installation
+  - `module_uninstall()` - Removes module completely
+- Modules SHALL communicate via return codes and stdout
+- Modules SHALL support JSON output mode for automation
+
+**FR6.3 External Tool Integration**
+- System SHALL provide integration points for:
+  - CI/CD systems (GitHub Actions, GitLab CI)
+  - Configuration management tools (Ansible, Terraform)
+  - Container systems (Docker, Podman)
+- System SHALL expose status via machine-readable formats (JSON, YAML)
+- System SHALL support headless operation for automation
+
 ### NFR7: Compliance & Standards
 
 **NFR7.1 License Compliance**
