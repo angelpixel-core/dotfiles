@@ -337,6 +337,37 @@ A modular, idempotent system that:
 - Configuration format changes SHALL include migration tools
 - Deprecations SHALL be announced one version in advance
 
+### FR4: Command-Line Interface
+
+**FR4.1 Make Targets**
+- System SHALL provide intuitive Make target naming (verb-noun pattern)
+- System SHALL support tab completion for Make targets
+- System SHALL provide `make help` with categorized command listing
+- System SHALL support verbose mode with `VERBOSE=1` flag
+- System SHALL support dry-run mode with `DRY_RUN=1` flag
+
+**FR4.2 Error Handling**
+- System SHALL exit with non-zero status on any error
+- System SHALL provide contextual error messages with file:line references
+- System SHALL clean up partial installations on failure
+- System SHALL log all operations to `~/.dotfiles/logs/` with rotation
+- System SHALL provide `make diagnose` for troubleshooting
+
+### FR5: Module Architecture
+
+**FR5.1 Module Structure**
+- Each module SHALL have standardized directory structure
+- Each module SHALL include: install.sh, uninstall.sh, verify.sh
+- Each module SHALL declare dependencies in module.deps file
+- Each module SHALL provide README with configuration options
+- Modules SHALL be self-contained with no cross-dependencies
+
+**FR5.2 Module Lifecycle**
+- System SHALL support pre-install and post-install hooks
+- System SHALL validate module integrity before installation
+- System SHALL support module versioning for compatibility
+- System SHALL provide rollback capability per module
+
 ---
 
 *Document in progress - Additional sections to be added*
