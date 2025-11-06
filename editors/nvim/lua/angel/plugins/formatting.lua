@@ -1,5 +1,5 @@
 -- Archivo: lua/angel/plugins/formatting.lua
--- Configuración de formateo automático usando conform.nvim
+-- Configuración moderna de formateo automático con conform.nvim
 
 return {
   "stevearc/conform.nvim",
@@ -7,46 +7,48 @@ return {
   config = function()
     local conform = require("conform")
 
+    local prettier = { "prettier" }
+
     conform.setup({
-      -- Mapa de filetypes a formateadores
       formatters_by_ft = {
+        -- Lenguajes comunes
         lua = { "stylua" },
-        -- Web / frontend
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        javascriptreact = { "prettier" },
-        typescriptreact = { "prettier" },
-        svelte = { "prettier" },
-        css = { "prettier" },
-        html = { "prettier" },
-        json = { "prettier" },
-        yaml = { "prettier" },
-        markdown = { "prettier" },
-        graphql = { "prettier" },
-        -- Ruby / Rails
         ruby = { "rubocop" },
-        -- Python
         python = { "isort", "black" },
-        -- Todos los otros filetypes pueden heredar aquí si lo deseas
+        rust = { "rustfmt" },
+        sh = { "shfmt" },
+        dockerfile = { "dockfmt" },
+
+        -- Web / Frontend
+        javascript = prettier,
+        typescript = prettier,
+        javascriptreact = prettier,
+        typescriptreact = prettier,
+        svelte = prettier,
+        css = prettier,
+        html = prettier,
+        json = prettier,
+        yaml = prettier,
+        markdown = prettier,
+        graphql = prettier,
+
+        -- Fallback para otros tipos
         ["*"] = { "trim_whitespace" },
       },
 
-      -- Opciones generales de formato
       default_format_opts = {
         lsp_format = "fallback",
         timeout_ms = 500,
       },
 
-      -- Formatear **antes** de guardar
       format_on_save = {
-        timeout_ms = 500,
         lsp_format = "fallback",
+        timeout_ms = 500,
       },
     })
 
-    -- Mapear un atajo manual para formatear el archivo actual
     vim.keymap.set("n", "<leader>cf", function()
-      require("conform").format({ bufnr = vim.api.nvim_get_current_buf() })
-    end, { desc = "Format current file" })
+      conform.format({ bufnr = vim.api.nvim_get_current_buf() })
+    end, { desc = "🧹 Format current file" })
   end,
 }
