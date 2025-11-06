@@ -417,7 +417,7 @@ If you want to keep using cd then create an alias in ~/.zshrc:
 
 eval "$(zoxide init zsh)"
 
-alias cd="z"
+# alias cd="z"
 
 Save and then run:
 

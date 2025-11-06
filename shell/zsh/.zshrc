@@ -49,12 +49,51 @@ bindkey -e
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# Shopify Hydrogen alias to local projects
-alias h2='$(npm prefix -s)/node_modules/.bin/shopify hydrogen'
-
 # Created by `pipx` on 2025-06-22 00:23:57
 export PATH="$PATH:/Users/angel.szymczak/.local/bin"
 
-# Task Master aliases added on 5/8/2025
-alias tm='task-master'
-alias taskmaster='task-master'
+# pnpm
+export PNPM_HOME="/Users/angel.szymczak/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+# Alias for running starkup installer
+alias starkup="curl --proto '=https' --tlsv1.2 -sSf https://sh.starkup.sh | sh -s --"
+
+# BEGIN SCARB COMPLETIONS
+_scarb() {
+  if ! scarb completions zsh >/dev/null 2>&1; then
+    return 0
+  fi
+  eval "$(scarb completions zsh)"
+  _scarb "$@"
+}
+
+autoload -Uz compinit && compinit
+compdef _scarb scarb
+# END SCARB COMPLETIONS
+
+# BEGIN FOUNDRY COMPLETIONS
+_snforge() {
+  if ! snforge completions zsh >/dev/null 2>&1; then
+    return 0
+  fi
+  eval "$(snforge completions zsh)"
+  _snforge "$@"
+}
+
+_sncast() {
+  if ! sncast completions zsh >/dev/null 2>&1; then
+    return 0
+  fi
+  eval "$(sncast completions zsh)"
+  _sncast "$@"
+}
+
+compdef _snforge snforge
+compdef _sncast sncast
+# END FOUNDRY COMPLETIONS
+. "/Users/angel.szymczak/.starkli/env"
+export AWS_PROFILE=angel-solutions
