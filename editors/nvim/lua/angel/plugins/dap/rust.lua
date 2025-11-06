@@ -1,30 +1,29 @@
 -- lua/angel/plugins/dap/rust.lua
--- Configuración DAP para Rust (usando codelldb)
+return {
+  "mfussenegger/nvim-dap",
+  ft = { "rust" },
+  config = function()
+    local dap = require("dap")
+    dap.adapters.codelldb = {
+      type = "server",
+      port = "${port}",
+      executable = {
+        command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
+        args = { "--port", "${port}" },
+      },
+    }
 
-local ok, dap = pcall(require, "dap")
-if not ok then
-  return
-end
-
-dap.adapters.codelldb = {
-  type = "server",
-  port = "${port}",
-  executable = {
-    command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
-    args = { "--port", "${port}" },
-  },
-}
-
-dap.configurations.rust = {
-  {
-    name = "Launch Rust executable",
-    type = "codelldb",
-    request = "launch",
-    program = function()
-      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
-    end,
-    cwd = "${workspaceFolder}",
-    stopOnEntry = false,
-    args = {},
-  },
+    dap.configurations.rust = {
+      {
+        name = "Debug Rust executable",
+        type = "codelldb",
+        request = "launch",
+        program = function()
+          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+        end,
+        cwd = "${workspaceFolder}",
+        stopOnEntry = false,
+      },
+    }
+  end,
 }

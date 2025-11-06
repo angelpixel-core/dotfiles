@@ -1,7 +1,8 @@
 return {
   "NeogitOrg/neogit",
+  cmd = "Neogit",
   keys = {
-    { "<leader>gs", ":Neogit<CR>", desc = "Neogit status", silent = true },
+    { "<leader>gs", "<cmd>Neogit<CR>", desc = " Neogit status" },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -10,7 +11,11 @@ return {
   },
   config = function()
     require("neogit").setup({
-      filewatcher = { enabled = false },
+      disable_commit_confirmation = true,
+      integrations = {
+        diffview = true,
+        telescope = true,
+      },
     })
   end,
 }

@@ -59,7 +59,6 @@ return {
       "angel.plugins.dap.python",
       "angel.plugins.dap.node",
       "angel.plugins.dap.rust",
-      "angel.plugins.dap.tests_runners",
     }
     for _, module in ipairs(dap_configs) do
       local ok, _ = pcall(require, module)
