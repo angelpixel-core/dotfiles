@@ -55,6 +55,7 @@
   "render-markdown.nvim": { "branch": "main", "commit": "060c911c62f995a9db4467dde6fafd699cf94d55" },
   "rest.nvim": { "branch": "main", "commit": "5466d1e447fc4b038ef511a7a2c4c7cbb13da01a" },
   "schemastore.nvim": { "branch": "main", "commit": "03f162c06514111326d07d6d297275642f390f28" },
+  "session-lens": { "branch": "main", "commit": "eae46b472b3150f5ec0f977556e8085683d49eb0" },
   "sort.nvim": { "branch": "main", "commit": "bb92140e1b96d62339bd5ab5b6df1eecca0d5da6" },
   "splitjoin.vim": { "branch": "main", "commit": "cace6c962b67312fc1265d55337048e80d64ca90" },
   "substitute.nvim": { "branch": "main", "commit": "9db749a880e3dd3b0eb57f698aa8f1e1630e1f25" },

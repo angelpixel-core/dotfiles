@@ -24,7 +24,7 @@ return {
     })
 
     local keymap = vim.keymap.set
-    local opts = { noremap = true, silent = true, desc = "" }
+    local opts = { noremap = true, silent = true }
 
     keymap(
       "n",
@@ -38,6 +38,12 @@ return {
       "<leader>wd",
       "<cmd>SessionDelete<CR>",
       vim.tbl_extend("force", opts, { desc = "🗑️ Delete session" })
+    )
+    keymap(
+      "n",
+      "<leader>wl",
+      "<cmd>Telescope session-lens search_session<CR>",
+      vim.tbl_extend("force", opts, { desc = "📜 List sessions" })
     )
   end,
 }

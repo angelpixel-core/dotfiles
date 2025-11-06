@@ -14,16 +14,17 @@ return {
     vim.api.nvim_create_user_command("TestCurrentFile", function()
       local ext = vim.fn.expand("%:e")
       local file = vim.fn.expand("%:p")
+      local cwd = vim.fn.getcwd()
 
       if ext == "rb" then
-        if string.match(file, "_spec%.rb$") then
+        if file:match("_spec%.rb$") then
           run_test({
             type = "ruby",
             name = "RSpec current file",
             request = "launch",
             program = "bundle",
             programArgs = { "exec", "rspec", file },
-            cwd = "${workspaceFolder}",
+            cwd = cwd,
           })
         else
           run_test({
@@ -32,7 +33,7 @@ return {
             request = "launch",
             program = "bundle",
             programArgs = { "exec", "ruby", file },
-            cwd = "${workspaceFolder}",
+            cwd = cwd,
           })
         end
       elseif ext == "py" then
@@ -52,13 +53,19 @@ return {
         })
       elseif ext == "js" or ext == "ts" then
         run_test({
-          type = "node2",
-          name = "JS/TS current file",
+          type = "pwa-node",
+          name = "JS/TS Jest test",
           request = "launch",
-          program = "node",
-          args = { "node_modules/jest/bin/jest.js", file },
-          cwd = "${workspaceFolder}",
-          sourceMaps = true,
+          runtimeExecutable = "node",
+          runtimeArgs = {
+            "./node_modules/jest/bin/jest.js",
+            "--runInBand",
+            file,
+          },
+          rootPath = cwd,
+          cwd = cwd,
+          console = "integratedTerminal",
+          internalConsoleOptions = "neverOpen",
         })
       elseif ext == "rs" then
         run_test({
@@ -66,17 +73,17 @@ return {
           name = "Rust test current file",
           request = "launch",
           program = function()
-            return vim.fn.input("Path to Rust test executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+            return vim.fn.input("Path to Rust test binary: ", cwd .. "/target/debug/", "file")
           end,
-          cwd = "${workspaceFolder}",
+          cwd = cwd,
           args = { "--test", vim.fn.expand("%:t:r") },
           stopOnEntry = false,
         })
       else
-        print("No test runner configured for file type: " .. ext)
+        vim.notify("❌ No test runner configured for this file type: " .. ext, vim.log.levels.WARN)
       end
     end, { desc = "Run tests in current file via DAP" })
 
-    vim.keymap.set("n", "<leader>tt", ":TestCurrentFile<CR>", { desc = "Run tests in current file" })
+    vim.keymap.set("n", "<leader>tt", ":TestCurrentFile<CR>", { desc = "🧪 Run tests in current file" })
   end,
 }
