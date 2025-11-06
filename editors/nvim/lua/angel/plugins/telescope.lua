@@ -21,6 +21,21 @@ return {
     telescope.setup({
       defaults = {
         path_display = { "smart" },
+        sorting_strategy = "ascending",
+        layout_strategy = "horizontal",
+        layout_config = {
+          prompt_position = "top",
+          horizontal = {
+            preview_width = 0.55,
+            results_width = 0.8,
+          },
+          vertical = {
+            mirror = false,
+          },
+          width = 0.87,
+          height = 0.80,
+          preview_cutoff = 120,
+        },
 
         file_ignore_patterns = {
           "node_modules",
@@ -32,22 +47,6 @@ return {
           "%.png",
           "%.gif",
           "%.webp",
-        },
-
-        layout_strategy = "horizontal",
-        layout_config = {
-          prompt_position = "top",
-          sorting_strategy = "ascending",
-          horizontal = {
-            preview_width = 0.55,
-            results_width = 0.8,
-          },
-          vertical = {
-            mirror = false,
-          },
-          width = 0.87,
-          height = 0.80,
-          preview_cutoff = 120,
         },
       },
     })
