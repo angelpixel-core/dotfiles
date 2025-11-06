@@ -1,133 +1,52 @@
+-- Archivo: lua/angel/plugins/formatting.lua
+-- Configuración de formateo automático usando conform.nvim
+
 return {
   "stevearc/conform.nvim",
-
-  -- event = { "BufReadPre", "BufNewFile" },
-
-  cmd = { "ConformInfo", "Format" },
-
-  ft = { "ruby", "javascript", "lua", "python" },
-
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     local conform = require("conform")
 
     conform.setup({
-      formatters = {
-        standardrb = {
-          command = "standardrb",
-          args = { "$FILENAME", "--fix" },
-          stdin = true,
-        },
-
-        rubocop = {
-          command = "bundle",
-          args = { "exec", "rubocop", "--auto-correct", "--stdin", "$FILENAME", "--stderr", "--format", "files" },
-          stdin = true,
-        },
-
-        yamlfix = {
-          -- Change where to find the command
-          command = "opt/homebrew/bin/yamlfix",
-          -- Adds environment args to the yamlfix formatter
-          env = {
-            YAMLFIX_SEQUENCE_STYLE = "block_style",
-          },
-        },
-      },
-
+      -- Mapa de filetypes a formateadores
       formatters_by_ft = {
-        -- JavaScript y derivados
-        javascript = { "prettier" },        -- requiere: npm install -g prettier
+        lua = { "stylua" },
+        -- Web / frontend
+        javascript = { "prettier" },
         typescript = { "prettier" },
         javascriptreact = { "prettier" },
         typescriptreact = { "prettier" },
         svelte = { "prettier" },
-        vue = { "prettier" },
-
-        -- Web
         css = { "prettier" },
         html = { "prettier" },
         json = { "prettier" },
         yaml = { "prettier" },
+        markdown = { "prettier" },
         graphql = { "prettier" },
-        markdown = { "prettier" },          -- incluye doble comillas si se fuerza vía config prettier
-        liquid = { "prettier" },
-
-        -- Ruby
-        ruby = { "rubocop" }, -- { "standardrb" },            -- requiere: gem install rubocop
-
+        -- Ruby / Rails
+        ruby = { "rubocop" },
         -- Python
-        python = { "isort", "black" },      -- requiere: pip install black isort
+        python = { "isort", "black" },
+        -- Todos los otros filetypes pueden heredar aquí si lo deseas
+        ["*"] = { "trim_whitespace" },
+      },
 
-        -- Lua
-        lua = { "stylua" },                 -- requiere: brew install stylua
+      -- Opciones generales de formato
+      default_format_opts = {
+        lsp_format = "fallback",
+        timeout_ms = 500,
+      },
 
-        -- Bash y Shell
-        sh = { "shfmt" },                   -- requiere: brew install shfmt
-        bash = { "shfmt" },
-
-        -- C/C++
-        c = { "clang_format" },             -- requiere: brew install clang-format
-        cpp = { "clang_format" },
-
-        -- Rust
-        rust = { "rustfmt" },               -- requiere: rustup component add rustfmt
-
-        -- Go
-        go = { "gofmt" },                   -- viene con Go: go install
-
-        -- Docker
-        dockerfile = { "hadolint" },        -- requiere: brew install hadolint
-
-        -- SQL
-        sql = { "sqlfluff" },               -- requiere: pip install sqlfluff
-
-        -- Protocol Buffers
-        proto = { "buf" },                  -- requiere: brew install buf
-
-        -- ERB (HTML embed en Ruby)
-        erb = { "rubocop" }, -- { "standardrb" },             -- requiere: gem install erb-formatter
-
-        -- Makefiles
-        make = { "checkmake" },             -- requiere: go install github.com/mrtazz/checkmake@latest
-
-        -- Terraform
-        terraform = { "terraform_fmt" },    -- viene con Terraform: terraform fmt
-
-        -- Dotenv
-        dotenv = { "dotenv_linter" },       -- requiere: cargo install dotenv-linter
-
-        -- Rakefiles, bin scripts
-        rake = { "rubocop" },            -- reaprovecha el formatter de Ruby
-
-        -- SVG
-        svg = {}, -- No formatter universal, revisar `svglint` si querés integrarlo
-
-        -- Mermaid (requiere integración a medida si querés `mermaid-lint`)
-        -- mermaid = {},
-
-        -- Fallback
-        ["*"] = {}, -- catch-all
+      -- Formatear **antes** de guardar
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_format = "fallback",
       },
     })
 
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      pattern = { "*.rb", "*.rake", "*.gemspec", "Gemfile", "Rakefile", "*.ru" },
-      callback = function(args)
-        conform.format({
-          bufnr = args.buf,
-          lsp_fallback = true,
-          async = false,
-          timeout_ms = 3000, -- Ruby puede ser lento
-        })
-      end,
-    })
-
-    vim.keymap.set({ "n", "v" }, "<leader>mp", function()
-      conform.format({
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
-      })
-    end, { desc = "Format file or range (in visual mode)" })
+    -- Mapear un atajo manual para formatear el archivo actual
+    vim.keymap.set("n", "<leader>cf", function()
+      require("conform").format({ bufnr = vim.api.nvim_get_current_buf() })
+    end, { desc = "Format current file" })
   end,
 }

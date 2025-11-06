@@ -1,6 +1,14 @@
 return {
   "nvim-telescope/telescope.nvim",
   branch = "0.1.x",
+  cmd = "Telescope",
+  keys = {
+    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+    { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" },
+    { "<leader>fs", "<cmd>Telescope live_grep<cr>", desc = "Find Grep" },
+    { "<leader>fc", "<cmd>Telescope grep_string<cr>", desc = "Find Word Under Cursor" },
+    { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Find TODOs" },
+  },
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -9,20 +17,6 @@ return {
   },
   config = function()
     local telescope = require("telescope")
-    local actions = require("telescope.actions")
-    local transform_mod = require("telescope.actions.mt").transform_mod
-
-    local trouble = require("trouble")
-    -- TODO Deprecation warning
-    -- local trouble_telescope = require("trouble.providers.telescope")
-    local trouble_telescope = require("trouble.sources.telescope")
-
-    -- or create your custom action
-    local custom_actions = transform_mod({
-      open_trouble_qflist = function(prompt_bufnr)
-        trouble.toggle("quickfix")
-      end,
-    })
 
     telescope.setup({
       defaults = {
@@ -40,8 +34,10 @@ return {
           "%.webp",
         },
 
-        layout_strategy = "horizontal",
+        -- layout_strategy = "horizontal",
         layout_config = {
+          prompt_position = "top",
+          sorting_strategy = "ascending",
           horizontal = {
             preview_width = 0.55,
             results_width = 0.8,
@@ -53,29 +49,9 @@ return {
           height = 0.80,
           preview_cutoff = 120,
         },
-
-        mappings = {
-          i = {
-            ["<C-k>"] = actions.move_selection_previous, -- move to prev result
-            ["<C-j>"] = actions.move_selection_next, -- move to next result
-            ["<C-q>"] = actions.send_selected_to_qflist + custom_actions.open_trouble_qflist,
-            -- TODO Deprecation warning
-            -- ["<C-t>"] = trouble_telescope.smart_open_with_trouble,
-            ["<C-t>"] = trouble_telescope.open,
-          },
-        },
       },
     })
 
     telescope.load_extension("fzf")
-
-    -- set keymaps
-    local keymap = vim.keymap -- for conciseness
-
-    keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
-    keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
-    keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-    keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
-    keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
   end,
 }

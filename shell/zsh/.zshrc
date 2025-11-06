@@ -6,10 +6,14 @@ export DOTFILES_ROOT="$HOME/.dotfiles"
 
 # ZSH Options
 # TODO: check about these zsh configs
-# setopt HIST_IGNORE_ALL_DUPS
-# setopt HIST_FCNTL_LOCK
-# setopt +o nomatch
-# setopt autopushd
+setopt HIST_IGNORE_ALL_DUPS
+setopt SHARE_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_VERIFY
+
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
@@ -19,7 +23,7 @@ source "$ZIM_HOME/init.zsh"
 # TODO: check about filter "cd" commands in shell history by environment zim module
 
 # Async mode for autocompletion
-ZSH_AUTOSUGGEST_USE_ASYNC=true
+# ZSH_AUTOSUGGEST_USE_ASYNC=true
 ZSH_HIGHLIGHT_MAXLENGTH=300
 
 source "$DOTFILES_ROOT/shell/init.sh"

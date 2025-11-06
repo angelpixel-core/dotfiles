@@ -1,29 +1,27 @@
+-- Archivo: lua/angel/plugins/linting.lua
+-- Configuración de linters automáticos usando nvim‑lint
+
 return {
   "mfussenegger/nvim-lint",
-  event = { "BufReadPre", "BufNewFile" },
+  event = { "BufReadPost", "BufNewFile" },
   config = function()
     local lint = require("lint")
 
+    -- Define linters por tipo de archivo
     lint.linters_by_ft = {
+      ruby = { "rubocop" },
+      python = { "pylint" },
       javascript = { "eslint_d" },
       typescript = { "eslint_d" },
-      javascriptreact = { "eslint_d" },
-      typescriptreact = { "eslint_d" },
-      svelte = { "eslint_d" },
-      python = { "pylint" },
+      -- Puedes añadir más filetypes según tu stack
     }
 
-    local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
-
-    vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-      group = lint_augroup,
+    -- Autocmd para ejecutar linters al guardar el archivo
+    vim.api.nvim_create_autocmd({ "BufWritePost" }, {
       callback = function()
         lint.try_lint()
       end,
+      group = vim.api.nvim_create_augroup("UserLint", { clear = true }),
     })
-
-    vim.keymap.set("n", "<leader>l", function()
-      lint.try_lint()
-    end, { desc = "Trigger linting for current file" })
   end,
 }

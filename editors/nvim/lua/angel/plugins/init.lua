@@ -1,4 +1,16 @@
 return {
-  "nvim-lua/plenary.nvim", -- lua functions that many plugins use
-  "christoomey/vim-tmux-navigator", -- tmux & split window navigation
+  "mxsdev/nvim-dap-vscode-js",
+  dependencies = { "mfussenegger/nvim-dap" },
+  config = function()
+    require("dap-vscode-js").setup({
+      debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
+      adapters = {
+        "pwa-node",
+        "pwa-chrome",
+        "pwa-msedge",
+        "pwa-extensionHost",
+        "node-terminal",
+      },
+    })
+  end,
 }

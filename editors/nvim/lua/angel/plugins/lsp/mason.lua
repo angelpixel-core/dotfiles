@@ -1,5 +1,9 @@
+-- Configura mason.nvim y mason-lspconfig con soporte moderno (Neovim 0.11+)
+
 return {
   "williamboman/mason.nvim",
+  cmd = "Mason", -- importante para que :Mason funcione
+  build = ":MasonUpdate",
   dependencies = {
     "neovim/nvim-lspconfig",
     "williamboman/mason-lspconfig.nvim",
@@ -7,6 +11,9 @@ return {
   },
   config = function()
     local mason = require("mason")
+    local mason_lspconfig = require("mason-lspconfig")
+    local mason_tool_installer = require("mason-tool-installer")
+
     mason.setup({
       ui = {
         border = "rounded",
@@ -18,65 +25,56 @@ return {
       },
     })
 
-    local mason_lspconfig = require("mason-lspconfig")
+    --------------------------------------------------------------------------
+    -- 📦 SERVIDORES LSP A INSTALAR AUTOMÁTICAMENTE
+    --------------------------------------------------------------------------
     mason_lspconfig.setup({
-      -- list of servers for mason to install
       ensure_installed = {
-        -- Web
-        "html",
-        "cssls",
-        "svelte",
-        "tailwindcss",
-        -- "tsserver", -- BUG: [mason-lspconfig.nvim] Server "tsserver" is not a valid entry in ensure_installed. Make sure to only provide lspconfig server names.
-        "emmet_ls",
-
-        -- Lenguages
+        -- Lenguajes principales
         "lua_ls",
         "ruby_lsp",
-        "rust_analyzer",
         "pyright",
+        "rust_analyzer",
 
-        -- DevOps
+        -- Web / Frontend
+        "html",
+        "cssls",
+        "emmet_ls",
+        "svelte",
+        "tailwindcss",
+        "tsserver", -- ← este es el nombre correcto
+
+        -- Otros
+        "graphql",
+        "marksman",
         "bashls",
         "dockerls",
-
-        -- Markup
-        "marksman",
         "jsonls",
         "yamlls",
-
-        -- Database
-        "prismals",
-        "sqlls",
-        "graphql",
       },
     })
 
-    local mason_tool_installer = require("mason-tool-installer")
+    --------------------------------------------------------------------------
+    -- 🧰 TOOLS: FORMATTERS, LINTERS, DEBUGGERS
+    --------------------------------------------------------------------------
     mason_tool_installer.setup({
       ensure_installed = {
         -- Formatters
-        "prettier",
         "stylua",
+        "prettier",
         "black",
-        -- "isort", -- python formatter
+        "isort",
         "rubocop",
 
         -- Linters
         "eslint_d",
         "pylint",
 
-        -- DAP
-        "debugpy", "node-debug2-adapter",
+        -- Debuggers
+        "debugpy",
+        "node-debug2-adapter",
+        "codelldb",
       },
     })
-
-    -- local ruby_lspconfig = require("lspconfig").ruby_lsp
-    -- ruby_lspconfig.setup({
-    --   init_options = {
-    --     formatter = "standard",
-    --     linters = { "standard" },
-    --   },
-    -- })
   end,
 }

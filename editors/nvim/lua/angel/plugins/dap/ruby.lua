@@ -1,36 +1,33 @@
-local dap = require("dap")
+-- lua/angel/plugins/dap/ruby.lua
+-- Configuración del adaptador Ruby para nvim-dap (rdbg)
 
--- Adaptador: conecta Neovim con el debugger Ruby (rdbg)
+local ok, dap = pcall(require, "dap")
+if not ok then
+  return
+end
+
 dap.adapters.ruby = {
   type = "executable",
   command = "bundle",
-  args = {
-    "exec", "rdbg",
-    "-n",           -- no stop en inicio
-    "--open",       -- acepta conexiones
-    "--port", "${port}",
-    "-c",           -- continúa ejecución
-    "--",
-    "bundle", "exec", "rails", "s"
-  },
+  args = { "exec", "rdbg", "-n", "--open", "--port", "${port}", "-c", "--" },
 }
 
--- Configuraciones predefinidas
 dap.configurations.ruby = {
   {
     type = "ruby",
+    name = "Debug current Ruby file",
     request = "launch",
-    name = "Debug current RSpec file",
     program = "bundle",
     programArgs = function()
       return { "exec", "rspec", vim.fn.expand("%:p") }
     end,
+    cwd = "${workspaceFolder}",
   },
   {
     type = "ruby",
+    name = "Attach to Rails server",
     request = "attach",
-    name = "Attach to running Rails",
-    remoteHost = "127.0.0.1",
-    remotePort = "3000",
+    host = "127.0.0.1",
+    port = 1234,
   },
 }

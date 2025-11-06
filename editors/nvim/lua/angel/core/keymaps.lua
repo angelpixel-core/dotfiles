@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
@@ -32,7 +33,7 @@ keymap.set("i", "<C-i>", 'copilot#Accept("<CR>")', {
   expr = true,
   silent = true,
   noremap = true,
-  replace_keycodes = false
+  replace_keycodes = false,
 })
 
 -- Copilot: navegar sugerencias con Alt+n / Alt+p
@@ -58,3 +59,11 @@ keymap.set("n", "<leader>k", "<C-w>k", { noremap = true, desc = "Move to top spl
 keymap.set("n", "<leader>l", "<C-w>l", { noremap = true, desc = "Move to right split" })
 
 -- NoteTaker
+
+-- Tele­scope: buscar archivos
+keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find Files" })
+-- Tele­scope: buscar texto en proyecto
+keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Live Grep" })
+
+-- Git: Estado rápido con Neogit
+keymap.set("n", "<leader>gs", "<cmd>Neogit<CR>", { desc = "Neogit Status" })
