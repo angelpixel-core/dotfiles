@@ -1,16 +1,43 @@
 return {
   "rmagatti/auto-session",
+  event = "VimLeavePre", -- opcional: carga más inteligentemente
   config = function()
     local auto_session = require("auto-session")
 
     auto_session.setup({
-      auto_restore_enabled = false,
-      auto_session_suppress_dirs = { "~/", "~/Dev/", "~/Downloads", "~/Documents", "~/Desktop/" },
+      log_level = "error", -- menos ruido
+      auto_save_enabled = true,
+      auto_restore_enabled = true,
+      auto_session_suppress_dirs = {
+        "~/", -- home
+        "~/Downloads",
+        "~/Documents",
+        "~/Desktop",
+        "~/Dev", -- ignora raíz de proyectos grandes
+        "/tmp", -- sesiones temporales
+      },
+      session_lens = {
+        load_on_setup = false,
+        theme_conf = { border = true },
+        previewer = false,
+      },
     })
 
-    local keymap = vim.keymap
+    local keymap = vim.keymap.set
+    local opts = { noremap = true, silent = true, desc = "" }
 
-    keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore session for cwd" }) -- restore last workspace session for current directory
-    keymap.set("n", "<leader>ws", "<cmd>SessionSave<CR>", { desc = "Save session for auto session root dir" }) -- save workspace session for current working directory
+    keymap(
+      "n",
+      "<leader>wr",
+      "<cmd>SessionRestore<CR>",
+      vim.tbl_extend("force", opts, { desc = "📂 Restore session" })
+    )
+    keymap("n", "<leader>ws", "<cmd>SessionSave<CR>", vim.tbl_extend("force", opts, { desc = "💾 Save session" }))
+    keymap(
+      "n",
+      "<leader>wd",
+      "<cmd>SessionDelete<CR>",
+      vim.tbl_extend("force", opts, { desc = "🗑️ Delete session" })
+    )
   end,
 }
