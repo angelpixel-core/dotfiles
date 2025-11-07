@@ -1,7 +1,10 @@
 return {
   "vhyrro/luarocks.nvim",
-  priority = 1001, -- this plugin needs to run before anything else
+  priority = 1001, -- 🧱 Se carga primero para asegurar que los módulos estén disponibles
+  lazy = false, -- ⚠️ Importante: debe cargarse al inicio, no bajo demanda
   opts = {
-    rocks = { "magick" },
+    rocks = {
+      "magick", -- 📦 Paquete necesario para image.nvim, por ejemplo
+    },
   },
 }

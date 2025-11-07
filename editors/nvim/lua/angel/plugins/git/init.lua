@@ -1,5 +1,4 @@
 return {
-  { import = "angel.plugins.git.fugitive" },
   { import = "angel.plugins.git.gitsigns" },
   { import = "angel.plugins.git.lazygit" },
   { import = "angel.plugins.git.neogit" },

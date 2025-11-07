@@ -11,11 +11,11 @@ return {
       workspaces = {
         {
           name = "personal",
-          path = "~/Vaults_Backup/Harvis",
+          path = "~/Vaults/Harvis",
         },
         {
           name = "work",
-          path = "~/Vaults_Backup/Harvis",
+          path = "~/Vaults/Harvis",
         },
       },
       wiki_link_func = "use_alias_only",
