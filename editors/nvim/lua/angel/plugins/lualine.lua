@@ -1,6 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  event = "VeryLazy",
+  dependencies = { "nvim-tree/nvim-web-devicons", "folke/lazy.nvim" },
   config = function()
     local lualine = require("lualine")
     local lazy_status = require("lazy.status")
@@ -25,8 +26,8 @@ return {
     -- 🎨 Mostrar ícono + path con color dinámico
     local function file_with_icon()
       local filename = vim.fn.expand("%:t")
-      local extension = vim.fn.expand("%:e")
-      local icon, icon_color = devicons.get_icon_color(filename, extension, { default = true })
+      local ext = vim.fn.expand("%:e")
+      local icon, icon_color = devicons.get_icon_color(filename, ext, { default = true })
       local filepath = relative_git_filepath()
 
       -- Colorear el ícono dinámicamente
@@ -98,15 +99,7 @@ return {
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },
-      inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = { "filename" },
-        lualine_x = { "location" },
-        lualine_y = {},
-        lualine_z = {},
-      },
-      extensions = { "nvim-tree", "fugitive" },
+      extensions = { "nvim-tree" },
     })
   end,
 }
