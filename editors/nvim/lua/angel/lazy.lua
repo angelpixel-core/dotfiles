@@ -16,11 +16,13 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Plugins por defecto (importa todos los módulos en lua/angel/plugins)
-local default_plugins = {
+require("lazy").setup({
+  -- Plugins por defecto (importa todos los módulos en lua/angel/plugins)
   spec = {
-    { import = "angel.plugins" }, -- importará todos los archivos en lua/angel/plugins/*.lua
-    { import = "angel.plugins.lsp" }, -- si tienes submódulos allí
+    { import = "angel.plugins" },
+    { import = "angel.plugins.git" },
+    { import = "angel.plugins.lsp" },
+    { import = "angel.plugins.dap" },
   },
 
   -- Control de performance y cheks
@@ -36,6 +38,7 @@ local default_plugins = {
   },
 
   change_detection = {
+    enabled = true,
     notify = false,
   },
 
@@ -59,6 +62,4 @@ local default_plugins = {
       },
     },
   },
-}
-
-require("lazy").setup(default_plugins)
+})

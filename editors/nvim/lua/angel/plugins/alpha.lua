@@ -29,7 +29,7 @@ return {
     }
 
     dashboard.section.footer.val = function()
-      return "⚡ Neovim configurado por Angel | https://github.com/angel-devstack"
+      return "⚡ https://github.com/angel-devstack"
     end
 
     dashboard.opts.opts.noautocmd = true
