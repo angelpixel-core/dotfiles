@@ -4,3 +4,6 @@
 [submodule "shell/functions/system-monitor"]
 	path = shell/functions/system-monitor
 	url = ./shell/functions/system-monitor
+[submodule "terminal/wezterm"]
+	path = terminal/wezterm
+	url = ./terminal/wezterm
