@@ -1,3 +1,6 @@
 [submodule "terminal/alacritty/themes"]
 	path = terminal/alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme.git
+[submodule "shell/functions/system-monitor"]
+	path = shell/functions/system-monitor
+	url = ./shell/functions/system-monitor
