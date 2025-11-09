@@ -28,17 +28,17 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 -- keymap.set({ "n", "v" }, "<leader>gp", ":ChatGPT<CR>", { desc = "Open AI Assistant Menu" })
 
 -- Copilot: aceptar sugerencia con Tab en modo insert
-local keymap = vim.keymap -- for conciseness
-keymap.set("i", "<C-i>", 'copilot#Accept("<CR>")', {
-  expr = true,
-  silent = true,
-  noremap = true,
-  replace_keycodes = false,
-})
-
--- Copilot: navegar sugerencias con Alt+n / Alt+p
-keymap.set("i", "<M-n>", "<Plug>(copilot-next)", { silent = true })
-keymap.set("i", "<M-p>", "<Plug>(copilot-previous)", { silent = true })
+-- local keymap = vim.keymap -- for conciseness
+-- keymap.set("i", "<C-i>", 'copilot#Accept("<CR>")', {
+--   expr = true,
+--   silent = true,
+--   noremap = true,
+--   replace_keycodes = false,
+-- })
+--
+-- -- Copilot: navegar sugerencias con Alt+n / Alt+p
+-- keymap.set("i", "<M-n>", "<Plug>(copilot-next)", { silent = true })
+-- keymap.set("i", "<M-p>", "<Plug>(copilot-previous)", { silent = true })
 
 ---- Save: Ctrl+S
 keymap.set("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
