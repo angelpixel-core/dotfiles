@@ -1,159 +1,211 @@
-este es mi shell/exports.sh
-$()$(
-  #!/usr/bin/env zsh
+#!/usr/bin/env zsh
 
-  export SHELL_PATH="${DOTFILES_ROOT}/shell"
+export SHELL_PATH="${DOTFILES_ROOT}/shell"
+export LANGS_PATH="${DOTFILES_ROOT}/langs"
+export ASDF_DATA_DIR="$HOME/.asdf"
 
-  # ------------------------------------------------------------------------------
-  # Theme config
-  # ------------------------------------------------------------------------------
+export VAULTS_PATH="${HOME}/Vaults"
+export HARVIS_PATH="${VAULTS_PATH}/Harvis"
+export MEMORIA_DIGITAL_PATH="${HARVIS_PATH}/300-MEMORIA_DIGITAL"
+export SITES_PATH="${MEMORIA_DIGITAL_PATH}/475-sites"
+export ANGEL_SOLUTIONS_PATH="${SITES_PATH}/AngelSolutions"
+export COMPANY_PATH="${ANGEL_SOLUTIONS_PATH}/company"
 
-  # ------------------------------------------------------------------------------
-  # Languages
-  # ------------------------------------------------------------------------------
+export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
+export ANDROID_HOME="$ANDROID_SDK_ROOT"
 
-  # Ruby
-  # export GEM_HOME="$HOME/.gem"
-  # export RBENV_PATH="$HOME/.rbenv"
+# For compilers to find util-linux you may need to set:
+export LDFLAGS="-L/opt/homebrew/opt/util-linux/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/util-linux/include"
 
-  # Rust
-  export CARGO_PATH="$HOME/.cargo"
+# For pkgconf to find util-linux you may need to set:
+export PKG_CONFIG_PATH="/opt/homebrew/opt/util-linux/lib/pkgconfig"
 
-  # ------------------------------------------------------------------------------
-  # CLI Apps config
-  # ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+# Theme config
+# ------------------------------------------------------------------------------
 
-  # ------------------------------------------------------------------------------
-  # Path - The higher it is, the more priority it has
-  # ------------------------------------------------------------------------------
-  path=(
-    # --------------------------------------------- #
-    # User session binaries
-    # --------------------------------------------- #
+# ------------------------------------------------------------------------------
+# Languages
+# ------------------------------------------------------------------------------
 
-    # Own or 3rd-party binary and scripts allowed for session user.
-    "$HOME/bin"
+# Ruby
+# export GEM_HOME="$HOME/.gem"
+# export RBENV_PATH="$HOME/.rbenv"
 
-    # Custom user Binary and Settings
-    # "$DOTFILES_ROOT/bin"
+# Rust
+export CARGO_PATH="$HOME/.cargo"
 
-    # ---------------------------------------------------------------------------
-    # Languages Binary
-    # ---------------------------------------------------------------------------
 
-    #-----------------------------------------------------------------
-    # Additional tools and software
-    #-----------------------------------------------------------------
-    "/opt/homebrew/opt/curl/bin"
+# ------------------------------------------------------------------------------
+# CLI Apps config
+# ------------------------------------------------------------------------------
 
-    # Brew Home for arm64 (Apple Silicon M1 or higher)
-    "/opt/homebrew/opt"
-    "/opt/homebrew/bin"
-    "/opt/homebrew/sbin"
+# ------------------------------------------------------------------------------
+# Path - The higher it is, the more priority it has
+# ------------------------------------------------------------------------------
+path=(
+# ASDF
+"$ASDF_DATA_DIR/shims"
+"$ASDF_DATA_DIR/completions"
 
-    # Brew Home for i386 (Intel)
-    # It is traditionally used on UNIX systems for local software that is
-    # installed outside of the system's standard package management.
-    "/usr/local/bin"
+# --------------------------------------------- #
+# User session binaries
+# --------------------------------------------- #
 
-    # Similar to /usr/local/bin but for binaries that run as root.
-    "/usr/local/sbin"
+# Own or 3rd-party binary and scripts allowed for session user.
+"$HOME/bin"
 
-    #-----------------------------------------------------------------
-    # OS binaries at the end
-    # To ensure that the base programs are available if custom or
-    # additional versions are not.
-    #-----------------------------------------------------------------
+# Custom user Binary and Settings
+# "$DOTFILES_ROOT/bin"
+"$DOTFILES_ROOT/bin/tree"
 
-    # Essential binaries required for user mode boot and system repair.
-    "/bin"
+# ---------------------------------------------------------------------------
+# Languages Binary
+# ---------------------------------------------------------------------------
 
-    # Standard OS binaries.
-    "/usr/bin"
+"/opt/homebrew/share/zsh/site-functions" # Zsh: auto-completion
 
-    # Standard OS binaries that run as root.
-    # Operating system binaries that are generally run as superuser.
-    "/usr/sbin"
+# PHP
+"/opt/homebrew/opt/php@8.2/bin"
+"/opt/homebrew/opt/php@8.2/sbin"
 
-    # Essential binaries that are required for system boot and repair, usually run as superuser.
-    "/sbin"
-    "$PATH"
-  )
+# Java
+"$HOME/.asdf/installs/java/adoptopenjdk-11.0.21+9"
 
-  export path
+# Android
+$ANDROID_SDK_ROOT/platform-tools
+$ANDROID_SDK_ROOT/emulator
+$ANDROID_SDK_ROOT/cmdline-tools/latest/bin
+# $ANDROID_SDK_ROOT/tools/bin
 
-  export EDITOR=nvim
 
-  # -------------------
-  # Curl
-  # -------------------
-  # For compilers to find curl you may need to set:
-  export LDFLAGS="-L/opt/homebrew/opt/curl/lib"
-  export CPPFLAGS="-I/opt/homebrew/opt/curl/include"
+# Add Redis.app binaries to path
+# "/Applications/Redis.app/Contents/Resources/Vendor/redis/bin"
 
-  # For pkg-config to find curl you may need to set:
-  export PKG_CONFIG_PATH="/opt/homebrew/opt/curl/lib/pkgconfig"
 
-  # zsh completions have been installed to:
-  # /opt/homebrew/opt/curl/share/zsh/site-functions
+# "/opt/homebrew/opt/libpq/bin"
 
-  # -----------------------------------------------------------------------------
-  # Ollama Server Support for LLM Models interpreter
-  # -----------------------------------------------------------------------------
-  export OLLAMA_SERVER="127.0.0.1"
-  export OLLAMA_PORT="11434"
-  export OLLAMA_HOST="${OLLAMA_SERVER}:${OLLAMA_PORT}"
+#-----------------------------------------------------------------
+# Additional tools and software
+#-----------------------------------------------------------------
+"/opt/homebrew/opt/curl/bin"
+"/opt/homebrew/opt/postgresql@17/bin"
 
-  # -----------------------------------------------------------------------------
-  # qwen2.5-coder
-  # -----------------------------------------------------------------------------
-  export LLM_MODEL_CODENAME="qwen"
-  export LLM_MODEL_VERSION="2.5"
-  export LLM_MODEL_RELEASE="coder"
-  # export LLM_MODEL_TAG="7b"
-  export LLM_MODEL_TAG="3b"
-  export LLM_MODEL="${LLM_MODEL_CODENAME}${LLM_MODEL_VERSION}-${LLM_MODEL_RELEASE}:${LLM_MODEL_TAG}"
+# Brew Home for arm64 (Apple Silicon M1 or higher)
+"/opt/homebrew/opt"
+"/opt/homebrew/bin"
+"/opt/homebrew/sbin"
 
-  # -----------------------------------------------------------------------------
-  # second_constantine/deepseek-coder-v2:16b
-  # -----------------------------------------------------------------------------
-  # export LLM_MODEL_CODENAME="second_constantine/deepseek-coder"
-  # export LLM_MODEL_VERSION="v2"
-  # export LLM_MODEL_RELEASE=""
-  # export LLM_MODEL_TAG="16b"
-  # export LLM_MODEL="${LLM_MODEL_CODENAME}${LLM_MODEL_VERSION}-${LLM_MODEL_RELEASE}:${LLM_MODEL_TAG}"
+# If you need to have util-linux first in your PATH, run:
+"/opt/homebrew/opt/util-linux/bin"
+"/opt/homebrew/opt/util-linux/sbin"
 
-  # -----------------------------------------------------------------------------
-  # Open Web UI | Support for multi LLM Models interpreters
-  # -----------------------------------------------------------------------------
-  export OPEN_WEBUI_PORT=7654
+# Brew Home for i386 (Intel)
+# It is traditionally used on UNIX systems for local software that is
+# installed outside of the system's standard package management.
+"/usr/local/bin"
 
-  # Ollama Configs
-  export OLLAMA_BASE_URL="http://${OLLAMA_HOST}"
+# Similar to /usr/local/bin but for binaries that run as root.
+"/usr/local/sbin"
 
-  # OpenAI | V1 | Models
-  # OPENAI_API_KEY="https://start.1password.com/open/i?a=DWXFI37AGVAYFLYKMGG2LY5BTU&v=7gydbdcicvrik26gy2pm7vbyca&i=2olykqliz7n7kr5pvyy6dkjwai&h=my.1password.com"
-  # export OPENAI_API_BASE_URL="https://api.openai.com/v1/models"
+#-----------------------------------------------------------------
+# OS binaries at the end
+# To ensure that the base programs are available if custom or
+# additional versions are not.
+#-----------------------------------------------------------------
 
-  # Claude | API Credental
-  # export CLAUDE_API_KEY="https://start.1password.com/open/i?a=DWXFI37AGVAYFLYKMGG2LY5BTU&v=7gydbdcicvrik26gy2pm7vbyca&i=bnzsv7rhmmx5lfjnqyp2cw2k4u&h=my.1password.com"
+# Essential binaries required for user mode boot and system repair.
+"/bin"
 
-  # GitHub | Angel Commits | Shadcn MCP | 1Password
-  # GITHUB_API_KEY="https://start.1password.com/open/i?a=DWXFI37AGVAYFLYKMGG2LY5BTU&v=mpkblbudurwnxcjk4wcjgrtqb4&i=57dxq3cvabifobkxmfarigrxqi&h=my.1password.com"
+# Standard OS binaries.
+"/usr/bin"
 
-  # Notes
-  export NOTES_PATH="${HOME}/Vaults/Harvis"
-  export NOTES_INBOX_PATH="${NOTES_PATH}/200 - INBOX"
-  export NOTES_DAILY_PATH="${NOTES_PATH}/000 - DIARIO"
-  export NOTES_DAILY_TODO_PATH="${NOTES_DAILY_PATH}/TODO"
+# Standard OS binaries that run as root.
+# Operating system binaries that are generally run as superuser.
+"/usr/sbin"
 
-  # GPG Operations
-  export DISPLAY=:0
-  export SSH_AUTH_SOCK=~/.ssh/trezor-agent.sock
-  export SSH_GITHUB_ID=git@github.com
-  export SSH_GITLAB_ID=git@gitlab.com
-  export SSH_BITBUCKET_ID=git@bitbucket.com
+# Essential binaries that are required for system boot and repair, usually run as superuser.
+"/sbin"
+"$PATH"
+)
 
-  # AWS | Angel Solutions | DevStack-Pulumi 2
-  # INFO: check: $HOME/.aws/*
-)$()
+export path
+
+export EDITOR=nvim
+
+# -------------------
+# Curl
+# -------------------
+# For compilers to find curl you may need to set:
+export LDFLAGS="-L/opt/homebrew/opt/curl/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/curl/include"
+
+# For pkg-config to find curl you may need to set:
+export PKG_CONFIG_PATH="/opt/homebrew/opt/curl/lib/pkgconfig"
+
+# zsh completions have been installed to:
+# /opt/homebrew/opt/curl/share/zsh/site-functions
+
+# -----------------------------------------------------------------------------
+# Ollama Server Support for LLM Models interpreter
+# -----------------------------------------------------------------------------
+export OLLAMA_SERVER="127.0.0.1"
+export OLLAMA_PORT="11434"
+export OLLAMA_HOST="${OLLAMA_SERVER}:${OLLAMA_PORT}"
+
+# -----------------------------------------------------------------------------
+# qwen2.5-coder
+# -----------------------------------------------------------------------------
+export LLM_MODEL_CODENAME="qwen"
+export LLM_MODEL_VERSION="2.5"
+export LLM_MODEL_RELEASE="coder"
+# export LLM_MODEL_TAG="7b"
+export LLM_MODEL_TAG="3b"
+export LLM_MODEL="${LLM_MODEL_CODENAME}${LLM_MODEL_VERSION}-${LLM_MODEL_RELEASE}:${LLM_MODEL_TAG}"
+
+# -----------------------------------------------------------------------------
+# second_constantine/deepseek-coder-v2:16b
+# -----------------------------------------------------------------------------
+# export LLM_MODEL_CODENAME="second_constantine/deepseek-coder"
+# export LLM_MODEL_VERSION="v2"
+# export LLM_MODEL_RELEASE=""
+# export LLM_MODEL_TAG="16b"
+# export LLM_MODEL="${LLM_MODEL_CODENAME}${LLM_MODEL_VERSION}-${LLM_MODEL_RELEASE}:${LLM_MODEL_TAG}"
+
+# -----------------------------------------------------------------------------
+# Open Web UI | Support for multi LLM Models interpreters
+# -----------------------------------------------------------------------------
+export OPEN_WEBUI_PORT=7654
+
+# Ollama Configs
+export OLLAMA_BASE_URL="http://${OLLAMA_HOST}"
+
+# OpenAI | V1 | Models
+# OPENAI_API_KEY="https://start.1password.com/open/i?a=DWXFI37AGVAYFLYKMGG2LY5BTU&v=7gydbdcicvrik26gy2pm7vbyca&i=2olykqliz7n7kr5pvyy6dkjwai&h=my.1password.com"
+# export OPENAI_API_BASE_URL="https://api.openai.com/v1/models"
+
+# Claude | API Credental
+# export CLAUDE_API_KEY="https://start.1password.com/open/i?a=DWXFI37AGVAYFLYKMGG2LY5BTU&v=7gydbdcicvrik26gy2pm7vbyca&i=bnzsv7rhmmx5lfjnqyp2cw2k4u&h=my.1password.com"
+
+# GitHub | Angel Commits | Shadcn MCP | 1Password
+# GITHUB_API_KEY="https://start.1password.com/open/i?a=DWXFI37AGVAYFLYKMGG2LY5BTU&v=mpkblbudurwnxcjk4wcjgrtqb4&i=57dxq3cvabifobkxmfarigrxqi&h=my.1password.com"
+
+# Notes
+export NOTES_PATH="${HOME}/Vaults/Harvis"
+export NOTES_INBOX_PATH="${NOTES_PATH}/200 - INBOX"
+export NOTES_DAILY_PATH="${NOTES_PATH}/000 - DIARIO"
+export NOTES_DAILY_TODO_PATH="${NOTES_DAILY_PATH}/TODO"
+
+# GPG Operations
+export DISPLAY=:0
+# export SSH_AUTH_SOCK=~/.ssh/trezor-agent.sock
+export SSH_GITHUB_ID=git@github.com
+export SSH_GITLAB_ID=git@gitlab.com
+export SSH_BITBUCKET_ID=git@bitbucket.com
+
+# AWS | Angel Solutions | DevStack-Pulumi 2
+# INFO: check: $HOME/.aws/*
+
+# Open Code -- Plugins
+export MXBAI_API_KEY=mxb_1vcWEPV597m4bEgbZ8VJ7u2JWICY

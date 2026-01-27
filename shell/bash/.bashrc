@@ -19,3 +19,8 @@ fi
 alias h2='$(npm prefix -s)/node_modules/.bin/shopify hydrogen'
 . "/Users/angel.szymczak/.starkli/env"
 . "$HOME/.cargo/env"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/angel.szymczak/.lmstudio/bin"
+# End of LM Studio CLI section
+

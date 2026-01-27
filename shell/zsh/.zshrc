@@ -100,4 +100,19 @@ compdef _snforge snforge
 compdef _sncast sncast
 # END FOUNDRY COMPLETIONS
 . "/Users/angel.szymczak/.starkli/env"
-export AWS_PROFILE=angel-solutions
+# export AWS_PROFILE="AngelSolutions-Pulumi"
+export AWS_PROFILE=""
+export AZ_ACCOUNT=""
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/angel.szymczak/.lmstudio/bin"
+# End of LM Studio CLI section
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/angel.szymczak/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+# Added by Antigravity
+export PATH="/Users/angel.szymczak/.antigravity/antigravity/bin:$PATH"

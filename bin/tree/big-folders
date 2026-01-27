@@ -7,6 +7,7 @@
 #   big-folders.sh 20
 #   big-folders.sh path
 #   big-folders.sh path 30
+#   big-folders.sh -I tmp -I vendor path 30
 #
 # ---------------------------------------------
 
@@ -19,29 +20,56 @@ ROOT="$PWD"
 MAX_ITEMS=20
 TREE_DEPTH=4
 
-# ---------------------------------------------
-# Argument parsing
-# ---------------------------------------------
-if [[ $# -ge 1 ]]; then
-  if [[ -d "$1" ]]; then
-    ROOT="$(cd "$1" && pwd)"
-    [[ $# -ge 2 ]] && MAX_ITEMS="$2"
-  elif [[ "$1" =~ '^[0-9]+$' ]]; then
-    MAX_ITEMS="$1"
-  else
-    echo "Error: '$1' no es un directorio ni un número válido" >&2
-    exit 1
-  fi
-fi
-
-# ---------------------------------------------
-# Carpetas siempre ignoradas
-# ---------------------------------------------
 STATIC_IGNORES=(
   node_modules
   ios/Pods
   .git
 )
+
+USER_IGNORES=()
+
+# ---------------------------------------------
+# Argument parsing
+# ---------------------------------------------
+ARGS=("$@")
+i=1
+
+while (( i <= $# )); do
+  arg="${ARGS[i]}"
+
+  case "$arg" in
+    -I)
+      (( i++ ))
+      [[ -z "${ARGS[i]:-}" ]] && {
+        echo "Error: -I requiere un argumento" >&2
+        exit 1
+      }
+      USER_IGNORES+=("${ARGS[i]}")
+      ;;
+    *)
+      if [[ -d "$arg" ]]; then
+        ROOT="$(cd "$arg" && pwd)"
+      elif [[ "$arg" =~ '^[0-9]+$' ]]; then
+        MAX_ITEMS="$arg"
+      else
+        echo "Error: argumento no reconocido: $arg" >&2
+        exit 1
+      fi
+      ;;
+  esac
+
+  (( i++ ))
+done
+
+# ---------------------------------------------
+# Normalizar ignores de usuario (rutas relativas)
+# ---------------------------------------------
+NORMALIZED_USER_IGNORES=()
+
+for p in "${USER_IGNORES[@]}"; do
+  p="${p#./}"
+  NORMALIZED_USER_IGNORES+=("$p")
+done
 
 # ---------------------------------------------
 # 1. Detectar carpetas grandes (nivel 1)
@@ -58,14 +86,16 @@ done < <(find "$ROOT" -mindepth 1 -maxdepth 1 -type d -print0)
 # ---------------------------------------------
 # 2. Construir exclusiones para tree
 # ---------------------------------------------
-IGNORE_PATTERN=$(printf "|%s" "${STATIC_IGNORES[@]}" "${BIG_DIRS[@]}")
+IGNORE_PATTERN=$(printf "|%s" \
+  "${STATIC_IGNORES[@]}" \
+  "${NORMALIZED_USER_IGNORES[@]}" \
+  "${BIG_DIRS[@]}"
+)
+
 IGNORE_PATTERN="${IGNORE_PATTERN:1}"
 
 # ---------------------------------------------
 # 3. Tree visual
-#   - sin -d (mostrar archivos)
-#   - profundidad controlada
-#   - exclusión dinámica de carpetas grandes
 # ---------------------------------------------
 tree -L "$TREE_DEPTH" -I "$IGNORE_PATTERN" "$ROOT"
 
@@ -80,4 +110,3 @@ find "$ROOT" -mindepth 1 -maxdepth 1 -type d -exec sh -c '
     printf "%4d  %s\n" "$(find "$d" -mindepth 1 -maxdepth 1 | wc -l)" "$(basename "$d")"
   done
 ' sh {} + | sort -nr
-

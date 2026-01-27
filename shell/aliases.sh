@@ -15,9 +15,22 @@ alias ~="cd ~"
 alias md="mkdir -p "
 alias rd="rm -rf "
 
-alias dotfiles="cd $DOTFILES_ROOT"
-alias sites="cd $HOME/Sites"
+alias dotfiles="cd ${DOTFILES_ROOT}"
 
+alias shells="cd ${SHELL_PATH}"
+alias exports="nvim ${SHELL_PATH}/exports.sh"
+alias aliases="nvim ${SHELL_PATH}/aliases.sh"
+alias functions="nvim ${SHELL_PATH}/functions.sh"
+alias tools="nvim ${SHELL_PATH}/tools.sh"
+alias dot-bin="nvim ${DOTFILES_PATH}/bin/init.sh"
+
+# Editor
+alias keymaps="nvim ${DOTFILES_PATH}/editors/nvim/lua/angel/core/keymaps.lua"
+
+alias vaults="cd ${VAULTS_PATH}"
+alias sites="cd ${SITES_PATH}"
+alias company="cd ${COMPANY_PATH}"
+alias langs="cd ${LANGS_PATH}"
 
 # ------------------------------------------------------------------------------
 # Git

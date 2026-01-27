@@ -10,15 +10,15 @@
 # ------------------------------------------------------------------------------
 # ---- TheFuck -----------------------------------------------------------------
 # ------------------------------------------------------------------------------
-eval $(thefuck --alias)
-eval $(thefuck --alias fk)
+# eval $(thefuck --alias)
+# eval $(thefuck --alias fk)
 
 
 # ------------------------------------------------------------------------------
 # ---- Zoxide (better cd) ------------------------------------------------------
 # ------------------------------------------------------------------------------
 eval "$(zoxide init zsh)"
-alias cd="z"
+# alias cd="z"
 
 
 # ------------------------------------------------------------------------------
@@ -40,8 +40,8 @@ alias ll="ls"
 #  Check themes in your directory
 #  don't forget to clone bat_theme config, check it out in README.md file
 #  bat --list-themes | fzf --preview="bat --theme={} --color=always <PATH_TO_YOUR_SAMPLE_VIEW>"
-
-export BAT_THEME="tokyonight_night"
+#
+# export BAT_THEME="tokyonight_night"
 
 
 # ------------------------------------------------------------------------------
@@ -147,10 +147,10 @@ export PATH="/opt/homebrew/opt/avr-gcc@8/bin:$PATH"
 # ------------------------------------------------------------------------------
 # RBenv
 # ------------------------------------------------------------------------------
-if which rbenv > /dev/null;
-then
-  eval "$(rbenv init -)";
-fi
+# if which rbenv > /dev/null;
+# then
+#   eval "$(rbenv init -)";
+# fi
 
 # ------------------------------------------------------------------------------
 # Notes

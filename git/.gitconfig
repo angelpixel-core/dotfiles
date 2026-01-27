@@ -1,7 +1,7 @@
 # Este es el archivo de configuración de Git por usuario.
 [user]
-	name = Angel DevStack
-	email = me@angel-solutions.studio
+	name = Angel Szymczak
+	email = angel.szymczak@pm.me
 
 [core]
   editor = nvim
@@ -46,8 +46,8 @@
 [checkout]
 	defaultRemote = origin
 [credential "https://github.com"]
-	helper = 
+	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
+	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
