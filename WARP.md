@@ -83,7 +83,7 @@ This repo is a modular dotfiles system orchestrated by a Makefile, with versioni
 
 - Window management and shortcuts (macOS)
   - tiling-windows-manager/yabai/yabairc — bsp layout, gaps/padding, mouse actions, and app rules.
-  - shorcuts/skhd/skhdrc — window focus/move/swap/resize bindings aligned with yabai.
+  - shortcuts/skhd/skhdrc — window focus/move/swap/resize bindings aligned with yabai.
   - menu-bar/sketchybar — bar appearance, colors, and items sourced from items/ and plugins/.
 
 - OS-specific (
@@ -108,4 +108,3 @@ This repo is a modular dotfiles system orchestrated by a Makefile, with versioni
 
 - This repo is shell-heavy. Many targets depend on external tools (e.g., shellcheck, yabai, skhd, fzf, asdf, rbenv, TPM). Prefer checking existence before invoking and surface actionable install commands when absent.
 - Secrets: Environment variables for APIs/cloud services are defined in shell/exports.sh. Assume they are present in the running shell; avoid echoing or logging their values.
-

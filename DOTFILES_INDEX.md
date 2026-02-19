@@ -29,7 +29,7 @@ Tu sistema de dotfiles está diseñado con los siguientes principios:
 │
 ├── 🖥️ Entorno de Escritorio
 │   ├── tiling-windows-manager/  # Yabai (gestor de ventanas)
-│   ├── shorcuts/       # Skhd (atajos de teclado)
+│   ├── shortcuts/      # Skhd (atajos de teclado)
 │   ├── menu-bar/       # Sketchybar (barra personalizada)
 │   └── caps-layout/    # QMK (configuración de teclado)
 │
@@ -157,7 +157,7 @@ langs/
 - Layouts automáticos
 - Espacios de trabajo virtuales
 
-### Skhd (`shorcuts/skhd/`)
+### Skhd (`shortcuts/skhd/`)
 - Gestor de atajos de teclado
 - Integración con Yabai
 - Comandos personalizados

@@ -151,7 +151,7 @@ git restore Makefile
 - `scripts/bootstrap/` -> instalación, backup/restore, checks
 - `scripts/tests/` -> smoke tests de integridad
 - `platform/` (opcional futuro) -> `os/`, `terminal/`, `menu-bar/`, `tiling-windows-manager/`, `shortcuts/`
-- Rename controlado: `shorcuts/` -> `shortcuts/`
+- Rename controlado: `shortcuts/` como nombre canónico (antes `shorcuts/`)
 
 ### Fases (reversibles)
 
@@ -166,6 +166,12 @@ git restore Makefile
 #### Fase 2 - Normalización de estructura
 - Rename `shorcuts/` -> `shortcuts/`.
 - Actualizar referencias en docs (`DOTFILES_INDEX.md`, `WARP.md`, prompts).
+
+Rollback fase 2:
+```bash
+git mv shortcuts shorcuts
+git restore DOTFILES_INDEX.md WARP.md
+```
 
 #### Fase 3 - Secrets hygiene
 - Externalizar variables sensibles a 1Password + env local no trackeado.
