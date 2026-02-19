@@ -59,7 +59,7 @@ alias gl="git log --oneline"
 # ------------------------------------------------------------------------------
 # Tunneling
 # ------------------------------------------------------------------------------
-alias ngrok="ngrok http --config ${HOME}/.config/ngrok/angel-commits.yml 80"
+alias ngrok-angel-devstack="ngrok http --config ${HOME}/.config/ngrok/angel-devstack.yml 80"
 
 # ------------------------------------------------------------------------------
 # Editors

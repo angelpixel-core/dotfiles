@@ -4,6 +4,12 @@ export SHELL_PATH="${DOTFILES_ROOT}/shell"
 export LANGS_PATH="${DOTFILES_ROOT}/langs"
 export ASDF_DATA_DIR="$HOME/.asdf"
 
+# User-level tools and runtimes
+export BUN_INSTALL="$HOME/.bun"
+export PNPM_HOME="$HOME/Library/pnpm"
+# Utilidades instaladas en ~/.local/bin (pipx y otras)
+export LOCAL_BIN="$HOME/.local/bin"
+
 export VAULTS_PATH="${HOME}/Vaults"
 export HARVIS_PATH="${VAULTS_PATH}/Harvis"
 export MEMORIA_DIGITAL_PATH="${HARVIS_PATH}/300-MEMORIA_DIGITAL"
@@ -35,7 +41,15 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/util-linux/lib/pkgconfig"
 
 # Rust
 export CARGO_PATH="$HOME/.cargo"
+# Cargar entorno de Rust si existe
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
 
+# StarkNet / Starkli
+if [ -f "$HOME/.starkli/env" ]; then
+  . "$HOME/.starkli/env"
+fi
 
 # ------------------------------------------------------------------------------
 # CLI Apps config
@@ -55,6 +69,9 @@ path=(
 
 # Own or 3rd-party binary and scripts allowed for session user.
 "$HOME/bin"
+"$BUN_INSTALL/bin"
+"$PNPM_HOME"
+"$LOCAL_BIN"
 
 # Custom user Binary and Settings
 # "$DOTFILES_ROOT/bin"
@@ -91,6 +108,8 @@ $ANDROID_SDK_ROOT/cmdline-tools/latest/bin
 #-----------------------------------------------------------------
 "/opt/homebrew/opt/curl/bin"
 "/opt/homebrew/opt/postgresql@17/bin"
+"/Users/angel.szymczak/.lmstudio/bin"
+"/Users/angel.szymczak/.antigravity/antigravity/bin"
 
 # Brew Home for arm64 (Apple Silicon M1 or higher)
 "/opt/homebrew/opt"

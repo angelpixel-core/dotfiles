@@ -1,7 +1,6 @@
-export DOTFILES_ROOT="$HOME/.dotfiles"
-
 #!/usr/bin/env zsh
-# Uncomment for debuf with `zprof`
+# ~/.zshrc: configuración interactiva (usa entorno cargado desde .zshenv + exports.sh)
+# Uncomment for debug with `zprof`
 # zmodload zsh/zprof
 
 # ZSH Options
@@ -49,22 +48,8 @@ bindkey -e
 # bun completions
 [ -s "/Users/angel.szymczak/.bun/_bun" ] && source "/Users/angel.szymczak/.bun/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Created by `pipx` on 2025-06-22 00:23:57
-export PATH="$PATH:/Users/angel.szymczak/.local/bin"
-
-# pnpm
-export PNPM_HOME="/Users/angel.szymczak/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-# Alias for running starkup installer
-alias starkup="curl --proto '=https' --tlsv1.2 -sSf https://sh.starkup.sh | sh -s --"
+# Configuración de entorno de bun, pnpm, rutas locales y demás
+# se centraliza en shell/exports.sh para compartirla entre Zsh y Bash.
 
 # BEGIN SCARB COMPLETIONS
 _scarb() {
@@ -99,14 +84,9 @@ _sncast() {
 compdef _snforge snforge
 compdef _sncast sncast
 # END FOUNDRY COMPLETIONS
-. "/Users/angel.szymczak/.starkli/env"
 # export AWS_PROFILE="AngelSolutions-Pulumi"
 export AWS_PROFILE=""
 export AZ_ACCOUNT=""
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/angel.szymczak/.lmstudio/bin"
-# End of LM Studio CLI section
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/angel.szymczak/.docker/completions $fpath)
@@ -114,5 +94,7 @@ autoload -Uz compinit
 compinit
 # End of Docker CLI completions
 
-# Added by Antigravity
-export PATH="/Users/angel.szymczak/.antigravity/antigravity/bin:$PATH"
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/angel.szymczak/.lmstudio/bin"
+# End of LM Studio CLI section
+

@@ -1,8 +1,7 @@
-export DOTFILES_PATH="$HOME/.dotfiles"
-export ZIM_HOME="$DOTFILES_PATH/shell/zsh/.zim"
+# Zsh environment: sólo definiciones mínimas de dotfiles/Zim.
+export DOTFILES_ROOT="$HOME/.dotfiles"
+export ZIM_HOME="$DOTFILES_ROOT/shell/zsh/.zim"
 
-export PATH="$PATH:/Users/angel.szymczak/.local/bin"
-
-export PATH="$PATH:/Users/angel.szymczak/.local/bin"
-. "/Users/angel.szymczak/.starkli/env"
-. "$HOME/.cargo/env"
+# Compatibilidad temporal: DOTFILES_PATH apunta a DOTFILES_ROOT.
+# TODO: eliminar DOTFILES_PATH cuando todo el código use sólo DOTFILES_ROOT.
+export DOTFILES_PATH="$DOTFILES_ROOT"
