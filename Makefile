@@ -64,11 +64,11 @@ help: ## Muestra esta ayuda
 
 install: check backup ## Instala dotfiles (completo)
 	@printf "$(BOLD)Installing dotfiles...$(RESET)\n"
-	@$(DOTFILES_DIR)/bootstrap/install.sh
+	@$(DOTFILES_DIR)/scripts/bootstrap/install.sh
 
 install-%: check ## Instala módulo específico (ej: install-nvim)
 	@printf "$(BOLD)Installing module: $*$(RESET)\n"
-	@$(DOTFILES_DIR)/bootstrap/install.sh --module $*
+	@$(DOTFILES_DIR)/scripts/bootstrap/install.sh --module $*
 
 update: ## Actualiza dotfiles desde git
 	@printf "$(BOLD)Updating dotfiles...$(RESET)\n"
@@ -82,13 +82,13 @@ clean: ## Limpia enlaces simbólicos rotos
 backup: ## Crea backup de configs actuales
 	@printf "$(BOLD)Creating backup...$(RESET)\n"
 	@mkdir -p $(BACKUP_DIR)/$(TIMESTAMP)
-	@$(DOTFILES_DIR)/bootstrap/backup.sh $(BACKUP_DIR)/$(TIMESTAMP)
+	@$(DOTFILES_DIR)/scripts/bootstrap/backup.sh $(BACKUP_DIR)/$(TIMESTAMP)
 
 restore: ## Restaura último backup
 	@printf "$(BOLD)Restoring from backup...$(RESET)\n"
 	@LATEST=$$(ls -t $(BACKUP_DIR) | head -1); \
 	if [ -n "$$LATEST" ]; then \
-		$(DOTFILES_DIR)/bootstrap/restore.sh $(BACKUP_DIR)/$$LATEST; \
+		$(DOTFILES_DIR)/scripts/bootstrap/restore.sh $(BACKUP_DIR)/$$LATEST; \
 	else \
 		printf "$(RED)No backups found$(RESET)\n"; \
 		exit 1; \
@@ -96,7 +96,7 @@ restore: ## Restaura último backup
 
 test: ## Ejecuta tests
 	@printf "$(BOLD)Running tests...$(RESET)\n"
-	@$(DOTFILES_DIR)/tests/run.sh
+	@$(DOTFILES_DIR)/scripts/tests/run.sh
 
 lint: ## Valida scripts con shellcheck
 	@printf "$(BOLD)Linting scripts...$(RESET)\n"
@@ -104,7 +104,7 @@ lint: ## Valida scripts con shellcheck
 
 check: ## Verifica dependencias
 	@printf "$(BOLD)Checking dependencies...$(RESET)\n"
-	@$(DOTFILES_DIR)/bootstrap/check-deps.sh
+	@$(DOTFILES_DIR)/scripts/bootstrap/check-deps.sh
 
 list: ## Lista módulos disponibles
 	@printf "$(BOLD)Available modules:$(RESET)\n"
