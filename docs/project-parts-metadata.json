@@ -1,0 +1,25 @@
+{
+  "repository_type": "monolith",
+  "project_root": "/Users/angel.szymczak/Vaults/Dotfiles",
+  "parts": [
+    {
+      "part_id": "dotfiles-core",
+      "display_name": "Dotfiles Core",
+      "root_path": "/Users/angel.szymczak/Vaults/Dotfiles",
+      "project_type_id": "cli",
+      "secondary_traits": ["infra", "library"],
+      "entrypoint_candidates": [
+        "shell/init.sh",
+        "shell/exports.sh",
+        "Makefile",
+        "symlinks/conf.yaml",
+        "lib/version.sh",
+        "lib/migration.sh"
+      ],
+      "critical_constraints": [
+        "No delete without confirmation; when in doubt move to archive/",
+        "macOS Apple Silicon first, Linux mirrored"
+      ]
+    }
+  ]
+}
