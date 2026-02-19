@@ -7,3 +7,6 @@
 [submodule "terminal/wezterm"]
 	path = terminal/wezterm
 	url = ./terminal/wezterm
+[submodule "editors/nvim"]
+	path = editors/nvim
+	url = https://github.com/angel-devstack/nvim.git
