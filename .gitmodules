@@ -10,3 +10,21 @@
 [submodule "editors/nvim"]
 	path = editors/nvim
 	url = https://github.com/angel-devstack/nvim.git
+[submodule "shell/zsh/.zim/modules/completion"]
+	path = shell/zsh/.zim/modules/completion
+	url = https://github.com/zimfw/completion.git
+[submodule "shell/zsh/.zim/modules/environment"]
+	path = shell/zsh/.zim/modules/environment
+	url = https://github.com/zimfw/environment.git
+[submodule "shell/zsh/.zim/modules/input"]
+	path = shell/zsh/.zim/modules/input
+	url = https://github.com/zimfw/input.git
+[submodule "shell/zsh/.zim/modules/spaceship"]
+	path = shell/zsh/.zim/modules/spaceship
+	url = https://github.com/spaceship-prompt/spaceship-prompt.git
+[submodule "shell/zsh/.zim/modules/zsh-autosuggestions"]
+	path = shell/zsh/.zim/modules/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "shell/zsh/.zim/modules/zsh-syntax-highlighting"]
+	path = shell/zsh/.zim/modules/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
