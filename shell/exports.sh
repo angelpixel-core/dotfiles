@@ -226,5 +226,18 @@ export SSH_BITBUCKET_ID=git@bitbucket.com
 # AWS | Angel Solutions | DevStack-Pulumi 2
 # INFO: check: $HOME/.aws/*
 
-# Open Code -- Plugins
-export MXBAI_API_KEY=mxb_1vcWEPV597m4bEgbZ8VJ7u2JWICY
+# -----------------------------------------------------------------------------
+# Secrets loading (local env + optional 1Password URI resolution)
+# -----------------------------------------------------------------------------
+ENV_LOCAL_FILE="${DOTFILES_ROOT}/env/.env.local"
+if [ -f "$ENV_LOCAL_FILE" ]; then
+  set -a
+  . "$ENV_LOCAL_FILE"
+  set +a
+fi
+
+# Optional: resolve MXBAI_API_KEY from 1Password if URI is provided.
+if [ -z "${MXBAI_API_KEY:-}" ] && [ -n "${MXBAI_API_KEY_OP_URI:-}" ] && command -v op >/dev/null 2>&1; then
+  MXBAI_API_KEY="$(op read "$MXBAI_API_KEY_OP_URI" 2>/dev/null || true)"
+  export MXBAI_API_KEY
+fi
