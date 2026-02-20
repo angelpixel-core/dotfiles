@@ -18,4 +18,13 @@ rg -n "scripts/bootstrap/(install|backup|restore|check-deps)\.sh|scripts/tests/r
 printf "[smoke] submodule mapping\n"
 git -C "$DOTFILES_ROOT" submodule status >/dev/null
 
+printf "[smoke] legacy project_docs is stubs-only\n"
+legacy_dir="$DOTFILES_ROOT/docs/_legacy/project_docs"
+if find "$legacy_dir" -type f -name "*.md" -print0 | while IFS= read -r -d '' f; do
+  head -n1 "$f" | rg -q '^# Legacy Stub' || echo "$f"
+done | rg -q .; then
+  echo "legacy contains non-stub markdown files"
+  exit 1
+fi
+
 printf "[smoke] ok\n"

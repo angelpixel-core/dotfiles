@@ -35,7 +35,7 @@ Tu sistema de dotfiles está diseñado con los siguientes principios:
 │
 ├── 📄 Documentación
 │   ├── docs/                       # Canon documental (ver docs/README.md)
-│   └── docs/_legacy/project_docs/  # Documentación histórica migrada
+│   └── docs/_legacy/project_docs/  # Legacy transitorio (solo stubs)
 │
 └── 🔧 Infraestructura BMAD
     ├── .bmad-core/     # Configuración del método BMAD
@@ -45,7 +45,8 @@ Tu sistema de dotfiles está diseñado con los siguientes principios:
 ## 📚 Documentación (Entry Point)
 
 - **`docs/README.md`**: índice humano principal de documentación
-- **`docs/_legacy/project_docs/`**: material histórico preservado
+- **`docs/_legacy/project_docs/`**: stubs temporales para compatibilidad de rutas
+- **`docs/migrations/project_docs-pending-review.md`**: pendientes para retiro final de legacy
 
 ## 🐚 Shell Configuration
 
