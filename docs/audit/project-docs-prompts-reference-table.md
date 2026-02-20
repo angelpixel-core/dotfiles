@@ -6,8 +6,8 @@ Matriz canónica para revisar cada archivo de `docs/prompts/project-docs/` con i
 
 | estado | cantidad |
 |---|---:|
-| resuelto | 41 |
-| pendiente | 23 |
+| resuelto | 42 |
+| pendiente | 22 |
 | re-evaluar | 3 |
 | deprecar | 1 |
 
@@ -42,7 +42,7 @@ Matriz canónica para revisar cada archivo de `docs/prompts/project-docs/` con i
 | 21 | `21-Documentar_arquitectura.md` | Documentar arquitectura | resuelto | Agregar ADR para decisiones recientes de cleanup. |
 | 22 | `22-Crear_guías_de_setup.md` | Crear guías de setup | resuelto | Completar guías faltantes por módulo (WM/terminal/editors). |
 | 23 | `23-Implementar_tests_de_instalación.md` | Implementar tests de instalación | resuelto | Agregar pruebas más allá de smoke (unit/integration). |
-| 24 | `24-Validar_compatibilidad_multi_plataforma.md` | Validar compatibilidad multi plataforma | pendiente | Agregar matrix CI macOS/Linux o validación reproducible equivalente. |
+| 24 | `24-Validar_compatibilidad_multi_plataforma.md` | Validar compatibilidad multi plataforma | resuelto | Mantener paridad de dependencias runner/local para evitar falsos negativos. |
 | 25 | `25-Prueba_completa_del_sistema.md` | Prueba completa del sistema | pendiente | Diseñar prueba end-to-end completa de instalación real. |
 | 26 | `26-Optimizar_performance_de_carga.md` | Optimizar performance de carga | pendiente | Medir tiempo de carga shell y aplicar optimizaciones guiadas por métricas. |
 | 27 | `27-Eliminar_código_muerto_y_duplicado.md` | Eliminar código muerto y duplicado | pendiente | Ejecutar pasada de deduplicación de código/config no solo docs. |

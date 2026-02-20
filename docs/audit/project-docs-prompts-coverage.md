@@ -6,8 +6,8 @@ Revisión uno por uno de `docs/prompts/project-docs/*.md` para verificar si el p
 
 | estado | cantidad |
 |---|---:|
-| resuelto | 41 |
-| pendiente_a_evaluar | 26 |
+| resuelto | 42 |
+| pendiente_a_evaluar | 25 |
 | deprecar | 1 |
 
 ## Tabla de referencia
@@ -41,7 +41,7 @@ Revisión uno por uno de `docs/prompts/project-docs/*.md` para verificar si el p
 | 21 | `21-Documentar_arquitectura.md` | si | resuelto | `docs/architecture-patterns.md; docs/decisions/system-structure.md` | Agregar ADR para decisiones recientes de cleanup. |
 | 22 | `22-Crear_guías_de_setup.md` | si | resuelto | `docs/guides/README.md; docs/guides/shell-load-order-zsh-bash.md` | Completar guías faltantes por módulo (WM/terminal/editors). |
 | 23 | `23-Implementar_tests_de_instalación.md` | si | resuelto | `scripts/tests/run.sh; Makefile` | Agregar pruebas más allá de smoke (unit/integration). |
-| 24 | `24-Validar_compatibilidad_multi_plataforma.md` | parcial | pendiente_a_evaluar | `scripts/bootstrap/lib.sh; symlinks/conf.linux.yaml; symlinks/conf.macos.yaml` | Agregar matrix CI macOS/Linux o validación reproducible equivalente. |
+| 24 | `24-Validar_compatibilidad_multi_plataforma.md` | si | resuelto | `.github/workflows/smoke-matrix.yml; scripts/tests/run.sh; Makefile` | Mantener paridad de dependencias runner/local para evitar falsos negativos. |
 | 25 | `25-Prueba_completa_del_sistema.md` | parcial | pendiente_a_evaluar | `make test; scripts/tests/run.sh` | Diseñar prueba end-to-end completa de instalación real. |
 | 26 | `26-Optimizar_performance_de_carga.md` | no | pendiente_a_evaluar | `docs/guides/plan-shell-redistribucion-2026-01-27.md` | Medir tiempo de carga shell y aplicar optimizaciones guiadas por métricas. |
 | 27 | `27-Eliminar_código_muerto_y_duplicado.md` | parcial | pendiente_a_evaluar | `docs/migrations/dedup-phase2-report.md; docs/project-structure.md` | Ejecutar pasada de deduplicación de código/config no solo docs. |
