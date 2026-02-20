@@ -33,15 +33,19 @@ Tu sistema de dotfiles está diseñado con los siguientes principios:
 │   ├── menu-bar/       # Sketchybar (barra personalizada)
 │   └── caps-layout/    # QMK (configuración de teclado)
 │
-├── 📄 Documentación y Config
-│   ├── project_docs/   # Documentación del proyecto
-│   ├── docs/           # Documentación adicional
-│   └── config/         # Configuraciones adicionales
+├── 📄 Documentación
+│   ├── docs/                       # Canon documental (ver docs/README.md)
+│   └── docs/_legacy/project_docs/  # Documentación histórica migrada
 │
 └── 🔧 Infraestructura BMAD
     ├── .bmad-core/     # Configuración del método BMAD
     └── .bmad-infrastructure-devops/  # DevOps BMAD
 ```
+
+## 📚 Documentación (Entry Point)
+
+- **`docs/README.md`**: índice humano principal de documentación
+- **`docs/_legacy/project_docs/`**: material histórico preservado
 
 ## 🐚 Shell Configuration
 
