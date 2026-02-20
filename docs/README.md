@@ -4,7 +4,7 @@
 
 ## Indice principal
 
-- Auditoria: `docs/auditory/` (pendiente normalizar a `docs/audit/` en Fase 2)
+- Auditoria: `docs/audit/`
 - Seguridad: `docs/security/`
 - Patrones de arquitectura: `docs/architecture-patterns.md`
 - Stack tecnologico: `docs/technology-stack.md`
