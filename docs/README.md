@@ -39,4 +39,5 @@
 ## Migraciones y legado
 
 - Mapas/reportes de migracion: `docs/migrations/`
-- Legacy transitorio pendiente de extraccion: `docs/_legacy/project_docs/`
+- Pendientes de retiro de legacy: `docs/migrations/project_docs-pending-review.md`
+- Legacy transitorio (solo stubs): `docs/_legacy/project_docs/`

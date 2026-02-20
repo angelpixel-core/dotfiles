@@ -4,7 +4,7 @@ Ruta analizada: docs/_legacy/project_docs
 
 | archivo | tipo | duplicado de (canon) | accion propuesta |
 |---|---|---|---|
-| PENDING_REVIEW.md | pending | - | retener_pending |
+| PENDING_REVIEW.md | stub | - | retener_stub |
 | README.legacy.md | stub | - | retener_stub |
 | README.md | stub | - | retener_stub |
 | Roadmap.md | stub | - | retener_stub |

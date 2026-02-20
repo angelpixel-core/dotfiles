@@ -35,7 +35,8 @@ Extraer contenido valioso desde `docs/_legacy/project_docs/` hacia `docs/`, cons
 
 ## Qué quedó pendiente en legacy y por qué
 
-Ver `docs/_legacy/project_docs/PENDING_REVIEW.md`.
+Detalle canónico en `docs/migrations/project_docs-pending-review.md`.
+En legacy queda un stub en `docs/_legacy/project_docs/PENDING_REVIEW.md`.
 
 Pendientes históricos movidos a archive:
 
