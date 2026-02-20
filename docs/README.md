@@ -28,6 +28,7 @@
 - Reporte de escaneo: `docs/project-scan-report.json`
 - Plan de auditoría ejecutable: `docs/audit/plan-auditoria-dotfiles-2026-01-21.md`
 - Backlog de tareas legado: `docs/audit/tasks-backlog-legacy.md`
+- Matriz prompt-by-prompt (intención/estado): `docs/audit/project-docs-prompts-reference-table.md`
 - Estructura de proyecto: `docs/project-structure.md`
 - Inventario documental: `docs/existing-documentation-inventory.md`
 
