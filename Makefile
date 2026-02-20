@@ -1,4 +1,4 @@
-.PHONY: help install update clean test lint check
+.PHONY: help install update clean test lint check security-scan
 
 # Variables
 SHELL := /bin/bash
@@ -101,6 +101,10 @@ test: ## Ejecuta tests
 lint: ## Valida scripts con shellcheck
 	@printf "$(BOLD)Linting scripts...$(RESET)\n"
 	@find . -type f -name "*.sh" -exec shellcheck {} +
+
+security-scan: ## Escanea secretos con gitleaks/fallback
+	@printf "$(BOLD)Running secret scan...$(RESET)\n"
+	@$(DOTFILES_DIR)/scripts/security/scan-secrets.sh
 
 check: ## Verifica dependencias
 	@printf "$(BOLD)Checking dependencies...$(RESET)\n"

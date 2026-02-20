@@ -2,7 +2,7 @@
 *.log
 
 # Ignore Cargo Target directory
-docs/prompts/scripts/split/rust/target/
+project_docs/prompts/scripts/split/rust/target/
 
 # AI Agent files
 .claude/
@@ -10,3 +10,8 @@ docs/prompts/scripts/split/rust/target/
 # Local secrets and environment overlays
 env/.env.local
 env/.env.*.local
+*.secret
+*.secrets
+*.pem
+*.p12
+*.pkcs8

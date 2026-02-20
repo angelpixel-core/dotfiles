@@ -200,15 +200,8 @@ export OPEN_WEBUI_PORT=7654
 # Ollama Configs
 export OLLAMA_BASE_URL="http://${OLLAMA_HOST}"
 
-# OpenAI | V1 | Models
-# OPENAI_API_KEY="https://start.1password.com/open/i?a=DWXFI37AGVAYFLYKMGG2LY5BTU&v=7gydbdcicvrik26gy2pm7vbyca&i=2olykqliz7n7kr5pvyy6dkjwai&h=my.1password.com"
-# export OPENAI_API_BASE_URL="https://api.openai.com/v1/models"
-
-# Claude | API Credental
-# export CLAUDE_API_KEY="https://start.1password.com/open/i?a=DWXFI37AGVAYFLYKMGG2LY5BTU&v=7gydbdcicvrik26gy2pm7vbyca&i=bnzsv7rhmmx5lfjnqyp2cw2k4u&h=my.1password.com"
-
-# GitHub | Angel Commits | Shadcn MCP | 1Password
-# GITHUB_API_KEY="https://start.1password.com/open/i?a=DWXFI37AGVAYFLYKMGG2LY5BTU&v=mpkblbudurwnxcjk4wcjgrtqb4&i=57dxq3cvabifobkxmfarigrxqi&h=my.1password.com"
+# LLM/API credentials should be loaded from env/.env.local or 1Password via OP_URI
+# Example URI format only (do not commit real IDs): op://<Vault>/<Item>/<Field>
 
 # Notes
 export NOTES_PATH="${HOME}/Vaults/Harvis"
@@ -236,8 +229,26 @@ if [ -f "$ENV_LOCAL_FILE" ]; then
   set +a
 fi
 
-# Optional: resolve MXBAI_API_KEY from 1Password if URI is provided.
-if [ -z "${MXBAI_API_KEY:-}" ] && [ -n "${MXBAI_API_KEY_OP_URI:-}" ] && command -v op >/dev/null 2>&1; then
-  MXBAI_API_KEY="$(op read "$MXBAI_API_KEY_OP_URI" 2>/dev/null || true)"
-  export MXBAI_API_KEY
-fi
+resolve_secret_from_op() {
+  local target_var="$1"
+  local uri_var="$2"
+  local current_value uri value
+
+  eval "current_value=\${$target_var:-}"
+  [ -n "$current_value" ] && return 0
+
+  eval "uri=\${$uri_var:-}"
+  [ -z "$uri" ] && return 0
+
+  if command -v op >/dev/null 2>&1; then
+    value="$(op read "$uri" 2>/dev/null || true)"
+    if [ -n "$value" ]; then
+      eval "export $target_var=\"\$value\""
+    fi
+  fi
+}
+
+resolve_secret_from_op "MXBAI_API_KEY" "MXBAI_API_KEY_OP_URI"
+resolve_secret_from_op "OPENAI_API_KEY" "OPENAI_API_KEY_OP_URI"
+resolve_secret_from_op "ANTHROPIC_API_KEY" "ANTHROPIC_API_KEY_OP_URI"
+resolve_secret_from_op "GITHUB_TOKEN" "GITHUB_TOKEN_OP_URI"
