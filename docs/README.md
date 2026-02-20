@@ -1,17 +1,35 @@
 # Documentacion Canonica
 
-`docs/` es el canon de documentacion del repositorio.
+`docs/` es la unica fuente de verdad documental del repositorio.
 
-## Indice principal
+## Guias principales
 
-- Auditoria: `docs/audit/`
-- Seguridad: `docs/security/`
+- Setup y onboarding: `docs/guides/`
+- Bootstrap y Make targets: `docs/guides/`
+- Shells (ZSH/Bash): `docs/guides/`
+- Entorno y secrets: `docs/security/` y `env/README.md`
+- Window manager / terminal / editors: `docs/guides/`
+
+## Decisiones principales
+
 - Patrones de arquitectura: `docs/architecture-patterns.md`
 - Stack tecnologico: `docs/technology-stack.md`
-- Estructura del proyecto: `docs/project-structure.md`
+- Decisiones consolidadas: `docs/decisions/`
+
+## Auditorias y reportes
+
+- Auditoria: `docs/audit/`
+- Deep scan: `docs/deep-scan-audit-dotfiles.md`
+- Reporte de escaneo: `docs/project-scan-report.json`
+- Estructura de proyecto: `docs/project-structure.md`
 - Inventario documental: `docs/existing-documentation-inventory.md`
 
-## Legacy
+## Prompts vigentes
 
-- Documentacion historica migrada: `docs/_legacy/project_docs/`
-- Mapeo de migracion: `docs/migrations/project_docs-to-docs.md`
+- Prompt pack canonico: `docs/prompts/`
+- Seguridad: `docs/security/secret-normalization-prompt.md`
+
+## Migraciones y legado
+
+- Mapas/reportes de migracion: `docs/migrations/`
+- Legacy transitorio pendiente de extraccion: `docs/_legacy/project_docs/`
