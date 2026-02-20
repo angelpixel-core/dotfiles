@@ -1,0 +1,13 @@
+{
+  "total_prompts": 68,
+  "states": {
+    "resuelto": 37,
+    "pendiente_a_evaluar": 30,
+    "deprecar": 1
+  },
+  "source_dir": "docs/prompts/project-docs",
+  "outputs": [
+    "docs/audit/project-docs-prompts-coverage.md",
+    "docs/audit/project-docs-prompts-coverage.csv"
+  ]
+}

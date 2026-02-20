@@ -6,6 +6,7 @@
 
 - Setup y onboarding: `docs/guides/`
 - Bootstrap y Make targets: `docs/guides/`
+- Índice de comandos: `docs/guides/commands-index.md`
 - Shells (ZSH/Bash): `docs/guides/`
 - Entorno y secrets: `docs/security/` y `env/README.md`
 - Window manager / terminal / editors: `docs/guides/`
