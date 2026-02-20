@@ -1,5 +1,7 @@
 # Ignore log files
 *.log
+.DS_Store
+*.DS_Store
 
 # Ignore Cargo Target directory
 docs/_legacy/project_docs/prompts/scripts/split/rust/target/
