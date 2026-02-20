@@ -34,8 +34,7 @@ Tu sistema de dotfiles está diseñado con los siguientes principios:
 │   └── caps-layout/    # QMK (configuración de teclado)
 │
 ├── 📄 Documentación
-│   ├── docs/                       # Canon documental (ver docs/README.md)
-│   └── docs/_legacy/project_docs/  # Legacy transitorio (solo stubs)
+│   └── docs/                       # Canon documental (ver docs/README.md)
 │
 └── 🔧 Infraestructura BMAD
     ├── .bmad-core/     # Configuración del método BMAD
@@ -45,8 +44,8 @@ Tu sistema de dotfiles está diseñado con los siguientes principios:
 ## 📚 Documentación (Entry Point)
 
 - **`docs/README.md`**: índice humano principal de documentación
-- **`docs/_legacy/project_docs/`**: stubs temporales para compatibilidad de rutas
-- **`docs/migrations/project_docs-pending-review.md`**: pendientes para retiro final de legacy
+- **`docs/migrations/project_docs-extraction-report.md`**: estado del retiro de project_docs legacy
+- **`docs/migrations/project_docs-pending-review.md`**: pendientes para cierre de migración
 
 ## 🐚 Shell Configuration
 
