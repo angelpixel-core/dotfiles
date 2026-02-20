@@ -60,7 +60,9 @@ Pendientes actuales:
 Para revertir esta fase:
 
 ```bash
-git revert <commit-extract-1>
-git revert <commit-extract-2>
-git revert <commit-dedup-3>
+git revert 58ca5f6
+git revert d875a5f
+git revert 8f88377
+git revert 3a1d279
+git revert 601236b
 ```
