@@ -6,8 +6,8 @@ Revisión uno por uno de `docs/prompts/project-docs/*.md` para verificar si el p
 
 | estado | cantidad |
 |---|---:|
-| resuelto | 39 |
-| pendiente_a_evaluar | 28 |
+| resuelto | 41 |
+| pendiente_a_evaluar | 26 |
 | deprecar | 1 |
 
 ## Tabla de referencia
@@ -49,8 +49,8 @@ Revisión uno por uno de `docs/prompts/project-docs/*.md` para verificar si el p
 | 29 | `29-Preparar_para_versionado.md` | si | resuelto | `VERSION; .version.lock; lib/version.sh` | Mantener disciplina de bump + changelog técnico. |
 | 30 | `30-Crear_estructura_de_branches.md` | si | resuelto | `docs/decisions/branching-strategy.md; docs/decisions/README.md` | Aplicar estrategia de ramas en todos los PRs activos. |
 | 31 | `31-Documentar_cambios.md` | si | resuelto | `docs/migrations/; docs/audit/` | Consolidar formato único de change report. |
-| 32 | `32-Crear_comando_analyze_dotfiles.md` | no | pendiente_a_evaluar | `docs/prompts/project-docs/32-Crear_comando_analyze_dotfiles.md; bin/` | Implementar 'bin/analyze_dotfiles' o deprecar prompt. |
-| 33 | `33-Crear_comando_sync_dotfiles.md` | no | pendiente_a_evaluar | `docs/prompts/project-docs/33-Crear_comando_sync_dotfiles.md; bin/` | Implementar 'bin/sync_dotfiles' o deprecar prompt. |
+| 32 | `32-Crear_comando_analyze_dotfiles.md` | si | resuelto | `bin/analyze_dotfiles; Makefile; docs/guides/commands-index.md` | Mantener checks de seguridad/smoke como baseline del análisis. |
+| 33 | `33-Crear_comando_sync_dotfiles.md` | si | resuelto | `bin/sync_dotfiles; Makefile; docs/guides/commands-index.md` | Usar sync con flags explícitos para evitar cambios no deseados. |
 | 34 | `34-Indexar_todos_los_comandos.md` | si | resuelto | `docs/guides/commands-index.md; docs/README.md; Makefile` | Mantener índice sincronizado con cada cambio de targets/comandos. |
 | 35 | `35-Análisis_final_de_calidad.md` | si | resuelto | `docs/deep-scan-audit-dotfiles.md` | Programar refresh periódico del análisis final. |
 | 36 | `36-Generar_reporte_de_migración.md` | si | resuelto | `docs/migrations/project_docs-extraction-report.md; docs/project-scan-report.json` | Unificar reporte final con fuente única. |

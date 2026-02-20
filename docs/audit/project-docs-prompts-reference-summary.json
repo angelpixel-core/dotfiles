@@ -1,8 +1,8 @@
 {
   "total": 68,
   "estados": {
-    "resuelto": 39,
-    "pendiente": 25,
+    "resuelto": 41,
+    "pendiente": 23,
     "re-evaluar": 3,
     "deprecar": 1
   }

@@ -6,8 +6,8 @@ Matriz canónica para revisar cada archivo de `docs/prompts/project-docs/` con i
 
 | estado | cantidad |
 |---|---:|
-| resuelto | 39 |
-| pendiente | 25 |
+| resuelto | 41 |
+| pendiente | 23 |
 | re-evaluar | 3 |
 | deprecar | 1 |
 
@@ -50,8 +50,8 @@ Matriz canónica para revisar cada archivo de `docs/prompts/project-docs/` con i
 | 29 | `29-Preparar_para_versionado.md` | Preparar para versionado | resuelto | Mantener disciplina de bump + changelog técnico. |
 | 30 | `30-Crear_estructura_de_branches.md` | Crear estructura de branches | resuelto | Aplicar estrategia de ramas en todos los PRs activos. |
 | 31 | `31-Documentar_cambios.md` | Documentar cambios | resuelto | Consolidar formato único de change report. |
-| 32 | `32-Crear_comando_analyze_dotfiles.md` | Crear comando analyze dotfiles | pendiente | Implementar 'bin/analyze_dotfiles' o deprecar prompt. |
-| 33 | `33-Crear_comando_sync_dotfiles.md` | Crear comando sync dotfiles | pendiente | Implementar 'bin/sync_dotfiles' o deprecar prompt. |
+| 32 | `32-Crear_comando_analyze_dotfiles.md` | Crear comando analyze dotfiles | resuelto | Mantener checks de seguridad/smoke como baseline del análisis. |
+| 33 | `33-Crear_comando_sync_dotfiles.md` | Crear comando sync dotfiles | resuelto | Usar sync con flags explícitos para evitar cambios no deseados. |
 | 34 | `34-Indexar_todos_los_comandos.md` | Indexar todos los comandos | resuelto | Mantener índice sincronizado con cada cambio de targets/comandos. |
 | 35 | `35-Análisis_final_de_calidad.md` | Análisis final de calidad | resuelto | Programar refresh periódico del análisis final. |
 | 36 | `36-Generar_reporte_de_migración.md` | Generar reporte de migración | resuelto | Unificar reporte final con fuente única. |

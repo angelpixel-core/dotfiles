@@ -4,15 +4,15 @@ set -euo pipefail
 
 DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
-# shellcheck source=lib/common.sh
+# shellcheck disable=SC1091
 source "$DOTFILES_ROOT/lib/common.sh"
 
 expand_home_path() {
   local path="$1"
   if [[ "$path" == "~" ]]; then
     echo "$HOME"
-  elif [[ "$path" == ~/* ]]; then
-    echo "$HOME/${path#~/}"
+  elif [[ "$path" == \~/* ]]; then
+    echo "$HOME/${path#\~/}"
   else
     echo "$path"
   fi

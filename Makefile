@@ -1,4 +1,4 @@
-.PHONY: help install update clean test lint check security-scan
+.PHONY: help install update clean test lint check security-scan analyze sync
 
 # Variables
 SHELL := /bin/bash
@@ -97,6 +97,12 @@ restore: ## Restaura último backup
 test: ## Ejecuta tests
 	@printf "$(BOLD)Running tests...$(RESET)\n"
 	@$(DOTFILES_DIR)/scripts/tests/run.sh
+
+analyze: ## Ejecuta análisis operativo (deps + smoke + security scan)
+	@$(DOTFILES_DIR)/bin/analyze_dotfiles
+
+sync: ## Sincroniza dotfiles (instala y valida; opcional --pull directo en bin/sync_dotfiles)
+	@$(DOTFILES_DIR)/bin/sync_dotfiles
 
 lint: ## Valida scripts con shellcheck
 	@printf "$(BOLD)Linting scripts...$(RESET)\n"

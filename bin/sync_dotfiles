@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# shellcheck disable=SC1091
+source "$DOTFILES_ROOT/lib/common.sh"
+
+do_pull=false
+module=""
+skip_test=false
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --pull)
+      do_pull=true
+      shift
+      ;;
+    --module)
+      [[ $# -lt 2 ]] && { log_error "Falta valor para --module"; exit 1; }
+      module="$2"
+      shift 2
+      ;;
+    --skip-test)
+      skip_test=true
+      shift
+      ;;
+    *)
+      log_error "Argumento no soportado: $1"
+      log_info "Uso: sync_dotfiles [--pull] [--module <name>] [--skip-test]"
+      exit 1
+      ;;
+  esac
+done
+
+log_info "Sincronizando dotfiles..."
+
+if [[ "$do_pull" == true ]]; then
+  log_step "Actualizando rama actual (git pull --rebase)"
+  git -C "$DOTFILES_ROOT" pull --rebase
+fi
+
+log_step "Verificando dependencias"
+"$DOTFILES_ROOT/scripts/bootstrap/check-deps.sh"
+
+log_step "Aplicando instalación"
+if [[ -n "$module" ]]; then
+  "$DOTFILES_ROOT/scripts/bootstrap/install.sh" --module "$module"
+else
+  "$DOTFILES_ROOT/scripts/bootstrap/install.sh"
+fi
+
+if [[ "$skip_test" == false ]]; then
+  log_step "Ejecutando smoke tests"
+  "$DOTFILES_ROOT/scripts/tests/run.sh"
+else
+  log_warning "Se omiten smoke tests por --skip-test"
+fi
+
+log_step "Estado git"
+git -C "$DOTFILES_ROOT" status --short --branch
+
+log_success "Sincronización finalizada"

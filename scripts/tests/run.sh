@@ -12,8 +12,17 @@ for f in install.sh backup.sh restore.sh check-deps.sh; do
   test -x "$DOTFILES_ROOT/scripts/bootstrap/$f"
 done
 
+printf "[smoke] required bin commands\n"
+for f in analyze_dotfiles sync_dotfiles; do
+  test -x "$DOTFILES_ROOT/bin/$f"
+done
+
+printf "[smoke] bootstrap expands ~/ paths correctly\n"
+expanded_home_path="$(bash -c 'source "$1"; expand_home_path "~/.zshrc"' _ "$DOTFILES_ROOT/scripts/bootstrap/lib.sh")"
+test "$expanded_home_path" = "$HOME/.zshrc"
+
 printf "[smoke] Makefile bootstrap paths\n"
-rg -n "scripts/bootstrap/(install|backup|restore|check-deps)\.sh|scripts/tests/run\.sh" "$DOTFILES_ROOT/Makefile" >/dev/null
+rg -n "scripts/bootstrap/(install|backup|restore|check-deps)\.sh|scripts/tests/run\.sh|bin/(analyze_dotfiles|sync_dotfiles)" "$DOTFILES_ROOT/Makefile" >/dev/null
 
 printf "[smoke] submodule mapping\n"
 git -C "$DOTFILES_ROOT" submodule status >/dev/null

@@ -11,6 +11,8 @@ Fuente principal: `Makefile`.
 - `make backup`: backup de configuración actual.
 - `make restore`: restaura último backup.
 - `make test`: smoke tests (`scripts/tests/run.sh`).
+- `make analyze`: análisis operativo (`bin/analyze_dotfiles`).
+- `make sync`: sincroniza instalación + smoke (`bin/sync_dotfiles`).
 - `make lint`: `shellcheck` sobre scripts `.sh`.
 - `make security-scan`: scan de secretos (`scripts/security/scan-secrets.sh`).
 - `make check`: validación de dependencias bootstrap.
@@ -38,6 +40,8 @@ Fuente principal: `Makefile`.
 - `scripts/bootstrap/restore.sh <origen>`
 - `scripts/security/scan-secrets.sh`
 - `scripts/tests/run.sh`
+- `bin/analyze_dotfiles [--quick]`
+- `bin/sync_dotfiles [--pull] [--module <name>] [--skip-test]`
 
 ## Verificación recomendada
 

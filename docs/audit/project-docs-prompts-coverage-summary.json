@@ -1,8 +1,8 @@
 {
   "total_prompts": 68,
   "states": {
-    "resuelto": 39,
-    "pendiente_a_evaluar": 28,
+    "resuelto": 41,
+    "pendiente_a_evaluar": 26,
     "deprecar": 1
   },
   "source_dir": "docs/prompts/project-docs",
