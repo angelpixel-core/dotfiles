@@ -1,0 +1,249 @@
+{
+  "total_archivos_versionados": 2156,
+  "estados": {
+    "resuelto": 432,
+    "hay-que-re-evaluar": 1052,
+    "pendiente": 12,
+    "deprecar": 660
+  },
+  "carpetas": {
+    ".codex": {
+      "archivos": 76,
+      "estado": {
+        "resuelto": 76
+      }
+    },
+    ".cursor": {
+      "archivos": 77,
+      "estado": {
+        "resuelto": 77
+      }
+    },
+    ".github": {
+      "archivos": 1,
+      "estado": {
+        "resuelto": 1
+      }
+    },
+    ".gitignore": {
+      "archivos": 1,
+      "estado": {
+        "resuelto": 1
+      }
+    },
+    ".gitmodules": {
+      "archivos": 1,
+      "estado": {
+        "resuelto": 1
+      }
+    },
+    ".opencode": {
+      "archivos": 77,
+      "estado": {
+        "resuelto": 77
+      }
+    },
+    ".pre-commit-config.yaml": {
+      "archivos": 1,
+      "estado": {
+        "resuelto": 1
+      }
+    },
+    ".tool-versions": {
+      "archivos": 1,
+      "estado": {
+        "resuelto": 1
+      }
+    },
+    ".version.lock": {
+      "archivos": 1,
+      "estado": {
+        "resuelto": 1
+      }
+    },
+    ".versions": {
+      "archivos": 2,
+      "estado": {
+        "resuelto": 2
+      }
+    },
+    "DOTFILES_INDEX.md": {
+      "archivos": 1,
+      "estado": {
+        "resuelto": 1
+      }
+    },
+    "Makefile": {
+      "archivos": 1,
+      "estado": {
+        "resuelto": 1
+      }
+    },
+    "README.md": {
+      "archivos": 1,
+      "estado": {
+        "resuelto": 1
+      }
+    },
+    "VERSION": {
+      "archivos": 1,
+      "estado": {
+        "resuelto": 1
+      }
+    },
+    "VERSION.bak": {
+      "archivos": 1,
+      "estado": {
+        "resuelto": 1
+      }
+    },
+    "WARP.md": {
+      "archivos": 1,
+      "estado": {
+        "resuelto": 1
+      }
+    },
+    "_bmad": {
+      "archivos": 649,
+      "estado": {
+        "hay-que-re-evaluar": 649
+      }
+    },
+    "ai-toolings": {
+      "archivos": 392,
+      "estado": {
+        "resuelto": 1,
+        "hay-que-re-evaluar": 390,
+        "pendiente": 1
+      }
+    },
+    "archive": {
+      "archivos": 574,
+      "estado": {
+        "deprecar": 574
+      }
+    },
+    "bin": {
+      "archivos": 2,
+      "estado": {
+        "resuelto": 2
+      }
+    },
+    "caps-layout": {
+      "archivos": 4,
+      "estado": {
+        "resuelto": 3,
+        "hay-que-re-evaluar": 1
+      }
+    },
+    "docs": {
+      "archivos": 107,
+      "estado": {
+        "resuelto": 96,
+        "pendiente": 11
+      }
+    },
+    "docs/_legacy": {
+      "archivos": 86,
+      "estado": {
+        "deprecar": 86
+      }
+    },
+    "editors": {
+      "archivos": 3,
+      "estado": {
+        "resuelto": 3
+      }
+    },
+    "env": {
+      "archivos": 2,
+      "estado": {
+        "resuelto": 2
+      }
+    },
+    "fonts": {
+      "archivos": 7,
+      "estado": {
+        "resuelto": 7
+      }
+    },
+    "git": {
+      "archivos": 1,
+      "estado": {
+        "resuelto": 1
+      }
+    },
+    "langs": {
+      "archivos": 12,
+      "estado": {
+        "resuelto": 12
+      }
+    },
+    "lib": {
+      "archivos": 3,
+      "estado": {
+        "resuelto": 3
+      }
+    },
+    "menu-bar": {
+      "archivos": 18,
+      "estado": {
+        "resuelto": 18
+      }
+    },
+    "migrations": {
+      "archivos": 2,
+      "estado": {
+        "resuelto": 2
+      }
+    },
+    "os": {
+      "archivos": 5,
+      "estado": {
+        "resuelto": 5
+      }
+    },
+    "scripts": {
+      "archivos": 7,
+      "estado": {
+        "resuelto": 7
+      }
+    },
+    "shell": {
+      "archivos": 26,
+      "estado": {
+        "resuelto": 14,
+        "hay-que-re-evaluar": 12
+      }
+    },
+    "shortcuts": {
+      "archivos": 1,
+      "estado": {
+        "resuelto": 1
+      }
+    },
+    "symlinks": {
+      "archivos": 4,
+      "estado": {
+        "resuelto": 4
+      }
+    },
+    "terminal": {
+      "archivos": 6,
+      "estado": {
+        "resuelto": 6
+      }
+    },
+    "tiling-windows-manager": {
+      "archivos": 1,
+      "estado": {
+        "resuelto": 1
+      }
+    }
+  },
+  "artefactos_generados": [
+    "docs/audit/repo-reference-folder-analysis.md",
+    "docs/audit/repo-reference-table.csv",
+    "docs/audit/repo-reference-summary.json"
+  ]
+}
