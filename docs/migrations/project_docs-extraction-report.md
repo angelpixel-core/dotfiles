@@ -37,11 +37,11 @@ Extraer contenido valioso desde `docs/_legacy/project_docs/` hacia `docs/`, cons
 
 Ver `docs/_legacy/project_docs/PENDING_REVIEW.md`.
 
-Pendientes actuales:
+Pendientes históricos movidos a archive:
 
-- Artefactos Rust: `docs/_legacy/project_docs/prompts/scripts/split/rust/target/**`
-- Log: `docs/_legacy/project_docs/prompts/scripts/logs/split.log`
-- Metadata local: `docs/_legacy/project_docs/.DS_Store`
+- Artefactos Rust: `archive/project_docs/prompts/scripts/split/rust/target/**`
+- Log: `archive/project_docs/prompts/scripts/logs/split.log`
+- Metadata local: `archive/project_docs/metadata/project_docs.DS_Store`
 
 ## Inventario
 
@@ -51,7 +51,7 @@ Pendientes actuales:
 ## Checklist para eliminar legacy (fase siguiente)
 
 1. Confirmar que no quedan referencias funcionales a `project_docs` fuera de docs históricos/migraciones.
-2. Aprobar destino de artefactos pendientes (borrar o mover a `archive/`).
+2. Definir retención final de `archive/project_docs/` (conservar o purgar por política).
 3. Eliminar stubs legacy cuando no se necesite compatibilidad de rutas.
 4. Eliminar `docs/_legacy/project_docs/`.
 
