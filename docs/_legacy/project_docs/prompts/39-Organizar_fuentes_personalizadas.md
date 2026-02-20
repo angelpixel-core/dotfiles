@@ -1,12 +1,3 @@
-### Tarea 39: Organizar fuentes personalizadas
+# Legacy Stub
 
-- **Prompt**: `/sc:cleanup fonts/ --files --safe --persona-refactorer`
-- **Persona**: refactorer
-- **Archivos creados**:
-  - fonts/DankMono/install.sh
-- **Resultado Esperado**:
-  - **Descripción**: Fuentes organizadas con instalador
-  - **Comando**: `fonts/DankMono/install.sh`
-- **Output**: `outputs/39-organize-fonts.md`
-- **Estado**: ⏳ Pendiente
-- **Commit**: `refactor: organize custom fonts [SC #39]`
+Migrado al canon: `docs/prompts/project-docs/39-Organizar_fuentes_personalizadas.md`.

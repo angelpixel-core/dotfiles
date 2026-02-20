@@ -33,6 +33,7 @@
 ## Prompts vigentes
 
 - Prompt pack canonico: `docs/prompts/`
+- Colección principal: `docs/prompts/project-docs/`
 - Seguridad: `docs/security/secret-normalization-prompt.md`
 
 ## Migraciones y legado

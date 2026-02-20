@@ -1,12 +1,3 @@
-### Tarea 62: Crear documentación de módulos
+# Legacy Stub
 
-- **Prompt**: `/sc:document docs/modules/ --type guide --detailed --persona-scribe`
-- **Persona**: scribe
-- **Archivos creados**:
-  - docs/modules/*.md
-- **Resultado Esperado**:
-  - **Descripción**: Documentación completa de cada módulo
-  - **Comando**: `serve docs/modules/`
-- **Output**: `outputs/62-module-docs.md`
-- **Estado**: ⏳ Pendiente
-- **Commit**: `docs: add module documentation [SC #62]`
+Migrado al canon: `docs/prompts/project-docs/62-Crear_documentación_de_módulos.md`.

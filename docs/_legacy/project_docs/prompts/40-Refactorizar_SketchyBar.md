@@ -1,13 +1,3 @@
-### Tarea 40: Refactorizar SketchyBar
+# Legacy Stub
 
-- **Prompt**: `/sc:improve menu-bar/sketchybar/ --focus maintainability --persona-frontend --safe-mode`
-- **Persona**: frontend
-- **Archivos creados**:
-  - config/gui/sketchybar/
-  - config/gui/sketchybar/install.sh
-- **Resultado Esperado**:
-  - **Descripción**: SketchyBar modular y mantenible
-  - **Comando**: `config/gui/sketchybar/install.sh`
-- **Output**: `outputs/40-refactor-sketchybar.md`
-- **Estado**: ⏳ Pendiente
-- **Commit**: `refactor: modularize SketchyBar [SC #40]`
+Migrado al canon: `docs/prompts/project-docs/40-Refactorizar_SketchyBar.md`.
