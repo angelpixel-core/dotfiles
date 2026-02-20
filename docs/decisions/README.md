@@ -3,3 +3,8 @@
 Registro canónico de decisiones técnicas y estructurales.
 
 Formato sugerido: ADR o documento breve con contexto, decisión y consecuencias.
+
+## Decisiones consolidadas
+
+- `docs/decisions/system-structure.md`
+- `docs/decisions/versioning-system.md`
