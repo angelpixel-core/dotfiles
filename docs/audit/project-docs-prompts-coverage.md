@@ -6,8 +6,8 @@ Revisión uno por uno de `docs/prompts/project-docs/*.md` para verificar si el p
 
 | estado | cantidad |
 |---|---:|
-| resuelto | 38 |
-| pendiente_a_evaluar | 29 |
+| resuelto | 39 |
+| pendiente_a_evaluar | 28 |
 | deprecar | 1 |
 
 ## Tabla de referencia
@@ -54,7 +54,7 @@ Revisión uno por uno de `docs/prompts/project-docs/*.md` para verificar si el p
 | 34 | `34-Indexar_todos_los_comandos.md` | si | resuelto | `docs/guides/commands-index.md; docs/README.md; Makefile` | Mantener índice sincronizado con cada cambio de targets/comandos. |
 | 35 | `35-Análisis_final_de_calidad.md` | si | resuelto | `docs/deep-scan-audit-dotfiles.md` | Programar refresh periódico del análisis final. |
 | 36 | `36-Generar_reporte_de_migración.md` | si | resuelto | `docs/migrations/project_docs-extraction-report.md; docs/project-scan-report.json` | Unificar reporte final con fuente única. |
-| 37 | `37-Crear_workflow_de_mantenimiento.md` | parcial | pendiente_a_evaluar | `docs/guides/roadmap.md; docs/audit/tasks-backlog-legacy.md` | Definir workflow recurrente de mantenimiento operativo. |
+| 37 | `37-Crear_workflow_de_mantenimiento.md` | si | resuelto | `docs/guides/maintenance-workflow.md; docs/guides/README.md` | Aplicar ciclo diario/semanal/mensual de forma sostenida. |
 | 38 | `38-Migrar_configuración_QMK.md` | si | resuelto | `caps-layout/qmk; caps-layout/README.md` | Documentar proceso de build/flash paso a paso. |
 | 39 | `39-Organizar_fuentes_personalizadas.md` | si | resuelto | `fonts/; DOTFILES_INDEX.md` | Agregar inventario + criterio de instalación de fuentes. |
 | 40 | `40-Refactorizar_SketchyBar.md` | si | resuelto | `menu-bar/sketchybar; DOTFILES_INDEX.md` | Documentar módulos de sketchybar y healthcheck. |

@@ -6,8 +6,8 @@ Matriz canónica para revisar cada archivo de `docs/prompts/project-docs/` con i
 
 | estado | cantidad |
 |---|---:|
-| resuelto | 38 |
-| pendiente | 26 |
+| resuelto | 39 |
+| pendiente | 25 |
 | re-evaluar | 3 |
 | deprecar | 1 |
 
@@ -55,7 +55,7 @@ Matriz canónica para revisar cada archivo de `docs/prompts/project-docs/` con i
 | 34 | `34-Indexar_todos_los_comandos.md` | Indexar todos los comandos | resuelto | Mantener índice sincronizado con cada cambio de targets/comandos. |
 | 35 | `35-Análisis_final_de_calidad.md` | Análisis final de calidad | resuelto | Programar refresh periódico del análisis final. |
 | 36 | `36-Generar_reporte_de_migración.md` | Generar reporte de migración | resuelto | Unificar reporte final con fuente única. |
-| 37 | `37-Crear_workflow_de_mantenimiento.md` | Crear workflow de mantenimiento | pendiente | Definir workflow recurrente de mantenimiento operativo. |
+| 37 | `37-Crear_workflow_de_mantenimiento.md` | Crear workflow de mantenimiento | resuelto | Aplicar ciclo diario/semanal/mensual de forma sostenida. |
 | 38 | `38-Migrar_configuración_QMK.md` | Migrar configuración QMK | resuelto | Documentar proceso de build/flash paso a paso. |
 | 39 | `39-Organizar_fuentes_personalizadas.md` | Organizar fuentes personalizadas | resuelto | Agregar inventario + criterio de instalación de fuentes. |
 | 40 | `40-Refactorizar_SketchyBar.md` | Refactorizar SketchyBar | resuelto | Documentar módulos de sketchybar y healthcheck. |
