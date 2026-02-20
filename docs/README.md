@@ -18,6 +18,7 @@
 - Patrones de arquitectura: `docs/architecture-patterns.md`
 - Stack tecnologico: `docs/technology-stack.md`
 - Decisiones consolidadas: `docs/decisions/`
+- Estrategia de ramas: `docs/decisions/branching-strategy.md`
 - Estructura del sistema: `docs/decisions/system-structure.md`
 - Sistema de versionado: `docs/decisions/versioning-system.md`
 

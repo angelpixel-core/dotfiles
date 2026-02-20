@@ -6,8 +6,8 @@ Matriz canónica para revisar cada archivo de `docs/prompts/project-docs/` con i
 
 | estado | cantidad |
 |---|---:|
-| resuelto | 37 |
-| pendiente | 27 |
+| resuelto | 38 |
+| pendiente | 26 |
 | re-evaluar | 3 |
 | deprecar | 1 |
 
@@ -48,7 +48,7 @@ Matriz canónica para revisar cada archivo de `docs/prompts/project-docs/` con i
 | 27 | `27-Eliminar_código_muerto_y_duplicado.md` | Eliminar código muerto y duplicado | pendiente | Ejecutar pasada de deduplicación de código/config no solo docs. |
 | 28 | `28-Comprimir_y_optimizar_configuraciones.md` | Comprimir y optimizar configuraciones | pendiente | Definir criterio de optimización y compresión de configs. |
 | 29 | `29-Preparar_para_versionado.md` | Preparar para versionado | resuelto | Mantener disciplina de bump + changelog técnico. |
-| 30 | `30-Crear_estructura_de_branches.md` | Crear estructura de branches | pendiente | Documentar estrategia de ramas para trabajo por fases. |
+| 30 | `30-Crear_estructura_de_branches.md` | Crear estructura de branches | resuelto | Aplicar estrategia de ramas en todos los PRs activos. |
 | 31 | `31-Documentar_cambios.md` | Documentar cambios | resuelto | Consolidar formato único de change report. |
 | 32 | `32-Crear_comando_analyze_dotfiles.md` | Crear comando analyze dotfiles | pendiente | Implementar 'bin/analyze_dotfiles' o deprecar prompt. |
 | 33 | `33-Crear_comando_sync_dotfiles.md` | Crear comando sync dotfiles | pendiente | Implementar 'bin/sync_dotfiles' o deprecar prompt. |

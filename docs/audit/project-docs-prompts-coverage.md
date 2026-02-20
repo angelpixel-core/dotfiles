@@ -6,8 +6,8 @@ Revisión uno por uno de `docs/prompts/project-docs/*.md` para verificar si el p
 
 | estado | cantidad |
 |---|---:|
-| resuelto | 37 |
-| pendiente_a_evaluar | 30 |
+| resuelto | 38 |
+| pendiente_a_evaluar | 29 |
 | deprecar | 1 |
 
 ## Tabla de referencia
@@ -22,14 +22,14 @@ Revisión uno por uno de `docs/prompts/project-docs/*.md` para verificar si el p
 | 02 | `02-Evaluación_de_calidad_del_código.md` | si | resuelto | `docs/deep-scan-audit-dotfiles.md; scripts/tests/run.sh` | Agregar métricas de calidad automáticas. |
 | 03 | `03-Detección_de_problemas_de_seguridad.md` | si | resuelto | `docs/security/README.md; scripts/security/scan-secrets.sh; env/README.md` | Agregar baseline de gitleaks para ruido controlado. |
 | 04 | `04-Análisis_de_estructura_y_organización.md` | si | resuelto | `docs/project-structure.md; DOTFILES_INDEX.md` | Mantener inventario al mover carpetas. |
-| 05 | `05-Diseño_de_nueva_arquitectura_modular.md` | si | resuelto | `docs/decisions/system-structure.md; docs/architecture-patterns.md` | Formalizar ADRs nuevos en `docs/decisions/`. |
+| 05 | `05-Diseño_de_nueva_arquitectura_modular.md` | si | resuelto | `docs/decisions/system-structure.md; docs/architecture-patterns.md` | Formalizar ADRs nuevos en 'docs/decisions/'. |
 | 06 | `06-Crear_workflow_de_implementación.md` | si | resuelto | `docs/migrations/project_docs-extraction-report.md; docs/migrations/project_docs-pending-review.md` | Cerrar checklist final de migración. |
 | 07 | `07-Estimar_esfuerzo_de_migración.md` | si | resuelto | `docs/guides/roadmap.md; docs/audit/tasks-backlog-legacy.md` | Actualizar estimaciones con estado real actual. |
 | 08 | `08-Crear_estructura_base_de_directorios.md` | si | resuelto | `docs/project-structure.md; DOTFILES_INDEX.md` | Evitar nuevas carpetas fuera de canon sin ADR. |
 | 09 | `09-Implementar_sistema_de_bootstrap.md` | si | resuelto | `scripts/bootstrap/install.sh; scripts/bootstrap/check-deps.sh; Makefile` | Agregar casos de error y rollback testados. |
-| 10 | `10-Crear_instalador_modular.md` | si | resuelto | `scripts/bootstrap/install.sh; Makefile` | Completar `make list/status` (hoy referencian rutas/comandos faltantes). |
+| 10 | `10-Crear_instalador_modular.md` | si | resuelto | `scripts/bootstrap/install.sh; Makefile` | Completar 'make list/status' (hoy referencian rutas/comandos faltantes). |
 | 11 | `11-Refactorizar_configuración_de_Zsh.md` | parcial | pendiente_a_evaluar | `shell/zsh/.zshrc; docs/guides/plan-shell-redistribucion-2026-01-27.md` | Ejecutar refactor pendiente del plan de shell. |
-| 12 | `12-Organizar_exports__aliases_y_funciones.md` | si | resuelto | `shell/exports.sh; shell/aliases.sh; shell/functions.sh` | Reducir lógica residual de entorno en `.zshrc`/`.bashrc`. |
+| 12 | `12-Organizar_exports__aliases_y_funciones.md` | si | resuelto | `shell/exports.sh; shell/aliases.sh; shell/functions.sh` | Reducir lógica residual de entorno en '.zshrc'/'.bashrc'. |
 | 13 | `13-Implementar_sistema_de_auto_carga_modular.md` | si | resuelto | `shell/init.sh; shell/zsh/.zshrc; shell/bash/.bashrc` | Unificar entrypoint en documentación con ejemplos de carga. |
 | 14 | `14-Implementar_gestor_ASDF_mejorado.md` | no_claro | pendiente_a_evaluar | `.tool-versions; shell/exports.sh` | Definir estrategia ASDF (instalación, updates y healthcheck). |
 | 15 | `15-Crear_scripts_de_setup_por_lenguaje.md` | si | resuelto | `langs/; Makefile` | Agregar README por lenguaje con comando bootstrap concreto. |
@@ -47,10 +47,10 @@ Revisión uno por uno de `docs/prompts/project-docs/*.md` para verificar si el p
 | 27 | `27-Eliminar_código_muerto_y_duplicado.md` | parcial | pendiente_a_evaluar | `docs/migrations/dedup-phase2-report.md; docs/project-structure.md` | Ejecutar pasada de deduplicación de código/config no solo docs. |
 | 28 | `28-Comprimir_y_optimizar_configuraciones.md` | no | pendiente_a_evaluar | `docs/prompts/project-docs/28-Comprimir_y_optimizar_configuraciones.md` | Definir criterio de optimización y compresión de configs. |
 | 29 | `29-Preparar_para_versionado.md` | si | resuelto | `VERSION; .version.lock; lib/version.sh` | Mantener disciplina de bump + changelog técnico. |
-| 30 | `30-Crear_estructura_de_branches.md` | no | pendiente_a_evaluar | `docs/prompts/project-docs/30-Crear_estructura_de_branches.md` | Documentar estrategia de ramas para trabajo por fases. |
+| 30 | `30-Crear_estructura_de_branches.md` | si | resuelto | `docs/decisions/branching-strategy.md; docs/decisions/README.md` | Aplicar estrategia de ramas en todos los PRs activos. |
 | 31 | `31-Documentar_cambios.md` | si | resuelto | `docs/migrations/; docs/audit/` | Consolidar formato único de change report. |
-| 32 | `32-Crear_comando_analyze_dotfiles.md` | no | pendiente_a_evaluar | `docs/prompts/project-docs/32-Crear_comando_analyze_dotfiles.md; bin/` | Implementar `bin/analyze_dotfiles` o deprecar prompt. |
-| 33 | `33-Crear_comando_sync_dotfiles.md` | no | pendiente_a_evaluar | `docs/prompts/project-docs/33-Crear_comando_sync_dotfiles.md; bin/` | Implementar `bin/sync_dotfiles` o deprecar prompt. |
+| 32 | `32-Crear_comando_analyze_dotfiles.md` | no | pendiente_a_evaluar | `docs/prompts/project-docs/32-Crear_comando_analyze_dotfiles.md; bin/` | Implementar 'bin/analyze_dotfiles' o deprecar prompt. |
+| 33 | `33-Crear_comando_sync_dotfiles.md` | no | pendiente_a_evaluar | `docs/prompts/project-docs/33-Crear_comando_sync_dotfiles.md; bin/` | Implementar 'bin/sync_dotfiles' o deprecar prompt. |
 | 34 | `34-Indexar_todos_los_comandos.md` | si | resuelto | `docs/guides/commands-index.md; docs/README.md; Makefile` | Mantener índice sincronizado con cada cambio de targets/comandos. |
 | 35 | `35-Análisis_final_de_calidad.md` | si | resuelto | `docs/deep-scan-audit-dotfiles.md` | Programar refresh periódico del análisis final. |
 | 36 | `36-Generar_reporte_de_migración.md` | si | resuelto | `docs/migrations/project_docs-extraction-report.md; docs/project-scan-report.json` | Unificar reporte final con fuente única. |
