@@ -12,7 +12,7 @@ Reorganizar la configuración de shell (Zsh y Bash) para:
 
 ## Referencia
 
-Guía complementaria: `project_docs/guides/shell-load-order-zsh-bash.md`.
+Guía complementaria: `docs/guides/shell-load-order-zsh-bash.md`.
 
 ## Checklist de tareas (sin aplicar aún)
 
